@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 // Redux import
 import { Provider } from 'react-redux';
-import store from './redux/configStore';
+import store from './redux/configstore';
 
 // Package import
 import { BrowserRouter } from 'react-router-dom';
