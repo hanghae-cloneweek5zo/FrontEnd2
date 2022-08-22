@@ -1,0 +1,474 @@
+import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from "react-icons/ai";
+import { RiMedalLine, RiParkingBoxLine } from "react-icons/ri";
+import { MdSingleBed, MdOutlineBed, MdBalcony } from "react-icons/md";
+import { TbToolsKitchen2 } from "react-icons/tb";
+import { GiDesk, GiIceCube } from "react-icons/gi";
+import { BiSwim } from "react-icons/bi";
+import { BsFlower2 } from "react-icons/bs";
+import React from "react";
+//스타일 컴퍼넌트
+import {
+  Acc,
+  AccDiv,
+  AccommodationDiv,
+  AccSmDiv,
+  AirCover,
+  AirCoverImg,
+  Alojamiento,
+  BadRoom,
+  BadRoomBox,
+  BadRoomDiv,
+  BadRoomPadiing,
+  BedRoomFT,
+  BedRoomSpan,
+  Calendar,
+  CalendarDiv,
+  CalendarPadiing,
+  CalendarSapn,
+  DetailBody,
+  FtDiv,
+  GoogleMap,
+  GoogleMapCover,
+  GoogleMapCoverDiv,
+  GoogleMapCoverSpan,
+  GoogleMapPadding,
+  GoogleMapSanDiv,
+  GoogleMapSapn,
+  HostDiv,
+  HostHDiv,
+  HostImg,
+  HostImgDiv,
+  HostPaddingDiv,
+  HostPDiv,
+  HostSection,
+  ImgDiv,
+  ImgDivBox,
+  ImgDivBoxs,
+  ImgDivLeftBox,
+  ImgDivRightBox,
+  ImgOne,
+  ImgrestanteBTM,
+  ImgrestanteTOP,
+  ImgRightrestante,
+  ImgSection,
+  LinkSapn,
+  NumStarSpan,
+  ProfileComment,
+  ProfileDayWeek,
+  ProfileImg,
+  ProfileNickDiv,
+  ProfileNickSapn,
+  PropileDiv,
+  Review,
+  Reviewer,
+  ReviewerDiv,
+  ReviewPadding,
+  ReviewStarSpan,
+  ReviewStarSpanSapn,
+  SmImgDivleftBox,
+  SmImgDivRightBox,
+  StarSpan,
+  SuperHost,
+  SuperHostCitaDiv,
+  SuperHostLengthDiv,
+  ThingsKeep,
+  TitleSection,
+  TitleUnderDiv,
+} from "../Detail/DetailStyled";
+
+function Detail() {
+  return (
+    <DetailBody>
+      {/* Title */}
+      <TitleSection>
+        <span>
+          <h1>아우라 하우스 2 비즈 에코 대나무 하우스 ,리버뷰</h1>
+        </span>
+        <TitleUnderDiv>
+          <div>
+            <StarSpan>
+              <AiFillStar />
+            </StarSpan>
+            <NumStarSpan>4.87</NumStarSpan>
+            <span> </span>
+            <span>후기141개</span>
+            <span> </span>
+            <span>
+              <RiMedalLine /> 슈퍼호스트
+            </span>
+            <span> </span>
+            <span> Abiansemal, 발리, 인도네시아</span>
+          </div>
+          <div>
+            <div>
+              <LinkSapn>링크저장</LinkSapn>
+              <span>
+                <AiOutlineHeart /> 저장
+              </span>
+            </div>
+          </div>
+        </TitleUnderDiv>
+      </TitleSection>
+
+      {/* 이미지 */}
+      <ImgSection>
+        <ImgDiv>
+          <ImgDiv>
+            <ImgDivBox>
+              <ImgDivLeftBox>
+                <ImgOne
+                  src="https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=1200"
+                  alt="첫 이미지"
+                />
+              </ImgDivLeftBox>
+              <ImgDivRightBox>
+                <SmImgDivleftBox>
+                  <ImgDivBoxs>
+                    <ImgRightrestante
+                      src="https://a0.muscache.com/im/pictures/miso/Hosting-34113796/original/f4f7b242-db33-46fc-9080-c3d6a6fd55ec.jpeg?im_w=720"
+                      alt="두 번째이미지"
+                    ></ImgRightrestante>
+                  </ImgDivBoxs>
+                  <ImgDivBoxs>
+                    <ImgRightrestante
+                      src="https://a0.muscache.com/im/pictures/miso/Hosting-34113796/original/372e7d6f-7fb9-4668-92f0-25bb9a346814.jpeg?im_w=720"
+                      alt="네 번째이미지"
+                    ></ImgRightrestante>
+                  </ImgDivBoxs>
+                </SmImgDivleftBox>
+                <SmImgDivRightBox>
+                  <ImgDivBoxs>
+                    <ImgrestanteTOP
+                      src="https://a0.muscache.com/im/pictures/miso/Hosting-34113796/original/4756e699-f474-4ca7-8b77-06b12715a6cb.jpeg?im_w=720"
+                      alt="세 번째이미지"
+                    ></ImgrestanteTOP>
+                  </ImgDivBoxs>
+
+                  <ImgDivBoxs>
+                    <ImgrestanteBTM
+                      src="https://a0.muscache.com/im/pictures/miso/Hosting-34113796/original/fca892a4-3481-4ad1-9f92-404feaa42e9f.jpeg?im_w=720"
+                      alt="다섯 번째이미지"
+                    ></ImgrestanteBTM>
+                  </ImgDivBoxs>
+                </SmImgDivRightBox>
+              </ImgDivRightBox>
+            </ImgDivBox>
+          </ImgDiv>
+        </ImgDiv>
+      </ImgSection>
+      <HostSection>
+        <HostDiv>
+          <HostPaddingDiv>
+            <HostHDiv>
+              <HostPDiv>
+                <h2 tabIndex="-1">Wayan님이 호스팅하는 저택 전체</h2>
+                <p>최대 인원 4명 침실 2개침대 2개</p>
+              </HostPDiv>
+            </HostHDiv>
+            <HostImgDiv>
+              <HostImg
+                src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                alt="호스트 이미지"
+              ></HostImg>
+            </HostImgDiv>
+          </HostPaddingDiv>
+        </HostDiv>
+        <SuperHost>
+          <SuperHostCitaDiv>
+            <StarSpan>
+              <span>
+                <AiFillStar />
+              </span>
+              <span>후기 418개</span>
+            </StarSpan>
+            <span> </span>
+            <span>
+              <RiMedalLine />
+            </span>
+            <span> </span>
+            <span>슈퍼 호스트</span>
+          </SuperHostCitaDiv>
+
+          <div>
+            <h3>Wayan님은 슈퍼호스트입니다.</h3>
+          </div>
+          <SuperHostLengthDiv>
+            <span>
+              슈퍼호스트는 풍부한 경험과 높은 평점을 자랑하며 게스트가 숙소에서
+              편안히 머무를 수 있도록 최선을 다하는 호스트입니다.
+            </span>
+          </SuperHostLengthDiv>
+        </SuperHost>
+        <AirCover>
+          <h2 tabIndex="-1">
+            <AirCoverImg
+              src="https://a0.muscache.com/im/pictures/51a7f002-b223-4e05-a2af-0d4838411d92.jpg"
+              alt="에어커버"
+            ></AirCoverImg>
+          </h2>
+          <div>
+            모든 예약에는 호스트가 예약을 취소하거나 숙소 정보가 정확하지 않은
+            경우 또는 체크인에 문제가 있는 상황에 대비한 무료 보호 프로그램이
+            포함됩니다.
+          </div>
+        </AirCover>
+        <Alojamiento>
+          <span>
+            <h2>숙소 설명</h2>
+            "아우라 하우스는 일출을 감상하기 위해 동쪽으로 향하는 아융강 서쪽
+            둑에 지어진 아름답고 독특한 생태 대나무 집입니다. 아우라 하우스는
+            우붓에서 25분, 캉구에서 35분 거리에 있습니다. "
+            <br />
+            <br />
+            "예약이 완료된 경우, 에어비앤비 프로필 (프로필 사진 클릭) 을
+            확인하여 아름다운 대나무 집 10채를 더 찾아보세요. 모두 같은 지역에
+            있습니다."
+            <br />
+            <br />
+            "디자이너 회사 이부쿠가 지은 유명한 계란 모양의 문 중 하나인 아우라
+            하우스에 머무르게 되어 매우 자랑스럽습니다. 두 번째 침실의
+            입구입니다. "
+            <br />
+            <br />
+            "아우라 하우스의 분위기는 바쁜 도시 생활 및/또는 자연 애호가들과
+            단절하고 싶은 사람들에게 안성맞춤입니다. 방을 엿보는 햇살과 아래의
+            강물 소리에 깨어날 준비를 하세요."
+          </span>
+        </Alojamiento>
+        <BadRoom>
+          <div>
+            <h2>숙박 정보</h2>
+          </div>
+          <BadRoomDiv>
+            <BadRoomBox>
+              <BadRoomPadiing>
+                <BedRoomSpan>
+                  <MdSingleBed size="36" />
+                  <BedRoomFT>침실 1</BedRoomFT>
+                  <div>더블 침대 1개</div>
+                </BedRoomSpan>
+              </BadRoomPadiing>
+            </BadRoomBox>
+            <BadRoomBox>
+              <BadRoomPadiing>
+                <BedRoomSpan>
+                  <MdOutlineBed size="36" />
+                  <BedRoomFT>침실 2</BedRoomFT>
+                  <div>더블 침대 1개</div>
+                </BedRoomSpan>
+              </BadRoomPadiing>
+            </BadRoomBox>
+          </BadRoomDiv>
+        </BadRoom>
+        <AccommodationDiv>
+          <AccDiv>
+            <div>
+              <h2>숙소 편의시설 </h2>
+            </div>
+            <Acc>
+              <AccSmDiv>
+                <div>
+                  <TbToolsKitchen2 size="24" />
+                </div>
+                <FtDiv>주방</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <AiOutlineWifi size="24" />
+                </div>
+                <FtDiv>무선인터넷</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <GiDesk size="24" />
+                </div>
+                <FtDiv>작업 공간</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <RiParkingBoxLine size="24" />
+                </div>
+                <FtDiv>주차 공간</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <BiSwim size="24" />
+                </div>
+                <FtDiv>전용 수영장</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <GiIceCube size="24" />
+                </div>
+                <FtDiv>에어컨</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <MdBalcony size="24" />
+                </div>
+                <FtDiv>전용 발코니</FtDiv>
+              </AccSmDiv>
+              <AccSmDiv>
+                <div>
+                  <BsFlower2 size="24" />
+                </div>
+                <FtDiv>뒷마당 보유</FtDiv>
+              </AccSmDiv>
+            </Acc>
+          </AccDiv>
+        </AccommodationDiv>
+        <Calendar>
+          <CalendarPadiing>
+            <CalendarDiv>
+              <CalendarSapn>Abiansemal에서 2박</CalendarSapn>
+              <div>2023년 5월 7일 - 2023년 5월 11일</div>
+            </CalendarDiv>
+          </CalendarPadiing>
+        </Calendar>
+        <Review>
+          <ReviewPadding>
+            <div>
+              <StarSpan>
+                <AiFillStar size="16" />
+              </StarSpan>
+              <ReviewStarSpan>4.87</ReviewStarSpan>
+              <span> </span>
+              <ReviewStarSpanSapn>후기 141개</ReviewStarSpanSapn>
+            </div>
+            <Reviewer>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다
+                    직원들의 친절한 응대가 좋았습니다
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다
+                    직원들의 친절한 응대가 좋았습니다
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    Aura House는 기대 이상의 공간이었습니다. 말그대로 정글속의
+                    대나무집이었습니다. 호스트인 Wayan님을 비롯하여, Febri님
+                    그리고 나머지 스텝분들, 막바지 예약임에도 불구하고 신속하고
+                    유연하게
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다
+                    직원들의 친절한 응대가 좋았습니다
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다
+                    직원들의 친절한 응대가 좋았습니다
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              <ReviewerDiv>
+                <PropileDiv>
+                  <ProfileImg
+                    src="https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240"
+                    alt="호스트 이미지"
+                  ></ProfileImg>
+                  <ProfileNickDiv>
+                    <ProfileNickSapn>NICKNAME</ProfileNickSapn>
+                    <ProfileDayWeek>2022년 8월</ProfileDayWeek>
+                  </ProfileNickDiv>
+                </PropileDiv>
+                <ProfileComment>
+                  <span>
+                    열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다
+                    직원들의 친절한 응대가 좋았습니다
+                  </span>
+                </ProfileComment>
+              </ReviewerDiv>
+              {/* 버튼들어갈 자리 */}
+            </Reviewer>
+          </ReviewPadding>
+        </Review>
+        <GoogleMap>
+          <GoogleMapPadding>
+            <GoogleMapSanDiv>
+                <GoogleMapSapn>호스트 지역</GoogleMapSapn>
+            </GoogleMapSanDiv>
+            <GoogleMapCover>
+          </GoogleMapCover>
+          <GoogleMapCoverDiv>
+            <span></span>
+            <GoogleMapCoverSpan>Abiansemal, 발리, 인도네시아</GoogleMapCoverSpan>
+          </GoogleMapCoverDiv>
+          </GoogleMapPadding>
+        </GoogleMap>
+        <ThingsKeep>
+          
+        </ThingsKeep>
+      </HostSection>
+    </DetailBody>
+  );
+}
+
+export default Detail;
