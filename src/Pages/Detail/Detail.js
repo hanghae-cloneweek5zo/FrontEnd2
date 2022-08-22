@@ -464,7 +464,7 @@ function Detail() {
           </GoogleMapPadding>
         </GoogleMap>
         <ThingsKeep>
-          
+          잠시
         </ThingsKeep>
       </HostSection>
     </DetailBody>
