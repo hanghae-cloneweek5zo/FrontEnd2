@@ -8,19 +8,25 @@ const Category = () => {
 export default Category;
 
 export const CategoryNavbar = styled.div`
+  top: 10%;
   position: sticky;
   margin: auto;
-  gap: 16px;
+  right: 0;
+  left: 0;
+  display: block;
   width: 100%;
   max-width: 1600px;
   height: 70px;
-  z-index: 2;
+  z-index: -1;
   /* border: 1px solid orange; */
-  top: 20;
   padding: 10px;
   box-sizing: border-box;
-  left: 5%;
   margin-bottom: 10px;
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    display: flex;
+  }
 `;
 
 export const CategoryBox = styled.div`
@@ -50,8 +56,8 @@ export const CategoryBox = styled.div`
     position: absolute;
     width: 0%;
     height: 2.5px;
-    bottom: -6px;
-    left: 20%;
+    bottom: -10px;
+    left: 3%;
     transform: translateX(-50%);
     background-color: rgb(34, 34, 34);
     transition: all 0.3s ease-in-out;
@@ -117,4 +123,25 @@ export const LakeFront = styled.div`
 export const Arctic = styled.div`
   width: 100px;
   height: 60px;
+`;
+
+export const FilterButtonBox = styled.div`
+  position: relative;
+  left: 30px;
+  width: 80px;
+  height: 48px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  margin: 0px;
+  padding: 7px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  grid-auto-columns: column;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 5px;
+  font-size: 12px;
 `;

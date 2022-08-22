@@ -8,6 +8,7 @@ import Card from '../../Components/main/Card';
 import {
   CategoryNavbar,
   CategoryBox,
+  FilterButtonBox,
 } from '../../Components/main/Category';
 
 import {
@@ -44,25 +45,26 @@ import { ReactComponent as DesignSVG } from '../../static/IconImages/Design.svg'
 import { ReactComponent as CampingSVG } from '../../static/IconImages/Camping.svg';
 import { ReactComponent as LakeFrontSVG } from '../../static/IconImages/LakeFront.svg';
 import { ReactComponent as ArcticSVG } from '../../static/IconImages/Arctic.svg';
-
+import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
 // style import
 import styled from 'styled-components';
 
 const Main = () => {
-  const initialState = {
-    houseId: 2,
-    title: 'Luzhky Cottage',
-    distance: 1300,
-    price: 793966,
+  const data = {
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
   };
-  const [categories, setCategories] = useState(initialState);
+  // const [categories, setCategories] = useState(initialState);
   return (
     <Fragment>
       <Header />
       <CategoryNavbar>
         <CategoryBox>
           <AllHomes>
-            <AllHomesSVG width="100" height="40" />
+            <AllHomesSVG width="100" height="40" fill="blue" />
             전체보기
           </AllHomes>
           <OMG>
@@ -111,12 +113,25 @@ const Main = () => {
             호숫가
           </LakeFront>
           <Arctic>
-            <ArcticSVG width="100" height="40" />
+            <ArcticSVG width="100" height="40" fill="blue" />
             북극
           </Arctic>
+          <FilterButtonBox>
+            <FilterButtonSVG />
+            필터
+          </FilterButtonBox>
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         <Card />
       </MainBox>
     </Fragment>
@@ -127,12 +142,14 @@ export default Main;
 
 export const MainBox = styled.div`
   position: relative;
-  max-width: 1600px;
-  width: 100%;
-  height: 800px;
-  border: 1px solid blue;
-  margin: auto;
-  -webkit-box-align: stretch;
+  width: 84%;
+  /* border: 1px solid blue; */
   display: flex;
+  flex-direction: row;
+  top: 120px;
   align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 26px;
 `;
