@@ -16,10 +16,11 @@ import Detail from './Pages/Detail/Detail';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" exact="true" element={<Main />} />
-      <Route path="Detail" exact="true" element={<Detail />} />
-    </Routes>
+    <Detail/>
+    // <Routes>
+    //   <Route path="/" exact="true" element={<Main />} />
+    //   <Route path="Detail" exact="true" element={<Detail />} />
+    // </Routes>
   );
 }
 
