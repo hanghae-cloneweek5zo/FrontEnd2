@@ -18,7 +18,7 @@ import Detail from './Pages/Detail/Detail';
 function App() {
   return (
     <>
-    <Detail/>
+    <ReviewModal/>
     </>
 
     // <Routes>
