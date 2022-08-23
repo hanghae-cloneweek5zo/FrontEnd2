@@ -9,11 +9,8 @@ import {
     CheckButton,
   } from './FilterMordalStyled';
 
-const CheckButtonListOut = ()=>{
+const CheckButtonListOut = ({List,roomNum,setRoomNum,bedNum,setBedNum})=>{
 
-    const [roomNum,setRoomNum] = useState(0)
-    const [bedNum,setBedNum] = useState(0)
-    const List = [1,2,3,4,5,6]
 return(
     <BedRoomArea>
 

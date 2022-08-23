@@ -16,11 +16,13 @@ import Detail from './Pages/Detail/Detail';
 
 function App() {
   return (
+    <Main />
+    // <Routes>
+    //   <Route path="/" exact="true" element={<Main />} />
+    //   <Route path="Detail" exact="true" element={<Detail />} />
+    // </Routes>
+
     // <FilterModal/>
-    <Routes>
-      <Route path="/" exact="true" element={<Main />} />
-      <Route path="Detail" exact="true" element={<Detail />} />
-    </Routes>
   );
 }
 

@@ -4,6 +4,7 @@ import React, { Fragment, useState } from 'react';
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
+import MainSkeleton from '../../Components/skeleton/MainSkeleton';
 
 import {
   CategoryNavbar,
