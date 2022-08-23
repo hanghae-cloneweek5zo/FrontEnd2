@@ -17,17 +17,12 @@ import Detail from './Pages/Detail/Detail';
 
 function App() {
   return (
-    <>
-    <Detail/>
-    </>
-
-    // <Routes>
-    //   <Route path="/" exact="true" element={<Main />} />
-    //   <Route path="Detail:id" exact="true" element={<Detail />} />
-    // <Route path="*"  element={<Main />} />
-    // </Routes>
-
     // <FilterModal/>
+    <Routes>
+      <Route path="/" exact="true" element={<Main />} />
+      <Route path="Detail" exact="true" element={<Detail />} />
+      <Route path="*"  element={<Main />} />
+    </Routes>
   );
 }
 

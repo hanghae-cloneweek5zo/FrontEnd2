@@ -4,16 +4,12 @@ import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
-const Card = ({item}) => {
+const Card = ({ item }) => {
   return (
-    <Fragment>
+    <Fragment key={item.houseId}>
       <CardContents>
         <CardArea>
-          <CardImgArea
-            image_url={
-              item.img
-            }
-          >
+          <CardImgArea image_url={item.img}>
             <CardIconArea>
               <FaRegHeart style={{ color: '#fff' }} />
               {/* <FaHeart style={{color: "#fff"}}/> */}
@@ -21,10 +17,8 @@ const Card = ({item}) => {
           </CardImgArea>
           <CardContentArea>
             <div>
-              <span style={{ fontWeight: '600' }}>{item.local},{item.Country} </span>
-            </div>
-            <div>
-              {item.star}
+              <span style={{ fontWeight: '600' }}>{item.title}</span>
+              <span>{item.starAvg}</span>
             </div>
           </CardContentArea>
           <CardContentArea>
@@ -41,7 +35,6 @@ const Card = ({item}) => {
   );
 };
 
-
 export default Card;
 
 export const CardContents = styled.div`
@@ -52,6 +45,8 @@ export const CardContents = styled.div`
   &:hover {
     cursor: pointer;
   }
+  border: 1px solid green;
+  padding-bottom: 10px;
 `;
 
 export const CardArea = styled.div`
@@ -72,12 +67,17 @@ export const CardImgArea = styled.div`
   border-top-right-radius: 15px;
   margin-bottom: 10px;
   position: relative;
+  border: 1px solid blue;
 `;
 
 const CardContentArea = styled.div`
   -webkit-box-pack: justify;
   display: flex;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
   justify-content: space-between;
+  border: 1px solid red;
 `;
 
 export const CardIconArea = styled.div`
