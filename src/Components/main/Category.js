@@ -65,7 +65,7 @@ export const CategoryBox = styled.div`
   }
 `;
 
-export const OMG = styled.div`
+export const FANCY = styled.div`
   width: 100px;
   height: 60px;
 `;
@@ -75,52 +75,52 @@ export const AllHomes = styled.div`
   height: 60px;
 `;
 
-export const NationalPark = styled.div`
+export const NATIONAL_PARK  = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Cabins = styled.div`
+export const SHACK = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Islands = styled.div`
+export const ISLE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Beach = styled.div`
+export const OCEAN = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const TinyHomes = styled.div`
+export const COMPACT = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Design = styled.div`
+export const DESIGNED = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Camping = styled.div`
+export const CAMPSITE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const AFrames = styled.div`
+export const A_SHAPED = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const LakeFront = styled.div`
+export const LAKE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Arctic = styled.div`
+export const ARCTIC = styled.div`
   width: 100px;
   height: 60px;
 `;

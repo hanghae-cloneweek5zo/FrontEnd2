@@ -41,7 +41,7 @@ const ProfileModal = (props) => {
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
-    <div className={open ? 'openProfileModal profileModal' : 'profileModal'}>
+    <div className={open ? 'openProfileModal ProfileModal' : 'ProfileModal'}>
       {open && !token ? (
         <section>
           <header>
