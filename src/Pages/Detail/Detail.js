@@ -130,6 +130,7 @@ import {
 } from "../Detail/DetailStyled";
 
 function Detail() {
+  
   return (
     <DetailBody>
       {/* Title */}
