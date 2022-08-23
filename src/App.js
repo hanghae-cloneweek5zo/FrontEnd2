@@ -14,9 +14,13 @@ import { Routes, Route } from 'react-router-dom';
 import Main from './Pages/Main/Main';
 import Detail from './Pages/Detail/Detail';
 
+
 function App() {
   return (
+    <>
+    
     <Detail/>
+    </>
     // <Routes>
     //   <Route path="/" exact="true" element={<Main />} />
     //   <Route path="Detail" exact="true" element={<Detail />} />

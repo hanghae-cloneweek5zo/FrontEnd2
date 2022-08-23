@@ -5,6 +5,10 @@ import {
   RiTimeFill,
   RiRefund2Fill,
 } from "react-icons/ri";
+//구글 맵
+import SimpleMap from '../GoogleMap/SimpleMap'
+
+
 import {
   MdSingleBed,
   MdOutlineBed,
@@ -370,6 +374,8 @@ function Detail() {
               </Acc>
             </AccDiv>
           </AccommodationDiv>
+
+
           <Calendar>
             <CalendarPadiing>
               <CalendarDiv>
@@ -380,6 +386,8 @@ function Detail() {
               </CalendarDiv>
             </CalendarPadiing>
           </Calendar>
+
+
         </HostSectionLeftDiv>
         <HostSectionRightDiv>
           <MovingBox>
@@ -562,7 +570,14 @@ function Detail() {
           <GoogleMapSanDiv>
             <GoogleMapSapn>호스트 지역</GoogleMapSapn>
           </GoogleMapSanDiv>
-          <GoogleMapCover></GoogleMapCover>
+          
+
+          <GoogleMapCover>
+            <SimpleMap/>
+          </GoogleMapCover>
+
+
+
           <GoogleMapCoverDiv>
             <span></span>
             <GoogleMapCoverSpan>
