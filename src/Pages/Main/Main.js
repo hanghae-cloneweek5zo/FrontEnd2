@@ -4,6 +4,7 @@ import React, { Fragment, useState } from 'react';
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
+import MainSkeleton from '../../Components/skeleton/MainSkeleton';
 
 import {
   CategoryNavbar,
@@ -48,15 +49,19 @@ import { ReactComponent as ArcticSVG } from '../../static/IconImages/Arctic.svg'
 import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
 // style import
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const data = {
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
+    // houseId,
+    // category,
+    // title,
+    // distance,
+    // price,
+    // starAvg,
   };
+
+  const { houseId } = useParams();
   // const [categories, setCategories] = useState(initialState);
   return (
     <Fragment>

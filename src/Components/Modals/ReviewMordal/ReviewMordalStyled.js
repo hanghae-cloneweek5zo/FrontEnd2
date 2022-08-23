@@ -121,6 +121,7 @@ outline: none;
 /* color: #e2e2e2; */
 &:hover{
 outline: 2px solid black;
+cursor: pointer;
 }
 `
 
