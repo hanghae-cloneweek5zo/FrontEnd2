@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const DetailBody = styled.div`
-  max-width: 1920px;
+  max-width: 1980px;
   width: 100%;
   height: 100%;
   color: #222222;
   font-size: 16px;
   font-weight: 400;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const TitleSection = styled.section`
@@ -50,10 +52,13 @@ export const ImgSection = styled.section`
   margin-left: auto;
   margin-right: auto;
   width: auto;
+  height: 559px;
 `;
 
 export const ImgDiv = styled.div`
   max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 24px;
 `;
 export const ImgDivBox = styled.div`
@@ -146,13 +151,205 @@ export const HostSection = styled.section`
   margin-left: auto;
   margin-right: auto;
   width: auto;
+  height: 2143px;
 `;
 
+export const HostSectionLeftDiv = styled.div`
+    width: 58.333333%;
+    height: 2143px;
+    float: left;
+    margin-left: 0%;
+    margin-right: 0%;
+`;
+export const HostSectionRightDiv = styled.div`
+    width: 33.3333333%;
+    height: 2073px;
+    float: right;
+    display: flex;
+    margin-left: 0%;
+    margin-right: 0%;
+`;
+// 움직이는 박스
+export const MovingBox = styled.div`
+    width: 372.33px;
+    height : 400.03px;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 24px;
+    box-shadow: rgba(0,0,0,0.12) 0px 6px 16px;
+    margin-top: 40px;
+    position: sticky;
+    top: 45px;
+    bottom: 580px;
+    
+`;
+
+export const MovingBoxPadding = styled.div`
+    width: auto;
+    height : 282.03px;
+    padding: 24px;
+    border-bottom: 1px solid rgb(211, 211, 211);
+`;
+
+export const MovingBoxPrice = styled.div`
+    width: 322.35px;
+    height : 237.09px;
+    display: flex;
+    flex-direction: column;
+`;
+
+export const MovingBoxPriceDiv = styled.div`
+    width: 322.35px;
+    height : 27.12px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+`;
+
+export const MovingBoxPriceSapn = styled.span`
+    font-size: 22px;
+    font-weight: 600;
+`;
+export const MovingBoxPriceBagSapn = styled.span`
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 6px;
+    margin-left: 2px;
+`;
+
+export const MovingBoxPriceReDiv = styled.div`
+    width: 115.73px;
+    height : 18px;
+    margin-top: 6px;
+    margin-left: 45px;
+`;
+
+export const StarBoxSpan = styled.span`
+  margin-right: 4px;
+  min-width: 14px;
+  margin-top: 1%;
+  color: #222222;
+  display: inline-flex;
+`;
+
+export const ReviewStarBoxSpan = styled.span`
+  color: rgb(34, 34, 34);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 3px;
+`;
+
+export const ReviewStarBoxSpanSapn = styled.span`
+
+  font-weight: 600;
+  color: rgb(113,113,113);
+  font-size: 12px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+`;
+
+export const PriceDayBox = styled.div`
+  width: 322.49px;
+  height: 111.99px;
+  border: 2px solid rgb(221, 221, 221);
+  border-radius: 8px;
+  margin-bottom: 24px;
+
+`;
+export const PriceDayBoxTopRow = styled.div`
+  width: 322.35px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const PriceDayBoxTopRowLeft = styled.div`
+  width: 50%;
+  height: 56px;
+  float: left;
+  border-bottom: 2px solid rgb(221, 221, 221);
+  border-right: 2px solid rgb(221, 221, 221);
+
+
+`;
+
+export const PriceDayBoxTopRowRight = styled.div`
+  width: 50%;
+  height: 56px;
+  float: right;
+  border-bottom: 2px solid rgb(221, 221, 221);
+
+`;
+
+export const PriceDayBoxSml = styled.div`
+margin-top: 10px;
+margin-left: 15px;
+font-size: 10px;
+font-weight: 800;
+
+`;
+export const PriceDayBoxSmlDay = styled.div`
+margin-top: 5px;
+margin-left: 15px;
+font-size: 14px;
+`;
+
+export const PriceDayBoxBtm = styled.div`
+  width: 322.35px;
+  height: 56px;
+
+`;
+
+export const PriceDayBoxBUM = styled.button`
+  width: 323.35px;
+  height: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background-color: rgb(220,15,98);
+  outline: 0;
+  border: 0;
+`;
+export const PriceDaySapn = styled.span`
+  width: 323.35px;
+  height: 26px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(40,40,40);
+`;
+export const PriceDaySpanDiv = styled.div`
+  width: 322.35px;
+  height: 26px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  text-align : center;
+  margin-top: 22px;
+`;
+export const PriceDiv = styled.div`
+  width: 322.35px;
+  height: 61px;
+  margin-left: auto;
+  margin-right: auto;
+  
+`;
+export const PriceDivPadding = styled.div`
+display: flex;
+  justify-content: space-between;
+    padding: 20px;
+`;
+
+export const PriceDayHamSapn = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+
+`;
+
+//여기까지 움직이는 박스 끝
 export const HostDiv = styled.div`
   width: 653.33px;
   height: 138px;
-  display: flex;
   border-bottom: 2px solid rgb(221, 221, 221);
+  
 `;
 
 export const HostPaddingDiv = styled.div`
@@ -314,6 +511,8 @@ export const Review = styled.div`
   height: 800px;
   border-bottom: 2px solid rgb(221, 221, 221);
   border-top: 2px solid rgb(221, 221, 221);
+  margin-left: auto;
+  margin-right: auto;
 `;
 export const ReviewPadding = styled.div`
   width: 1120px;
@@ -345,6 +544,8 @@ export const Reviewer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 export const ReviewerDiv = styled.div`
   width: 473.33px;
@@ -388,6 +589,8 @@ export const GoogleMap = styled.section`
   width: 1120px;
   height: 700px;
   border-bottom: 2px solid rgb(221, 221, 221);
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const GoogleMapPadding = styled.div`
@@ -429,9 +632,11 @@ export const GoogleMapCoverSpan = styled.span`
 
 export const ThingsKeep = styled.div`
   width: 1120px;
-  height: 358.07px;
+  height: 318.07px;
   border-bottom: 2px solid rgb(221, 221, 221);
   margin-bottom: 3%;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const ThingsKeepPadding = styled.div`
@@ -439,4 +644,67 @@ export const ThingsKeepPadding = styled.div`
   height: 262.07px;
   padding-top: 48px;
   padding-bottom: 48px;
+`;
+
+export const ThingsKeepDiv = styled.div`
+  width: 1120px;
+  height: 49.99px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const ThingsKeepSpan = styled.span`
+  font-size: 22px;
+  font-weight: 600;
+`;
+
+export const AccommodationRules = styled.div`
+  width: 1136px;
+  height: 211.08px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const AccommodationRulesDiv = styled.div`
+  width: 378.66px;
+  height: 211.08px;
+`;
+
+export const AccommodationRulesDivDiv = styled.div`
+  width: 330.66px;
+  height: 211.08px;
+`;
+
+export const AccommodationRulesDivDivSpanDiv = styled.div`
+  width: 330.66px;
+  height: 20px;
+  margin-bottom: 14px;
+`;
+
+export const AccomDetailDiv = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+`;
+
+export const TimeDiv = styled.div`
+    margin-right: 12px;
+`;
+
+
+export const AccomDetailDivDiv = styled.div`
+  width: 330.66px;
+  height: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const AccomDetailDiClin = styled.div`
+  width: 330.66px;
+  height: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
 `;
