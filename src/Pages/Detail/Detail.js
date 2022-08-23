@@ -1,13 +1,19 @@
-import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from "react-icons/ai";
+//react import
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { DetailThunk } from '../../redux/Modules/PageModules/Detail';
+import ReviewModal from '../../Components/Modals/ReviewMordal/ReviewMordal';
+
+import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from 'react-icons/ai';
 import {
   RiMedalLine,
   RiParkingBoxLine,
   RiTimeFill,
   RiRefund2Fill,
-} from "react-icons/ri";
+} from 'react-icons/ri';
 //구글 맵
-import SimpleMap from '../GoogleMap/SimpleMap'
-
+import SimpleMap from '../GoogleMap/SimpleMap';
 
 import {
   MdSingleBed,
@@ -17,12 +23,12 @@ import {
   MdAccessTimeFilled,
   MdPets,
   MdCleaningServices,
-} from "react-icons/md";
-import { TbToolsKitchen2 } from "react-icons/tb";
-import { GiDesk, GiIceCube, GiPartyHat } from "react-icons/gi";
-import { BiSwim } from "react-icons/bi";
-import { BsFlower2, BsQuestionCircleFill } from "react-icons/bs";
-import React from "react";
+} from 'react-icons/md';
+import { TbToolsKitchen2 } from 'react-icons/tb';
+import { GiDesk, GiIceCube, GiPartyHat } from 'react-icons/gi';
+import { BiSwim } from 'react-icons/bi';
+import { BsFlower2, BsQuestionCircleFill } from 'react-icons/bs';
+
 //스타일 컴퍼넌트
 import {
   Acc,
@@ -78,6 +84,7 @@ import {
   ImgRightrestante,
   ImgSection,
   LinkSapn,
+  ModalButton,
   MovingBox,
   MovingBoxPadding,
   MovingBoxPrice,
@@ -127,9 +134,16 @@ import {
   TimeDiv,
   TitleSection,
   TitleUnderDiv,
-} from "../Detail/DetailStyled";
+} from '../Detail/DetailStyled';
 
 function Detail() {
+  const param = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(DetailThunk(param));
+  }, []);
+  const houseData = useSelector((state) => state.Detail.Detail);
+  const [display,setDisplay] = useState(false)
   return (
     <DetailBody>
       {/* Title */}
@@ -375,7 +389,6 @@ function Detail() {
             </AccDiv>
           </AccommodationDiv>
 
-
           <Calendar>
             <CalendarPadiing>
               <CalendarDiv>
@@ -386,8 +399,6 @@ function Detail() {
               </CalendarDiv>
             </CalendarPadiing>
           </Calendar>
-
-
         </HostSectionLeftDiv>
         <HostSectionRightDiv>
           <MovingBox>
@@ -430,14 +441,14 @@ function Detail() {
             </MovingBoxPadding>
             <PriceDiv>
               <PriceDivPadding>
-                  <PriceDayHamSapn>총 합계</PriceDayHamSapn>
-                  <PriceDayHamSapn>₩16,969,680</PriceDayHamSapn>
+                <PriceDayHamSapn>총 합계</PriceDayHamSapn>
+                <PriceDayHamSapn>₩16,969,680</PriceDayHamSapn>
               </PriceDivPadding>
             </PriceDiv>
           </MovingBox>
         </HostSectionRightDiv>
       </HostSection>
-      
+
       {/* 전체 들어갈자리 */}
 
       <Review>
@@ -561,7 +572,8 @@ function Detail() {
                 </span>
               </ProfileComment>
             </ReviewerDiv>
-            {/* 버튼들어갈 자리 */}
+            <ModalButton onClick={()=>setDisplay(!display)} >후기 모두 보기</ModalButton>
+            <ReviewModal display={display} setDisplay={setDisplay}/>
           </Reviewer>
         </ReviewPadding>
       </Review>
@@ -570,13 +582,10 @@ function Detail() {
           <GoogleMapSanDiv>
             <GoogleMapSapn>호스트 지역</GoogleMapSapn>
           </GoogleMapSanDiv>
-          
 
           <GoogleMapCover>
-            <SimpleMap/>
+            <SimpleMap />
           </GoogleMapCover>
-
-
 
           <GoogleMapCoverDiv>
             <span></span>

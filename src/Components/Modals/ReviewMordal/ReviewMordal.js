@@ -29,7 +29,7 @@ import {
 } from './ReviewMordalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import ReviewSkeleton from '../../skeleton/ReviewSkeleton';
-const ReviewModal = () => {
+const ReviewModal = ({display,setDisplay}) => {
 
   const [isLoading,setIsLoding] = useState(false)
   // const []
@@ -141,10 +141,10 @@ const ReviewModal = () => {
     },
   ];
   return (
-    <ReviewModalBody display={true}>
+    <ReviewModalBody display={display}>
       <ReviewModalSection>
         <ReviewModalHeader>
-          <HeaderCancel />
+          <HeaderCancel onClick={()=>setDisplay(!display)} />
         </ReviewModalHeader>
         {/* 헤더끝 */}
         <ReviewBody>

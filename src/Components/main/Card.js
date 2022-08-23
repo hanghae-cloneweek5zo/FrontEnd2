@@ -9,7 +9,7 @@ const Card = ({ item }) => {
     <Fragment key={item.houseId}>
       <CardContents>
         <CardArea>
-          <CardImgArea image_url={item.img}>
+          <CardImgArea img_url={item.imgUrl}>
             <CardIconArea>
               <FaRegHeart style={{ color: '#fff' }} />
               {/* <FaHeart style={{color: "#fff"}}/> */}

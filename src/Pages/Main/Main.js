@@ -70,11 +70,10 @@ const Main = () => {
   const [Login, setLogin] = useState(false);
   const [SignUp, setSignUp] = useState(false);
   const [isLoding, setIsLoding] = useState(true);
-  const houseList = useSelector((state) => console.log(state));
+  const houseList = useSelector((state) => state.Main.Main);
 
   const data = [];
 
-  // const [categories, setCategories] = useState(initialState);
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
@@ -86,12 +85,6 @@ const Main = () => {
           </AllHomes>
           <FANCY>
             <OMGSVG width="100" height="40" />
-            {/* <button
-              value="기상천외한숙소"
-              onClick={() => {
-                setCategories('기상천외한 숙소');
-              }}
-            > */}
             기상천외한 숙소
           </FANCY>
           <NATIONAL_PARK>
@@ -140,9 +133,9 @@ const Main = () => {
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
-        {/* {houseList.map((item) =>
+        {houseList.map((item) =>
           isLoding ? <MainSkeleton /> : <Card item={item} />
-        )} */}
+        )}
       </MainBox>
     </Fragment>
   );
@@ -154,7 +147,6 @@ export const MainBox = styled.div`
   position: grid !important;
   width: 100%;
   grid-template-rows: repeat(4, 1fr);
-  /* border: 1px solid orange; */
   display: flex;
   flex-direction: row;
   align-items: stretch;
