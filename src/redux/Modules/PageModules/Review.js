@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = { Main: [] };
+const initialState = { Review: [] };
 const URL = process.env.REACT_APP_URL
 
 
-export const MainThunk = createAsyncThunk(
-    'Main/MainThunk',
+export const ReviewThunk = createAsyncThunk(
+    'Review/ReviewThunk',
     async (payload, thunkAPI) => {
         
       const HouseList = await axios
@@ -18,15 +18,15 @@ export const MainThunk = createAsyncThunk(
   );
 
 
-const MainSlice = createSlice({
-    name: 'Main',
+const ReviewSlice = createSlice({
+    name: 'Review',
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
-      builder.addCase(MainThunk.fulfilled, (state, action) => {
-        state.Main = action.payload
+      builder.addCase(ReviewThunk.fulfilled, (state, action) => {
+        state.Review = action.payload
       });
     },
   });
 
-  export default MainSlice.reducer;
+  export default ReviewSlice.reducer;

@@ -21,7 +21,7 @@ export const CategoryNavbar = styled.div`
   /* border: 1px solid orange; */
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   &:before {
     content: '';
     box-sizing: border-box;
@@ -65,7 +65,7 @@ export const CategoryBox = styled.div`
   }
 `;
 
-export const OMG = styled.div`
+export const FANCY = styled.div`
   width: 100px;
   height: 60px;
 `;
@@ -75,52 +75,52 @@ export const AllHomes = styled.div`
   height: 60px;
 `;
 
-export const NationalPark = styled.div`
+export const NATIONAL_PARK  = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Cabins = styled.div`
+export const SHACK = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Islands = styled.div`
+export const ISLE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Beach = styled.div`
+export const OCEAN = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const TinyHomes = styled.div`
+export const COMPACT = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Design = styled.div`
+export const DESIGNED = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Camping = styled.div`
+export const CAMPSITE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const AFrames = styled.div`
+export const A_SHAPED = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const LakeFront = styled.div`
+export const LAKE = styled.div`
   width: 100px;
   height: 60px;
 `;
 
-export const Arctic = styled.div`
+export const ARCTIC = styled.div`
   width: 100px;
   height: 60px;
 `;
@@ -141,7 +141,27 @@ export const FilterButtonBox = styled.div`
   justify-content: center;
   grid-auto-columns: column;
   align-items: center;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   gap: 5px;
   font-size: 12px;
+  &:hover{
+    cursor: pointer;
+    border: 2px solid #dddddd;
+  }
 `;
+
+export const FilterButton = styled.div`
+align-items: center;
+ display: flex;
+ border: 1px solid #dddddd;
+  border-radius: 12px;
+  left: 30px;
+  width: 60px;
+  height: 48px;
+  padding-left: 20px;
+  z-index: 1;
+  &:hover{
+    cursor: pointer;
+    border: 2px solid #dddddd;
+  }
+`

@@ -4,16 +4,12 @@ import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
-const Card = () => {
+const Card = ({ item }) => {
   return (
-    <Fragment>
+    <Fragment key={item.houseId}>
       <CardContents>
         <CardArea>
-          <CardImgArea
-            image_url={
-              'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720'
-            }
-          >
+          <CardImgArea image_url={item.img}>
             <CardIconArea>
               <FaRegHeart style={{ color: '#fff' }} />
               {/* <FaHeart style={{color: "#fff"}}/> */}
@@ -21,19 +17,17 @@ const Card = () => {
           </CardImgArea>
           <CardContentArea>
             <div>
-              <span style={{ fontWeight: '600' }}>Abiansemal, 인도네시아</span>
-            </div>
-            <div>
-              <AiFillStar/>4.87
+              <span style={{ fontWeight: '600' }}>{item.title}</span>
+              <span>{item.starAvg}</span>
             </div>
           </CardContentArea>
           <CardContentArea>
             <div>
-              <span style={{ color: '#979a9e' }}>5,275km</span>
+              <span style={{ color: '#979a9e' }}>{item.distance}</span>
             </div>
           </CardContentArea>
           <CardContentArea>
-            <div>₩480,993 / 박</div>
+            <div>{item.price} / 박</div>
           </CardContentArea>
         </CardArea>
       </CardContents>
@@ -51,6 +45,8 @@ export const CardContents = styled.div`
   &:hover {
     cursor: pointer;
   }
+  border: 1px solid green;
+  padding-bottom: 10px;
 `;
 
 export const CardArea = styled.div`
@@ -71,12 +67,17 @@ export const CardImgArea = styled.div`
   border-top-right-radius: 15px;
   margin-bottom: 10px;
   position: relative;
+  border: 1px solid blue;
 `;
 
 const CardContentArea = styled.div`
   -webkit-box-pack: justify;
   display: flex;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
   justify-content: space-between;
+  border: 1px solid red;
 `;
 
 export const CardIconArea = styled.div`
