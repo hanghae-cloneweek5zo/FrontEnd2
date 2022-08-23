@@ -708,5 +708,15 @@ export const AccomDetailDiClin = styled.div`
   display: flex;
   flex-direction: row;
 `;
-
+export const ModalButton = styled.button`
+width: 200px;
+height: 50px;
+border-radius:10px;
+border: 1px solid black;
+background-color: white;
+&:hover{
+  cursor: pointer;
+  border: 2px solid black;
+}
+`
 //구글맵
