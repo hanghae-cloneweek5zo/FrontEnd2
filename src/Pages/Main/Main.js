@@ -1,14 +1,22 @@
 // React import
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux/es/exports';
+import { MainThunk } from '../../redux/Modules/PageModules/Main';
 
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
+import MainSkeleton from '../../Components/skeleton/MainSkeleton';
+import LoginModal from '../../Components/Modals/LoginModal/LoginModal';
+import SignUpModal from '../../Components/Modals/SignUpModal/SignUpModal';
+import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
 
 import {
   CategoryNavbar,
   CategoryBox,
   FilterButtonBox,
+  FilterButton
 } from '../../Components/main/Category';
 
 import {
@@ -50,17 +58,108 @@ import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/Filte
 import styled from 'styled-components';
 
 const Main = () => {
-  const data = {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(MainThunk())
+  },[])
+
+  const [Filter,setFilter] = useState(false)
+  const [Login,setLogin] = useState(false)
+  const [SignUp,setSignUp] = useState(false)
+  const houseList = useSelector((state)=>console.log(state.Main.Main))
+  
+  const data = [{
     img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
     local: 'Abansemal',
     price: '₩ 476379',
     Country: '인도네시아',
     star: '⭐ 4.87',
-  };
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+    
+  },{
+    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
+    local: 'Abansemal',
+    price: '₩ 476379',
+    Country: '인도네시아',
+    star: '⭐ 4.87',
+    distance : '1300km'
+    
+    
+  }];
   // const [categories, setCategories] = useState(initialState);
   return (
     <Fragment>
-      <Header />
+      <Header Filter={Filter} setFilter={setFilter} />
       <CategoryNavbar>
         <CategoryBox>
           <AllHomes>
@@ -116,23 +215,14 @@ const Main = () => {
             <ArcticSVG width="100" height="40" fill="blue" />
             북극
           </Arctic>
-          <FilterButtonBox>
+          <FilterButton>
             <FilterButtonSVG />
             필터
-          </FilterButtonBox>
+          </FilterButton>
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+{data.map((item)=>item ? <Card item={item}/> : <MainSkeleton/> )}
       </MainBox>
     </Fragment>
   );

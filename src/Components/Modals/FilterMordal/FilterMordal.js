@@ -1,4 +1,8 @@
+//react import
 import React, { useState } from 'react';
+import useInput from '../../../hook/hook';
+import { useDispatch } from 'react-redux';
+//style import
 import {
   FilterModalBody,
   FilterModalSection,
@@ -9,42 +13,46 @@ import {
   PriceTextArea,
   PriceRangeText,
   PriceText,
-  RangeDiv,
-  RightRange,
-  LeftRange,
   PriceInputArea,
   LeftPrice,
   RightPrice,
-  RangeArea,
-  BedRoomTitle,
-  BedRoomArea,
-  CheckButtonArea,
-  OptionDiv,
-  CheckButtonLine,
-  AnyButton,
-  CheckButton,
   CheckBoxArea,
   CheckBox,
   CheckBoxText,
   CheckBoxContent,
-  FooterButton
+  FooterButton,
 } from './FilterMordalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
-import FilterMordalSlider from './FilterMordalSlider';
-import useInput from '../../../hook/hook';
 import CheckButtonListOut from './CheckButton';
-
-
 
 const FilterModal = () => {
   const [Left, setLeft] = useInput(0);
   const [Right, setRight] = useInput(1500000);
-  const [CheckList,setCheckList] = useState([])
-  const CheckItem = ['무선인터넷','난방','건조기','세탁기','에어컨','주방','일산화탄소','화재경보기','업무 전용 공간','TV']
+  const [CheckList, setCheckList] = useState([]);
+  const CheckItem = [
+    'WIFI',
+    'PARKING',
+    'SWIMMING ',
+    'BALCONY ',
+    'AIR_CONDITIONAL ',
+    'KITCHEN',
+    'BACKYARD ',
+    'BUSINESS_SITE',
+    'CO_ALARM ',
+    'FIRE_ALARM ',
+  ];
+  const RealCheckItem = [
+    'WIFI','주차징','수영장','발코니','에어컨','주방','마당',"업무전용공간",'일산화탄소 경보기','화재 경보기'
+  ]
+  const [roomNum,setRoomNum] = useState(0)
+  const [bedNum,setBedNum] = useState(0)
+  const List = [1,2,3,4,5,6]
   const onChangeCheck = (e) => {
-  e.target.checked ? setCheckList([...CheckList,e.target.value]) : setCheckList(CheckList.filter((item)=>item!==e.target.value))
-  }
-  console.log(CheckList)
+    e.target.checked
+      ? setCheckList([...CheckList, e.target.value])
+      : setCheckList(CheckList.filter((item) => item !== e.target.value));
+  };
+  console.log(roomNum);
   return (
     <FilterModalBody display={true}>
       <FilterModalSection>
@@ -58,10 +66,9 @@ const FilterModal = () => {
           <PriceTextArea>
             <PriceRangeText>가격범위</PriceRangeText>
             <PriceText>
-              평균 가격범위는 {Math.floor((Number(Left) + Number(Right)) / 2)}원 입니다.
+              평균 가격범위는 {Math.floor((Number(Left) + Number(Right)) / 2)}원
+              입니다.
             </PriceText>
-
- 
           </PriceTextArea>
 
           {/* <RangeArea>
@@ -88,17 +95,29 @@ const FilterModal = () => {
             ></RightPrice>
           </PriceInputArea>
 
-          <CheckButtonListOut/>
-<CheckBoxArea>
+          <CheckButtonListOut roomNum={roomNum} setRoomNum={setRoomNum} bedNum={bedNum} setBedNum={setBedNum} List={List} />
 
-{CheckItem.map((item)=><CheckBoxContent> <CheckBox name='facilities' key={item} id={item}  type='checkbox' value={item}  onChange={onChangeCheck} /><CheckBoxText>{item}</CheckBoxText> </CheckBoxContent>)}
 
-</CheckBoxArea>
+          <CheckBoxArea>
+            {CheckItem.map((item,index) => (
+              <CheckBoxContent>
+                {' '}
+                <CheckBox
+                  name="facilities"
+                  key={item}
+                  id={item}
+                  type="checkbox"
+                  value={item}
+                  onChange={onChangeCheck}
+                />
+                <CheckBoxText>{RealCheckItem[index]}</CheckBoxText>{' '}
+              </CheckBoxContent>
+            ))}
+          </CheckBoxArea>
 
-          
           <ModalFooter>
-<FooterButton>조회</FooterButton>
-</ModalFooter>
+            <FooterButton>조회</FooterButton>
+          </ModalFooter>
         </ModalBody>
       </FilterModalSection>
     </FilterModalBody>

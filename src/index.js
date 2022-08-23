@@ -9,6 +9,7 @@ import store from './redux/configstore';
 // Package import
 import { BrowserRouter } from 'react-router-dom';
 
+
 // Component & Element import
 import App from './App';
 
@@ -17,7 +18,9 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter >
+      <Provider store={store}>
     <App />
+    </Provider>
   </BrowserRouter>
 );
