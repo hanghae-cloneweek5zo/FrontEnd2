@@ -2,31 +2,27 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = { Main: [] };
-const URL = process.env.REACT_APP_URL
-
 
 export const MainThunk = createAsyncThunk(
-    'Main/MainThunk',
-    async (payload, thunkAPI) => {
-        
-      const HouseList = await axios
-        .get(`${URL}/houses`)
-        .then((res) =>res.data.data);
-  
-      return thunkAPI.fulfillWithValue(HouseList);
-    }
-  );
-
+  'Main/MainThunk',
+  async (payload, thunkAPI) => {
+    const HouseList = await axios
+      .get('http://3.39.10.121/houses')
+      .then((res) => res.data.data);
+    return thunkAPI.fulfillWithValue(HouseList);
+  }
+);
 
 const MainSlice = createSlice({
-    name: 'Main',
-    initialState: initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-      builder.addCase(MainThunk.fulfilled, (state, action) => {
-        state.Main = action.payload
-      });
-    },
-  });
+  name: 'Main',
+  initialState: initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(MainThunk.fulfilled, (state, action) => {
+      console.log(action);
+      state.Main = action.payload;
+    });
+  },
+});
 
-  export default MainSlice.reducer;
+export default MainSlice.reducer;

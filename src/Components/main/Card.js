@@ -16,18 +16,23 @@ const Card = ({ item }) => {
             </CardIconArea>
           </CardImgArea>
           <CardContentArea>
-            <div>
-              <span style={{ fontWeight: '600' }}>{item.title}</span>
-              <span>{item.starAvg}</span>
+            <div style={{ width: '255px', overflow: 'hidden' }}>
+              <span style={{ fontWeight: '600' }}>{item.title}</span>{' '}
             </div>
-          </CardContentArea>
-          <CardContentArea>
             <div>
-              <span style={{ color: '#979a9e' }}>{item.distance}</span>
+              <AiFillStar />
+              {item.starAvg}
             </div>
-          </CardContentArea>
-          <CardContentArea>
-            <div>{item.price} / 박</div>
+            <div>
+              <span style={{ color: '#979a9e' }}>
+                5,275km
+                {/* {item.distance} */}
+              </span>
+            </div>
+            <div></div>
+            <div>
+              ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} /박
+            </div>
           </CardContentArea>
         </CardArea>
       </CardContents>
@@ -38,8 +43,6 @@ const Card = ({ item }) => {
 export default Card;
 
 export const CardContents = styled.div`
-  display: grid !important;
-  grid-template-columns: 100%;
   isolation: isolate;
   box-sizing: border-box;
   &:hover {
@@ -56,7 +59,7 @@ export const CardArea = styled.div`
 `;
 
 export const CardImgArea = styled.div`
-  background-image: url('${(props) => props.image_url}');
+  background-image: url(${(props) => props.image});
   background-position: center;
   display: block;
   background-size: cover;
@@ -71,8 +74,11 @@ export const CardImgArea = styled.div`
 `;
 
 const CardContentArea = styled.div`
-  -webkit-box-pack: justify;
-  display: flex;
+  display: grid;
+  grid-row-gap: 2px;
+  grid-column-gap: 8px;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  grid-template-rows: unset;
   width: 300px;
   white-space: nowrap;
   overflow: hidden;
