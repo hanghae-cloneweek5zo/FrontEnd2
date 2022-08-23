@@ -8,12 +8,12 @@ const URL = process.env.REACT_APP_URL
 export const ReviewThunk = createAsyncThunk(
     'Review/ReviewThunk',
     async (payload, thunkAPI) => {
-        
-      const HouseList = await axios
-        .get(`${URL}/houses`)
-        .then((res) =>res.data.data);
+        console("aaa")
+    //   const ReviewList = await axios
+    //     .get(`${URL}/houses`)
+    //     .then((res) =>res.data.data);
   
-      return thunkAPI.fulfillWithValue(HouseList);
+      return  thunkAPI.fulfillWithValue(payload);
     }
   );
 
@@ -24,7 +24,7 @@ const ReviewSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
       builder.addCase(ReviewThunk.fulfilled, (state, action) => {
-        state.Review = action.payload
+        console.log(action)
       });
     },
   });

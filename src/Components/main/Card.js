@@ -1,21 +1,26 @@
 import React, { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
 const Card = ({ item }) => {
+  const navigate = useNavigate();
   return (
-    <Fragment key={item.houseId}>
+    <Fragment key={item}>
       <CardContents>
         <CardArea>
-          <CardImgArea img_url={item.imgUrl}>
+          <CardImgArea
+            image_url={item.imgUrl}
+            onClick={() => navigate(`/detail/${item.houseId}`)}
+          >
             <CardIconArea>
               <FaRegHeart style={{ color: '#fff' }} />
               {/* <FaHeart style={{color: "#fff"}}/> */}
             </CardIconArea>
           </CardImgArea>
-          <CardContentArea>
+          <CardContentArea onClick={() => navigate(`/detail/${item.houseId}`)}>
             <div style={{ width: '255px', overflow: 'hidden' }}>
               <span style={{ fontWeight: '600' }}>{item.title}</span>{' '}
             </div>
@@ -48,7 +53,6 @@ export const CardContents = styled.div`
   &:hover {
     cursor: pointer;
   }
-  border: 1px solid green;
   padding-bottom: 10px;
 `;
 
@@ -59,7 +63,7 @@ export const CardArea = styled.div`
 `;
 
 export const CardImgArea = styled.div`
-  background-image: url(${(props) => props.image});
+  background-image: url('${(props) => props.image_url}');
   background-position: center;
   display: block;
   background-size: cover;
@@ -70,7 +74,6 @@ export const CardImgArea = styled.div`
   border-top-right-radius: 15px;
   margin-bottom: 10px;
   position: relative;
-  border: 1px solid blue;
 `;
 
 const CardContentArea = styled.div`
@@ -83,7 +86,6 @@ const CardContentArea = styled.div`
   white-space: nowrap;
   overflow: hidden;
   justify-content: space-between;
-  border: 1px solid red;
 `;
 
 export const CardIconArea = styled.div`
@@ -103,4 +105,10 @@ export const CardIconArea = styled.div`
     stroke-width: 0.5;
     overflow: visible;
   }
+`;
+
+export const TitleSpan = styled.span`
+  width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

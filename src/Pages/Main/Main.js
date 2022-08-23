@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
-
+import { useNavigate } from 'react-router-dom';
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
@@ -60,6 +60,7 @@ import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     setIsLoding(true);
     dispatch(MainThunk());
@@ -71,8 +72,9 @@ const Main = () => {
   const [SignUp, setSignUp] = useState(false);
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-
-  const data = [];
+  const skeletonCount = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+  ];
 
   return (
     <Fragment>
@@ -133,9 +135,9 @@ const Main = () => {
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
-        {houseList.map((item) =>
-          isLoding ? <MainSkeleton /> : <Card item={item} />
-        )}
+        {isLoding
+          ? skeletonCount.map((item) => <MainSkeleton />)
+          : houseList.map((item) => <Card item={item} />)}
       </MainBox>
     </Fragment>
   );
@@ -157,6 +159,6 @@ export const MainBox = styled.div`
   grid-column-gap: 24px;
   background-color: white;
   box-sizing: border-box;
-  padding-left: 130px;
+  padding-left: 140px;
   margin-top: 110px;
 `;
