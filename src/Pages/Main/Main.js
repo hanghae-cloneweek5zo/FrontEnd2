@@ -67,7 +67,6 @@ const Main = () => {
     setIsLoding(false);
   }, []);
 
-
   const [Filter, setFilter] = useState(false);
   const [Login, setLogin] = useState(false);
   const [SignUp, setSignUp] = useState(false);
@@ -77,7 +76,6 @@ const Main = () => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
 
-  // const [categories, setCategories] = useState(initialState);
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
@@ -89,12 +87,6 @@ const Main = () => {
           </AllHomes>
           <FANCY>
             <OMGSVG width="100" height="40" />
-            {/* <button
-              value="기상천외한숙소"
-              onClick={() => {
-                setCategories('기상천외한 숙소');
-              }}
-            > */}
             기상천외한 숙소
           </FANCY>
           <NATIONAL_PARK>
@@ -142,7 +134,6 @@ const Main = () => {
           </FilterButton>
         </CategoryBox>
       </CategoryNavbar>
-
       <MainBox>
         {isLoding
           ? skeletonCount.map((item) => <MainSkeleton />)
@@ -155,15 +146,19 @@ const Main = () => {
 export default Main;
 
 export const MainBox = styled.div`
-  position: relative;
-  width: 84%;
-  /* border: 1px solid blue; */
+  position: grid !important;
+  width: 100%;
+  grid-template-rows: repeat(4, 1fr);
   display: flex;
   flex-direction: row;
-  top: 120px;
   align-items: stretch;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin: auto;
-  gap: 26px;
+  grid-row-gap: 40px;
+  grid-column-gap: 24px;
+  background-color: white;
+  box-sizing: border-box;
+  padding-left: 140px;
+  margin-top: 110px;
 `;

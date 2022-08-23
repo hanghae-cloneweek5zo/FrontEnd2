@@ -49,6 +49,7 @@ export default Header;
 
 export const HeaderBox = styled.header`
   position: fixed;
+  top: 0;
   width: 100%;
   height: 80px;
   display: flex;
@@ -60,6 +61,7 @@ export const HeaderBox = styled.header`
   flex-direction: row;
   align-items: center;
   padding: 20px 80px 15px 80px;
+  background-color: white;
 `;
 
 export const HeaderLogo = styled.div`

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_URL,
@@ -6,5 +6,5 @@ const instance = axios.create({
 
 const token = localStorage.getItem('Authorization');
 
-instance.defaults.headers.common["Authorization"] = token ? `${token}` : null;
+instance.defaults.headers.common['Authorization'] = token ? `${token}` : null;
 export default instance;
