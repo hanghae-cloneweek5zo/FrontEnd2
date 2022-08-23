@@ -17,6 +17,19 @@ import Detail from './Pages/Detail/Detail';
 
 function App() {
   return (
+<<<<<<< HEAD
+    <>
+    <ReviewModal/>
+    </>
+
+    // <Routes>
+    //   <Route path="/" exact="true" element={<Main />} />
+    //   <Route path="Detail:id" exact="true" element={<Detail />} />
+    // <Route path="*"  element={<Main />} />
+    // </Routes>
+
+=======
+>>>>>>> 9fa00047247d05958b4070e3c2907dcbdb1961b6
     // <FilterModal/>
     <Routes>
       <Route path="/" exact="true" element={<Main />} />

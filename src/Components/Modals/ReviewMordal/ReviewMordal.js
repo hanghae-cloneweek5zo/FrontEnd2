@@ -1,4 +1,9 @@
+//react import
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import useInput from '../../../hook/hook';
+
+//styled import
 import {
   ReviewModalBody,
   ReviewModalSection,
@@ -23,8 +28,17 @@ import {
   PostButtonArea,
 } from './ReviewMordalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
+import ReviewSkeleton from '../../skeleton/ReviewSkeleton';
 const ReviewModal = () => {
-  const starEver = 0;
+
+  const [isLoading,setIsLoding] = useState(false)
+  // const []
+  // 나중에 detail에서 받아온 isLoading 으로 조건문 걸어야함 
+  // const writeReview = {
+  //   descript : 
+  // }
+  // (e)=>e.target.value
+
   const review = [
     {
       accommodationId: 1,
@@ -135,7 +149,7 @@ const ReviewModal = () => {
         {/* 헤더끝 */}
         <ReviewBody>
           <BodyHeader>
-            <StarandReview>★ 4.87 후기 47개</StarandReview>
+            <StarandReview onChange={(e)=>e.target.value} >★ 4.87 후기 47개</StarandReview>
           </BodyHeader>
 
           <ReviewArea>
@@ -154,8 +168,7 @@ const ReviewModal = () => {
             <ReviewList>
               {/* 맵돌리는부분 */}
 
-              {review.reverse().map((item) => {
-                return (
+              {review.reverse().map((item) => { return ( isLoading ? <ReviewSkeleton/> :
                   <ReviewCard>
                     <ProfileInfo>
                       <ProfileImg src={item.img} />
