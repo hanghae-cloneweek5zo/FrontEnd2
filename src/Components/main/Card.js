@@ -1,23 +1,25 @@
 import React, { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
 const Card = ({ item }) => {
+  const navigate = useNavigate()
   return (
-    <Fragment key={item.houseId}>
+    <Fragment key={item}>
       <CardContents>
         <CardArea>
-          <CardImgArea image_url={item.img}>
+          <CardImgArea image_url={item.imgUrl} onClick={()=>navigate(`/detail/${item.houseId}`)}>
             <CardIconArea>
               <FaRegHeart style={{ color: '#fff' }} />
               {/* <FaHeart style={{color: "#fff"}}/> */}
             </CardIconArea>
           </CardImgArea>
-          <CardContentArea>
+          <CardContentArea onClick={()=>navigate(`/detail/${item.houseId}`)}>
             <div>
-              <span style={{ fontWeight: '600' }}>{item.title}</span>
+              <TitleSpan style={{ fontWeight: '600' }}  >{item.title}</TitleSpan>
               <span>{item.starAvg}</span>
             </div>
           </CardContentArea>
@@ -98,3 +100,9 @@ export const CardIconArea = styled.div`
     overflow: visible;
   }
 `;
+
+export const TitleSpan = styled.span`
+  width: 240px;
+  overflow     : hidden;   
+  text-overflow: ellipsis
+`
