@@ -16,22 +16,22 @@ import {
   CategoryNavbar,
   CategoryBox,
   FilterButtonBox,
-  FilterButton
+  FilterButton,
 } from '../../Components/main/Category';
 
 import {
-  OMG,
+  FANCY,
   AllHomes,
-  NationalPark,
-  Cabins,
-  Islands,
-  Beach,
-  TinyHomes,
-  Design,
-  Camping,
-  AFrames,
-  LakeFront,
-  Arctic,
+  NATIONAL_PARK,
+  SHACK,
+  ISLE,
+  OCEAN,
+  COMPACT,
+  DESIGNED,
+  CAMPSITE,
+  A_SHAPED,
+  LAKE,
+  ARCTIC,
 } from '../../Components/main/Category';
 import {
   CardWrapper,
@@ -59,114 +59,15 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 const Main = () => {
-  // const data = {
-  //   houseId,
-  //   category,
-  //   title,
-  //   distance,
-  //   price,
-  //   starAvg,
-  // };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(MainThunk());
+  }, []);
 
-  // const { houseId } = useParams();
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(MainThunk())
-  },[])
-
-  const [Filter,setFilter] = useState(false)
-  const [Login,setLogin] = useState(false)
-  const [SignUp,setSignUp] = useState(false)
-  const houseList = useSelector((state)=>console.log(state.Main.Main))
-  
-  const data = [{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-    
-  },{
-    img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-    local: 'Abansemal',
-    price: '₩ 476379',
-    Country: '인도네시아',
-    star: '⭐ 4.87',
-    distance : '1300km'
-    
-    
-  }];
+  const [Filter, setFilter] = useState(false);
+  const [Login, setLogin] = useState(false);
+  const [SignUp, setSignUp] = useState(false);
+  const houseList = useSelector((state) => state.Main.Main);
 
   // const [categories, setCategories] = useState(initialState);
   return (
@@ -178,7 +79,7 @@ const Main = () => {
             <AllHomesSVG width="100" height="40" fill="blue" />
             전체보기
           </AllHomes>
-          <OMG>
+          <FANCY>
             <OMGSVG width="100" height="40" />
             {/* <button
               value="기상천외한숙소"
@@ -187,54 +88,57 @@ const Main = () => {
               }}
             > */}
             기상천외한 숙소
-          </OMG>
-          <NationalPark>
+          </FANCY>
+          <NATIONAL_PARK>
             <NationalParksSVG width="100" height="40" />
             국립공원
-          </NationalPark>
-          <Cabins>
+          </NATIONAL_PARK>
+          <SHACK>
             <CabinsSVG width="100" height="40" />
             통나무집
-          </Cabins>
-          <Islands>
+          </SHACK>
+          <ISLE>
             <IslandsSVG width="100" height="40" />섬
-          </Islands>
-          <Beach>
+          </ISLE>
+          <OCEAN>
             <BeachSVG width="100" height="40" />
             해변 근처
-          </Beach>
-          <TinyHomes>
+          </OCEAN>
+          <COMPACT>
             <TinyHomesSVG width="100" height="40" />
             초소형 주택
-          </TinyHomes>
-          <Design>
+          </COMPACT>
+          <DESIGNED>
             <DesignSVG width="100" height="40" />
             디자인
-          </Design>
-          <Camping>
+          </DESIGNED>
+          <CAMPSITE>
             <CampingSVG width="100" height="40" />
             캠핑장
-          </Camping>
-          <AFrames>
+          </CAMPSITE>
+          <A_SHAPED>
             <AFramesSVG width="100" height="40" />
             A자형 주택
-          </AFrames>
-          <LakeFront>
+          </A_SHAPED>
+          <LAKE>
             <LakeFrontSVG width="100" height="40" />
             호숫가
-          </LakeFront>
-          <Arctic>
+          </LAKE>
+          <ARCTIC>
             <ArcticSVG width="100" height="40" fill="blue" />
             북극
-          </Arctic>
+          </ARCTIC>
           <FilterButton>
             <FilterButtonSVG />
             필터
           </FilterButton>
         </CategoryBox>
       </CategoryNavbar>
+
       <MainBox>
-{data.map((item)=>item ? <Card item={item}/> : <MainSkeleton/> )}
+        {houseList.map((item) =>
+          item ? <Card item={item} /> : <MainSkeleton />
+        )}
       </MainBox>
     </Fragment>
   );

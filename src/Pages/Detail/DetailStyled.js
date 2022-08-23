@@ -412,7 +412,7 @@ export const AirCoverImg = styled.img`
 `;
 export const Alojamiento = styled.div`
   width: 653.33px;
-  height: 301.2px;
+  height: 336.2px;
   border-bottom: 2px solid rgb(221, 221, 221);
   margin-top: 3%;
   margin-bottom: 3%;
@@ -708,3 +708,5 @@ export const AccomDetailDiClin = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+//구글맵

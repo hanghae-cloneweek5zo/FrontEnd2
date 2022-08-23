@@ -14,6 +14,7 @@ import { Routes, Route } from 'react-router-dom';
 import Main from './Pages/Main/Main';
 import Detail from './Pages/Detail/Detail';
 
+
 function App() {
   return (
     // <FilterModal/>

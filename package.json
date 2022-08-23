@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.7",
+    "@react-google-maps/api": "^2.12.1",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.27.2",
+    "google-map-react": "^2.2.0",
     "json-server": "^0.17.0",
     "multi-range-slider-react": "^1.0.7",
     "rc-slider": "^10.0.1",
