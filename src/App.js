@@ -20,6 +20,7 @@ function App() {
     <Routes>
       <Route path="/" exact="true" element={<Main />} />
       <Route path="Detail" exact="true" element={<Detail />} />
+      <Route path="*"  element={<Main />} />
     </Routes>
   );
 }

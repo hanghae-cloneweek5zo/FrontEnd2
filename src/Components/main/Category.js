@@ -21,7 +21,7 @@ export const CategoryNavbar = styled.div`
   /* border: 1px solid orange; */
   padding: 10px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   &:before {
     content: '';
     box-sizing: border-box;
@@ -141,7 +141,27 @@ export const FilterButtonBox = styled.div`
   justify-content: center;
   grid-auto-columns: column;
   align-items: center;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   gap: 5px;
   font-size: 12px;
+  &:hover{
+    cursor: pointer;
+    border: 2px solid #dddddd;
+  }
 `;
+
+export const FilterButton = styled.div`
+align-items: center;
+ display: flex;
+ border: 1px solid #dddddd;
+  border-radius: 12px;
+  left: 30px;
+  width: 60px;
+  height: 48px;
+  padding-left: 20px;
+  z-index: 1;
+  &:hover{
+    cursor: pointer;
+    border: 2px solid #dddddd;
+  }
+`

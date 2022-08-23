@@ -4,14 +4,14 @@ import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
-const Card = () => {
+const Card = ({item}) => {
   return (
     <Fragment>
       <CardContents>
         <CardArea>
           <CardImgArea
             image_url={
-              'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720'
+              item.img
             }
           >
             <CardIconArea>
@@ -21,25 +21,26 @@ const Card = () => {
           </CardImgArea>
           <CardContentArea>
             <div>
-              <span style={{ fontWeight: '600' }}>Abiansemal, 인도네시아</span>
+              <span style={{ fontWeight: '600' }}>{item.local},{item.Country} </span>
             </div>
             <div>
-              <AiFillStar/>4.87
+              {item.star}
             </div>
           </CardContentArea>
           <CardContentArea>
             <div>
-              <span style={{ color: '#979a9e' }}>5,275km</span>
+              <span style={{ color: '#979a9e' }}>{item.distance}</span>
             </div>
           </CardContentArea>
           <CardContentArea>
-            <div>₩480,993 / 박</div>
+            <div>{item.price} / 박</div>
           </CardContentArea>
         </CardArea>
       </CardContents>
     </Fragment>
   );
 };
+
 
 export default Card;
 

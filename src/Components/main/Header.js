@@ -13,7 +13,7 @@ import { FaBars } from 'react-icons/fa';
 import imgPath from '../../static/IconImages/profile.png';
 // import ProfileModal from "./ProfileModal";
 
-const Header = ({ isScrollTop, togglePopup, isLoggedIn, data }) => {
+const Header = ({ isScrollTop, togglePopup, isLoggedIn, data ,Filter,setFilter}) => {
   // const { profileImg } = data;
   const navigate = useNavigate();
 
