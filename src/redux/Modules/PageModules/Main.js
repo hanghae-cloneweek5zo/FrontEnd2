@@ -11,7 +11,8 @@ export const MainThunk = createAsyncThunk(
         
       const HouseList = await axios
         .get(`${URL}/houses`)
-        .then((res) =>res.data.data);
+        .then((res) =>res.data.data)
+        ;
   
       return thunkAPI.fulfillWithValue(HouseList);
     }

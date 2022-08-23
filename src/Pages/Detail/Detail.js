@@ -139,6 +139,7 @@ import {
 function Detail() {
   const param = useParams();
   const dispatch = useDispatch();
+  const [isLoading,setIsLoding] = useState(false)
   useEffect(() => {
     dispatch(DetailThunk(param));
   }, []);
@@ -573,7 +574,7 @@ function Detail() {
               </ProfileComment>
             </ReviewerDiv>
             <ModalButton onClick={()=>setDisplay(!display)} >후기 모두 보기</ModalButton>
-            <ReviewModal display={display} setDisplay={setDisplay}/>
+            <ReviewModal display={display} setDisplay={setDisplay} param={param} isLoading={isLoading} setIsLoding={setIsLoding} />
           </Reviewer>
         </ReviewPadding>
       </Review>

@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
-
+import { useNavigate } from 'react-router-dom';
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
@@ -60,121 +60,22 @@ import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     setIsLoding(true);
     dispatch(MainThunk());
     setIsLoding(false);
   }, []);
 
+
   const [Filter, setFilter] = useState(false);
   const [Login, setLogin] = useState(false);
   const [SignUp, setSignUp] = useState(false);
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-
-  const data = [
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
+  const skeletonCount = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
-
-
-
-
-
 
   // const [categories, setCategories] = useState(initialState);
   return (
@@ -243,10 +144,9 @@ const Main = () => {
       </CategoryNavbar>
 
       <MainBox>
-
-        {data.map((item) =>
-          isLoding ? <MainSkeleton /> : <Card item={item} />
-        )}
+        {isLoding
+          ? skeletonCount.map((item) => <MainSkeleton />)
+          : houseList.map((item) => <Card item={item} />)}
       </MainBox>
     </Fragment>
   );

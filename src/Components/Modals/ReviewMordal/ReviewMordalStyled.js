@@ -51,7 +51,7 @@ margin-left: 15px;
 `
 export const ReviewInput = styled.input`
 background-color: #e2e2e2;
-width: 100%;
+width: 80%;
 border: none;
 outline: none;
 border-radius: 20px;
