@@ -1,15 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = { data: {} };
+const initialState = { Main: [] };
+const URL = process.env.REACT_APP_URL
 
 
 export const MainThunk = createAsyncThunk(
     'Main/MainThunk',
     async (payload, thunkAPI) => {
+        
       const HouseList = await axios
-        .post('http://3.34.126.243/house')
-        .then((res) => res.data.data);
+        .get(`${URL}/houses`)
+        .then((res) =>res.data.data);
   
       return thunkAPI.fulfillWithValue(HouseList);
     }
@@ -21,7 +23,9 @@ const MainSlice = createSlice({
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
-      builder.addCase(MainThunk.fulfilled, (state, action) => {});
+      builder.addCase(MainThunk.fulfilled, (state, action) => {
+        state.Main = action.payload
+      });
     },
   });
 

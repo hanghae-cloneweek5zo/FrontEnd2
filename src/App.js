@@ -19,7 +19,8 @@ function App() {
     <Main />
     // <Routes>
     //   <Route path="/" exact="true" element={<Main />} />
-    //   <Route path="Detail" exact="true" element={<Detail />} />
+    //   <Route path="Detail:id" exact="true" element={<Detail />} />
+    // <Route path="*"  element={<Main />} />
     // </Routes>
 
     // <FilterModal/>
