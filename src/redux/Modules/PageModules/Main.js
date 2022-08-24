@@ -24,6 +24,15 @@ export const FilterThunk = createAsyncThunk(
     return thunkAPI.fulfillWithValue(FilterList);
   }
 );
+export const CategoryThunk = createAsyncThunk(
+  'Category/CategoryThunk',
+  async (payload, thunkAPI) => {
+    const Category = await axios
+      .get(`${URL}/houses/categories/${payload.homeCategory}`)
+      .then((res) => res.data.data);
+    return thunkAPI.fulfillWithValue(Category);
+  }
+);
 
 const MainSlice = createSlice({
   name: 'Main',
@@ -34,6 +43,10 @@ const MainSlice = createSlice({
       state.Main = action.payload;
     });
     builder.addCase(FilterThunk.fulfilled, (state, action) => {
+      console.log(action)
+      state.Main = action.payload;
+    });
+    builder.addCase(CategoryThunk.fulfilled, (state, action) => {
       console.log(action)
       state.Main = action.payload;
     })

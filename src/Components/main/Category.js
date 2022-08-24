@@ -15,17 +15,18 @@ import { ReactComponent as CAMPSITESVG } from '../../static/IconImages/CAMPSITE.
 import { ReactComponent as A_SHAPEDSVG } from '../../static/IconImages/A_SHAPED.svg';
 import { ReactComponent as LAKESVG } from '../../static/IconImages/LAKE.svg';
 import { ReactComponent as ARCTICSVG } from '../../static/IconImages/ARCTIC.svg';
-import { CategoryThunk } from '../../redux/Modules/PageModules/Category';
+import { CategoryThunk, MainThunk } from '../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
 
 const Category = ({ setCategory, category }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
-  const CategoryClick = (index) => {
-    setCategory(index);
-    dispatch(CategoryThunk(Category[category]));
-  };
+  useEffect(() => {
+    category ===0 ? dispatch(MainThunk()) :
+    dispatch(CategoryThunk({homeCategory:Category[category],category}));
+  }, [category]);
+
 
   const Category = [
     'ALLHOMES',
@@ -81,18 +82,20 @@ const Category = ({ setCategory, category }) => {
             {categoryList.map((item, index) => (
               <FANCY
                 onClick={() => {
-                  CategoryClick(index);
+                  setCategory(index);
                 }}
+                key={CategoryNameList[index]}
               >
                 {item}
                 {CategoryNameList[index]}
               </FANCY>
             ))}
-          </CategoryGroup>
-          <FilterButton>
+             <FilterButton>
             <FilterButtonSVG />
             필터
           </FilterButton>
+          </CategoryGroup>
+         
         </CategoryBox>
       </CategoryNavbar>
     </Fragment>
@@ -164,7 +167,9 @@ export const CategoryBox = styled.div`
 `;
 
 export const CategoryGroup = styled.div`
+width: 100%;
   display: flex;
+
   grid-auto-flow: column;
   grid-auto-columns: max-content;
   border: 1px solid blue;
@@ -173,6 +178,7 @@ export const CategoryGroup = styled.div`
 
 export const FANCY = styled.div`
   z-index: 1;
+  margin: 0 20px;
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -291,31 +297,9 @@ export const ARCTIC = styled.div`
   }
 `;
 
-export const FilterButtonBox = styled.div`
-  position: relative;
-  left: 30px;
-  width: 80px;
-  height: 48px;
-  background-color: transparent;
-  color: black;
-  border: 1px solid #dddddd;
-  border-radius: 12px;
-  margin: 0px;
-  padding: 7px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  grid-auto-columns: column;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  &:hover {
-    cursor: pointer;
-    border: 2px solid #dddddd;
-  }
-`;
 
 export const FilterButton = styled.div`
+
   align-items: center;
   display: flex;
   border: 1px solid #dddddd;
@@ -326,6 +310,7 @@ export const FilterButton = styled.div`
   padding-left: 20px;
   z-index: 1;
   font-size: 14px;
+  margin-left: 80px;
   &:hover {
     cursor: pointer;
     border: 2px solid #dddddd;
