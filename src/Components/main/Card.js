@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ item }) => {
+
+  const Navigate = useNavigate()
+
+
   return (
     <Fragment key={item.houseId}>
-      <CardContents>
+      <CardContents onClick={()=> {Navigate(`detail/${item.houseId}`)}}>
         <CardArea>
           <CardImgArea image_url={item.img}>
             <CardIconArea>

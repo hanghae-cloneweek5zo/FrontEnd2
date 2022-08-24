@@ -72,108 +72,6 @@ const Main = () => {
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
 
-  const data = [
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/e25a9b25-fa98-4160-bfd1-039287bf38b6.jpg?im_w=720',
-      local: 'Abansemal',
-      price: '₩ 476379',
-      Country: '인도네시아',
-      star: '⭐ 4.87',
-      distance: '1300km',
-    },
-  ];
-
-
-
-
 
 
   // const [categories, setCategories] = useState(initialState);
@@ -244,7 +142,7 @@ const Main = () => {
 
       <MainBox>
 
-        {data.map((item) =>
+        {houseList.map((item) =>
           isLoding ? <MainSkeleton /> : <Card item={item} />
         )}
       </MainBox>
