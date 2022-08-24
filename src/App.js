@@ -13,6 +13,7 @@ import { Routes, Route } from 'react-router-dom';
 // Page import
 import Main from './Pages/Main/Main';
 import Detail from './Pages/Detail/Detail';
+import ManinSimpleMap from './Pages/MainGoogleMap/MainSimpleMap';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Route path="/" exact="true" element={<Main />} />
       <Route path="detail" element={<Detail />} />
       <Route path="detail/:id" element={<Detail />} />
-      <Route path="Calendar" element={<Calendar />} />
+      <Route path="ManinSimpleMap" element={<ManinSimpleMap />} />
       <Route path="*" element={<Main />} />
     </Routes>
   );

@@ -15,8 +15,6 @@ import imgPath from '../../static/IconImages/profile.png';
 import LoginModal from '../Modals/LoginModal/LoginModal';
 import SignUpModal from '../Modals/SignUpModal/SignUpModal';
 
-// import ProfileModal from "./ProfileModal";
-
 const Header = ({
   isScrollTop,
   togglePopup,
@@ -30,38 +28,38 @@ const Header = ({
   const [Login, setLogin] = useState('none');
   const [SignUp, setSignUp] = useState('none');
   const [Profile, setProfile] = useState('none');
-  const el = useRef()
-  const modalEl = useRef(); // 
+  const el = useRef();
+  const modalEl = useRef(); //
   const buttonEl = useRef();
 
-  
   const handleClickOutside = (e) => {
-      if (Profile==='block' && (!modalEl.current.contains(e.target)&&!buttonEl.current.contains(e.target))) setProfile('none');
-    };
-  
+    if (
+      Profile === 'block' &&
+      !modalEl.current.contains(e.target) &&
+      !buttonEl.current.contains(e.target)
+    )
+      setProfile('none');
+  };
+
   useEffect(() => {
-    window.addEventListener("click", handleClickOutside);
+    window.addEventListener('click', handleClickOutside);
     return () => {
-      window.removeEventListener("click", handleClickOutside);
+      window.removeEventListener('click', handleClickOutside);
     };
   }, [Profile]);
 
-
   const ProfileHandler = () => {
     Profile === 'none' ? setProfile('block') : setProfile('none');
-
   };
   const LoginHandler = () => {
     Login === 'none' ? setLogin('block') : setLogin('none');
-
   };
   const SignUpHandler = () => {
     SignUp === 'none' ? setSignUp('block') : setSignUp('none');
-
   };
   return (
     <Fragment>
-      <HeaderBox >
+      <HeaderBox>
         <HeaderLogo>
           <FaAirbnb />
           <HeaderLogoTitle onClick={() => navigate('/')}>
@@ -69,7 +67,7 @@ const Header = ({
           </HeaderLogoTitle>
         </HeaderLogo>
         <ProfileArea>
-       <HeaderPageButton
+          <HeaderPageButton
             btnType="oval"
             isScrollTop={isScrollTop}
             onClick={ProfileHandler}
@@ -79,27 +77,41 @@ const Header = ({
             <FaBars />
             {/* {isLoggedIn && profileImg && <HeaderProfileImg src={profileImg} />}
           {isLoggedIn && !profileImg && <HeaderProfileImg src={imgPath} />} */}
-           {localStorage.Authorization ? <BnbIcon/> :
+            {localStorage.Authorization ? (
+              <BnbIcon />
+            ) : (
               <HeaderProfileSvg>
                 <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
-              </HeaderProfileSvg>}
-            
+              </HeaderProfileSvg>
+            )}
           </HeaderPageButton>
-          <SignUpModal display={SignUp} SignUpHandler={SignUpHandler} LoginHandler={LoginHandler} setSignUp={setSignUp}/>
-            <LoginModal display={Login} LoginHandler={LoginHandler} SignUpHandler={SignUpHandler} el={el} />
-{Profile==='block' &&
-          <ProfileModal display={Profile} ref={modalEl}>
-
-            <LoginButton>
-              <WishText>위시 리스트</WishText>
-            </LoginButton>
-            <LoginButton>
-              <LoginText  onClick={LoginHandler}>로그인 하기</LoginText>
-            </LoginButton>
-            <SignUpButton>
-              <SignUpText onClick={SignUpHandler} ref={el}>회원가입 하기</SignUpText>
-            </SignUpButton>
-          </ProfileModal>}
+          <SignUpModal
+            display={SignUp}
+            SignUpHandler={SignUpHandler}
+            LoginHandler={LoginHandler}
+            setSignUp={setSignUp}
+          />
+          <LoginModal
+            display={Login}
+            LoginHandler={LoginHandler}
+            SignUpHandler={SignUpHandler}
+            el={el}
+          />
+          {Profile === 'block' && (
+            <ProfileModal display={Profile} ref={modalEl}>
+              <LoginButton>
+                <WishText>위시 리스트</WishText>
+              </LoginButton>
+              <LoginButton>
+                <LoginText onClick={LoginHandler}>로그인 하기</LoginText>
+              </LoginButton>
+              <SignUpButton>
+                <SignUpText onClick={SignUpHandler} ref={el}>
+                  회원가입 하기
+                </SignUpText>
+              </SignUpButton>
+            </ProfileModal>
+          )}
         </ProfileArea>
       </HeaderBox>
     </Fragment>
@@ -199,6 +211,7 @@ export const ProfileModal = styled.div`
   right: 100px;
   top: 80px;
 `;
+
 export const LoginButton = styled.div`
   width: 100%;
   border-bottom: 1px solid #e2e2e2;
@@ -231,5 +244,5 @@ export const SignUpButton = styled.div`
 export const BnbIcon = styled(TbBrandAirbnb)`
   width: 32px;
   height: 32px;
-  color: #FF385C;
+  color: #ff385c;
 `;
