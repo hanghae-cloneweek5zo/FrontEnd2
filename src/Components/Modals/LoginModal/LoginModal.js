@@ -1,7 +1,7 @@
 //react import
 import React, { useState } from 'react';
 import useInput from '../../../hook/hook';
-import axios from 'axios'
+import axios from 'axios';
 //style import
 import {
   LoginModalBody,
@@ -12,6 +12,7 @@ import {
   BodyText,
   LoginButton,
   KakaoIcon,
+  BnbIcon,
   ButtonText,
   ButtonArea,
   TopBody,
@@ -21,37 +22,45 @@ import {
   PasswordInputArea,
   ClearButton,
   ClearButtonArea,
+  BnbButtonArea,
   GoogleIcon,
   GoogleButtonArea,
-  IconButtonArea
+  IconButtonArea,
 } from './LoginModalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 
-
-const LoginModal = () => {
+const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
   const [email, setEmail] = useInput('');
   const [password, setPassword] = useInput('');
   const LoginInfomation = {
     email: email,
     password: password,
   };
-  console.log(LoginInfomation)
+  const GoSignUp = () => {
+    LoginHandler();
+    SignUpHandler();
+    setEmail('')
+    setPassword('')
+  };
+  const URL = process.env.REACT_APP_URL;
   const LoginCheck = (event) => {
     event.preventDefault();
-    axios.post('http://3.34.126.243/members/login',LoginInfomation).then((res)=>{
-    const token = res.headers.authorization;
-    localStorage.setItem('Authorization', token);
-    //**모달닫는 함수 추가하기**
-    console.log(res)})
-  }
-  const notice = () =>{
-    alert("준비중입니다")
-  }
+    axios
+      .post(`${URL}/members/login`, LoginInfomation)
+      .then((res) => {
+        const token = res.headers.authorization;
+        localStorage.setItem('Authorization', token);
+        LoginHandler()
+      });
+  };
+  const notice = () => {
+    alert('준비중입니다');
+  };
   return (
-    <LoginModalBody display={true}>
+    <LoginModalBody display={display}>
       <LoginModalSection>
         <LoginModalHeader>
-          <HeaderCancel />
+          <HeaderCancel onClick={LoginHandler} />
           <TopText>로그인 또는 회원 가입</TopText>
         </LoginModalHeader>
 
@@ -59,16 +68,19 @@ const LoginModal = () => {
           <TopBody onSubmit={(event) => LoginCheck(event)}>
             <BodyText>에어비엔비에 오신 것을 환영합니다.</BodyText>
 
-
             <EmailInputArea>
-              <LoginInput type="email" onChange={setEmail} required/>{' '}
+              <LoginInput type="email" onChange={setEmail} required />{' '}
             </EmailInputArea>
 
             <PasswordInputArea>
               {' '}
-              <LoginInput type="password" onChange={setPassword} required />{' '}
+              <LoginInput
+                type="password"
+                onChange={setPassword}
+                required
+              />{' '}
             </PasswordInputArea>
-            <ClearButtonArea> 
+            <ClearButtonArea>
               {' '}
               <ClearButton>로그인</ClearButton>{' '}
             </ClearButtonArea>
@@ -76,25 +88,27 @@ const LoginModal = () => {
 
           <BottomBody>
             <IconButtonArea>
-             <ButtonArea>
-              {' '}
-              <LoginButton
-                onClick={notice}
-              >
-                <KakaoIcon />
-                <ButtonText>Kakao 계정으로 로그인하기</ButtonText>
-              </LoginButton>
-            </ButtonArea>
+              <BnbButtonArea>
+                <LoginButton onClick={GoSignUp}>
+                  <BnbIcon />
+                  <ButtonText>airbnb 회원가입</ButtonText>
+                </LoginButton>
+              </BnbButtonArea>
+              <ButtonArea>
+                {' '}
+                <LoginButton onClick={notice}>
+                  <KakaoIcon />
+                  <ButtonText>Kakao 계정으로 로그인하기</ButtonText>
+                </LoginButton>
+              </ButtonArea>
 
-            <GoogleButtonArea>
-              {' '}
-              <LoginButton
-                onClick={notice}
-              >
-                <GoogleIcon />
-                <ButtonText>Google 계정으로 로그인하기</ButtonText>
-              </LoginButton>
-            </GoogleButtonArea> 
+              <GoogleButtonArea>
+                {' '}
+                <LoginButton onClick={notice}>
+                  <GoogleIcon />
+                  <ButtonText>Google 계정으로 로그인하기</ButtonText>
+                </LoginButton>
+              </GoogleButtonArea>
             </IconButtonArea>
           </BottomBody>
         </SectionBody>

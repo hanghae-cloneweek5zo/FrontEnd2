@@ -38,7 +38,7 @@ margin-left: 30px;
 `
 export const ReviewArea = styled.div`
 width: 100%;
-max-height: 700px;
+max-height: 500px;
 padding-bottom: 100px;
 `
 export const InputArea = styled.div`

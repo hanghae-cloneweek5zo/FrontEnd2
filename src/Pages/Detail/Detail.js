@@ -141,7 +141,9 @@ function Detail() {
   const dispatch = useDispatch();
   const [isLoading,setIsLoding] = useState(false)
   useEffect(() => {
+    setIsLoding(true)
     dispatch(DetailThunk(param));
+    setIsLoding(false)
   }, []);
   const houseData = useSelector((state) => state.Detail.Detail);
   const [display,setDisplay] = useState(false)

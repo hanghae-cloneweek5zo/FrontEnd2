@@ -3,7 +3,7 @@ import '../../../static/fonts/fonts.css';
 import { ImCross } from 'react-icons/im';
 
 export const FilterModalBody = styled.div`
-  display: ${(props) => (props.display ? 'block' : 'none')};
+  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
   top: 0;
   right: 0;
@@ -16,7 +16,7 @@ export const FilterModalBody = styled.div`
 export const FilterModalSection = styled.div`
   width: 568px;
   background-color: white;
-  margin: 100px auto 0px auto;
+  margin: 200px auto 0px auto;
   border-radius: 20px;
   padding: 0 15px;
 `;
@@ -66,7 +66,7 @@ export const RangeDiv = styled.div`
 `;
 export const LeftRange = styled.input`
   width: 45%;
-
+  height: 30px;
   position: absolute;
   accent-color: #e2e2e2;
 
@@ -77,7 +77,7 @@ export const LeftRange = styled.input`
 `;
 export const RightRange = styled.input`
   width: 45%;
-
+  height: 30px;
   position: absolute;
   left: 42%;
   accent-color: #e2e2e2;
@@ -100,7 +100,7 @@ export const PriceInputArea = styled.div`
 
 export const LeftPrice = styled.input`
   width: 40%;
-  height: 30px;
+  height: 40px;
   border-radius: 20px;
   border: 0.5px solid #e2e2e2;
   margin-right: 10px;
@@ -109,7 +109,7 @@ export const LeftPrice = styled.input`
 `;
 export const RightPrice = styled.input`
   width: 40%;
-  height: 30px;
+  height: 40px;
   border-radius: 20px;
   border: 0.5px solid #e2e2e2;
   margin-left: 10px;
@@ -144,6 +144,9 @@ margin: 20px 15px;
 export const OptionDiv = styled.div`
 width: 100%;
 color: #e2e2e2;
+
+`
+export const InputInside = styled.div`
 
 `
 export const CheckButtonLine = styled.div`
