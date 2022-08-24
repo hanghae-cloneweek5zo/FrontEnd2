@@ -147,6 +147,7 @@ function Detail() {
   const dispatch = useDispatch();
 
   const houseData = useSelector((state) => state.Detail.Detail);
+
   const is_loaded = useSelector((state) => state.Detail.is_loaded);
 
   const [isLoading, setIsLoding] = useState(false);
