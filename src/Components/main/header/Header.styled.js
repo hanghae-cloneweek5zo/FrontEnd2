@@ -2,26 +2,26 @@ import styled from 'styled-components';
 import { TbBrandAirbnb } from 'react-icons/tb';
 
 export const HeaderBox = styled.header`
-  position: fixed;
-  top: 0;
   width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
   z-index: 100;
   border-bottom: 1px solid rgb(235, 235, 235);
-  margin: -3px;
   box-sizing: border-box;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px 82px 15px 61px;
   background-color: white;
+`;
+
+export const HeaderWrap = styled.div`
+  width: 100%;
+  height: 80px;
+  max-width: 1600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
 `;
 
 export const HeaderLogo = styled.div`
   height: 80px;
   width: 100%;
-  padding-left: 80px;
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -54,7 +54,6 @@ export const HeaderPageButton = styled.div`
   display: flex;
   border-radius: 21px !important;
   padding: 5px 5px 5px 12px;
-  margin-right: 80px;
   background: transparent;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
   &svg {

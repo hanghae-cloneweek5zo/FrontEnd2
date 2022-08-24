@@ -7,8 +7,8 @@ import {
   HeaderLogo,
   HeaderLogoTitle,
   HeaderPageButton,
-  HeaderProfileSvg,
-} from '../header/Header.styled';
+  HeaderProfileSvg }
+  from "./DetailHeader.styled"
 
 // Package import
 import { useNavigate } from 'react-router-dom';

@@ -1,89 +1,76 @@
 import styled from 'styled-components';
 
 export const CategoryNavbar = styled.div`
-  position: sticky;
-  margin: auto;
-  right: 0;
-  left: 0;
-  top: 75px;
+  margin: 0 auto;
   display: block;
+  padding-top: 10px;
   width: 100%;
-  height: 90px;
   z-index: 1;
   background-color: white;
-  padding: 20px;
   scroll-margin-inline-start: 0;
-  box-shadow: rgb(0 0 0 / 16%) 0 0 6px;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
   box-sizing: border-box;
-  &:before {
+  /* &:before {
     content: '';
     box-sizing: border-box;
     display: flex;
-  }
+  } */
 `;
 
 export const CategoryBox = styled.div`
-  position: grid !important;
-  grid-template-columns: 100%;
-  width: 87%;
-  margin: auto;
-  height: 60px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   color: #717171;
-  /* &:hover {
-    cursor: pointer;
-  } */
   z-index: -1;
   text-align: center;
   font-size: 12px;
   box-shadow: 0.2s;
-  &:after {
-    content: '';
-    display: block;
-    visibility: hidden;
-    clear: both;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2.5px;
-    bottom: 0;
-    left: 5%;
-    transform: translateX(50%);
-    background-color: rgb(34, 34, 34);
-    transition: all 0.3s ease-in-out;
-    ${(props) => (props.idx === props.clickCategory ? `width: 5%;` : '')}
-  }
 `;
 
-export const CategoryGroup = styled.div`
-  width: 100%;
-  margin: auto;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  /* border: 1px solid blue; */
-  gap: 26px;
-`;
-
-export const FANCY = styled.div`
-  z-index: 1;
-  margin: auto;
-  width: 100px;
-  height: 60px;
+export const CategoryBtn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  /* box-sizing: border-box; */
+  transition: all 0.13s;
+  svg {
+    margin-bottom: 5px;
+  }
+  span {
+    padding: 10px 0;
+  }
   &:hover {
     cursor: pointer;
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    span {
+      box-shadow: inset 0 -2px 0 rgb(34, 34, 34);
+    }
+    svg path {
+      fill: rgb(34, 34, 34);
+    }
+  }
+  &.active {
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    span {
+      box-shadow: inset 0 -2px 0 rgb(34, 34, 34);
+    }
+    svg path {
+      fill: rgb(34, 34, 34);
+    }
   }
 `;
 
 export const ALLHOMES = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -92,7 +79,6 @@ export const ALLHOMES = styled.div`
 
 export const NATIONAL_PARK = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -101,7 +87,6 @@ export const NATIONAL_PARK = styled.div`
 
 export const SHACK = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -110,7 +95,6 @@ export const SHACK = styled.div`
 
 export const ISLE = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -119,7 +103,6 @@ export const ISLE = styled.div`
 
 export const OCEAN = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -128,7 +111,6 @@ export const OCEAN = styled.div`
 
 export const COMPACT = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -137,7 +119,6 @@ export const COMPACT = styled.div`
 
 export const DESIGNED = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -146,7 +127,6 @@ export const DESIGNED = styled.div`
 
 export const CAMPSITE = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -155,7 +135,6 @@ export const CAMPSITE = styled.div`
 
 export const A_SHAPED = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -164,7 +143,6 @@ export const A_SHAPED = styled.div`
 
 export const LAKE = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -173,7 +151,6 @@ export const LAKE = styled.div`
 
 export const ARCTIC = styled.div`
   z-index: 1;
-  width: 100px;
   height: 60px;
   &:hover {
     cursor: pointer;
@@ -196,4 +173,10 @@ export const FilterButton = styled.div`
     border: 2px solid #dddddd;
   }
   font-size: 15px;
+`;
+
+export const CategoryWrap = styled.div`
+  display: flex;
+  width: 1400px;
+  justify-content: space-between;
 `;
