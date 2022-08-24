@@ -494,7 +494,7 @@ export const FtDivEx = styled.div`
   text-decoration:line-through 
 `;
 
-export const Calendar = styled.div`
+export const CalendarSec = styled.div`
   width: 653.33px;
   height: 517.99px;
 `;
@@ -503,11 +503,20 @@ export const CalendarPadiing = styled.div`
   height: 421.99px;
   padding-top: 48px;
   padding-bottom: 48px;
+
+
 `;
 export const CalendarDiv = styled.div`
   width: 653.33px;
   height: 69.99px;
 `;
+export const CalendarDivDAY = styled.div`
+  width: 653.33px;
+  margin-top: 80px;
+  height: auto;
+`;
+
+
 export const CalendarSapn = styled.span`
   font-size: 24px;
 `;

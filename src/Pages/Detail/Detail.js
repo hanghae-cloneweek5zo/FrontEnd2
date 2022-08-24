@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { DetailThunk } from "../../redux/Modules/PageModules/Detail";
 import ReviewModal from "../../Components/Modals/ReviewMordal/ReviewMordal";
+import Calendar from "../../Components/Calendar"
 
 import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from "react-icons/ai";
 import {
@@ -53,10 +54,11 @@ import {
   BadRoomPadiing,
   BedRoomFT,
   BedRoomSpan,
-  Calendar,
   CalendarDiv,
+  CalendarDivDAY,
   CalendarPadiing,
   CalendarSapn,
+  CalendarSec,
   DetailBody,
   FtDiv,
   FtDivEx,
@@ -138,7 +140,6 @@ import {
   TitleSection,
   TitleUnderDiv,
 } from "../Detail/DetailStyled";
-import Header from "../../Components/main/Header";
 import DetailHeader from "../../Components/main/DetailHeader";
 
 function Detail() {
@@ -166,7 +167,7 @@ function Detail() {
 
   // const reviewsLength = reviews.length;
 
-  console.log(reviews);
+  console.log(houseData);
 
   const [display, setDisplay] = useState(false);
 
@@ -432,7 +433,7 @@ function Detail() {
                 </AccDiv>
               </AccommodationDiv>
 
-              <Calendar>
+              <CalendarSec>
                 <CalendarPadiing>
                   <CalendarDiv>
                     <CalendarSapn>
@@ -440,8 +441,18 @@ function Detail() {
                     </CalendarSapn>
                     <div>2022년 8월 19일 - 2023년 8월 25일</div>
                   </CalendarDiv>
+                  
+                  <CalendarDivDAY>
+
+                  <Calendar/>
+                  
+                  </CalendarDivDAY>
+
                 </CalendarPadiing>
-              </Calendar>
+
+                
+
+              </CalendarSec>
             </HostSectionLeftDiv>
             <HostSectionRightDiv>
               <MovingBox>
