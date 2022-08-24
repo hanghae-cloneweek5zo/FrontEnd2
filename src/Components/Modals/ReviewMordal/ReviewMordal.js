@@ -58,7 +58,11 @@ const ReviewModal = ({
     },
     param: param.id,
   };
-  console.log(writeReview)
+  const skeletonCount = [];
+  var i = 0
+  for(i===0;i<20;i++){
+    skeletonCount.push(i)
+  }
   const review = [
     {
       accommodationId: 1,
@@ -193,11 +197,11 @@ const ReviewModal = ({
             <ReviewList>
               {/* 맵돌리는부분 */}
 
-              {review.reverse().map((item) => {
+              {review.reverse().map((item,i) => {
                 return isLoading ? (
                   <ReviewSkeleton />
                 ) : (
-                  <ReviewCard>
+                  <ReviewCard key={item.reviewId+i}>
                     <ProfileInfo>
                       <ProfileImg src={item.img} />
                       <ProfileTextArea>
@@ -218,7 +222,7 @@ const ReviewModal = ({
               {/* 맵돌리는부분 */}
             </ReviewList>
             <PostButtonArea>
-              <PostButton onClick={()=>{dispatch(ReviewThunk())}} >작성하기</PostButton>
+              <PostButton onClick={SendReview} >작성하기</PostButton>
             </PostButtonArea>
           </ReviewArea>
         </ReviewBody>

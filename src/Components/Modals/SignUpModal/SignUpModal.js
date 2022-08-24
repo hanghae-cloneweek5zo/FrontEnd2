@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+//react import
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import useInput from '../../../hook/hook';
+
 import {
   SignModalBody,
   SignupModalSection,
@@ -18,9 +21,8 @@ import {
   SignupButtonArea,
 } from './SignUpModalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
-import useInput from '../../../hook/hook';
 
-const SignUpModal = () => {
+const SignUpModal = ({ display, SignUpHandler, LoginHandler, setSignUp }) => {
   const [email, emailHandler] = useInput('');
   const [password, passwordHandler] = useInput('');
   const [checkPw, checkPwHandler] = useInput('');
@@ -28,7 +30,7 @@ const SignUpModal = () => {
   const [E_check, setE_check] = useState(false);
   const [P_check, setP_check] = useState(false);
   const [N_check, setN_check] = useState(false);
-  const [signDis, setSignDis] = useState(false);
+
   const URL = process.env.REACT_APP_URL;
   const checkEmail = { email: email };
   const checkNickname = { nickname: nickname };
@@ -40,7 +42,8 @@ const SignUpModal = () => {
   };
   const SignClear = () => {
     alert('회원가입이 완료되었습니다.');
-    setSignDis(true);
+    SignUpHandler();
+    LoginHandler();
   };
 
   useEffect(() => {
@@ -55,28 +58,24 @@ const SignUpModal = () => {
 
     if (N_check && E_check) {
       if (P_check) {
-        axios
-          .post('http://3.34.126.243/members/signup', signUpData)
-          .then((res) => {
-            res.data ? SignClear() : alert('잠시후 다시 시도해주세요');
-          });
+        axios.post(`${URL}/members/signup`, signUpData).then((res) => {
+          res.data ? SignClear() : alert('잠시후 다시 시도해주세요');
+        });
       }
     }
     if (E_check === false) {
-      axios
-        .post('http://3.34.126.243/members/isvalidate/email', checkEmail)
-        .then((res) => {
-          if (res.data) {
-            alert('사용 가능한 이메일 입니다.');
-            setE_check(res.data);
-          } else {
-            alert('이미 가입한 이메일 입니다.');
-            setE_check(res.data);
-          }
-        });
+      axios.post(`${URL}/members/isvalidate/email`, checkEmail).then((res) => {
+        if (res.data) {
+          alert('사용 가능한 이메일 입니다.');
+          setE_check(res.data);
+        } else {
+          alert('이미 가입한 이메일 입니다.');
+          setE_check(res.data);
+        }
+      });
     } else if (N_check === false) {
       axios
-        .post('http://3.34.126.243/members/isvalidate/nickname', checkNickname)
+        .post(`${URL}/members/isvalidate/nickname`, checkNickname)
         .then((res) => {
           if (res.data) {
             alert('사용 가능한 닉네임 입니다.');
@@ -92,55 +91,58 @@ const SignUpModal = () => {
   };
 
   return (
-    <SignModalBody display={true}>
-      <SignupModalSection>
-        <SignupModalHeader>
-          <HeaderCancel />
-          <TopText>로그인 또는 회원 가입</TopText>
-        </SignupModalHeader>
+    <SignModalBody display={display}>
+      {display == 'block' && (
+        <SignupModalSection>
+          <SignupModalHeader>
+            <HeaderCancel onClick={SignUpHandler} />
+            <TopText>로그인 또는 회원 가입</TopText>
+          </SignupModalHeader>
 
-        <SignupArea onSubmit={(event) => signUpCheck(event)}>
+          <SignupArea onSubmit={(event) => signUpCheck(event)}>
+            <EmailArea>
+              {' '}
+              <EmailInputArea>
+                <E_NickInput
+                  type="email"
+                  placeholder="Email"
+                  onChange={emailHandler}
+                  required
+                />
+                <CheckButton>중복 확인</CheckButton>
+              </EmailInputArea>
+            </EmailArea>
 
-          <EmailArea>
-            {' '}
-            <EmailInputArea>
-              <E_NickInput
-                type="email"
-                placeholder="Email"
-                onChange={emailHandler}
-                required
-              />
-              <CheckButton>중복 확인</CheckButton>
-            </EmailInputArea>
-            
-          </EmailArea>
-
-          <PwArea>
-            <SignupInput
-              placeholder="password"
-              onChange={passwordHandler}
-              type="password"
-            />{' '}
-          </PwArea>
-          <PwCheckArea>
-            <SignupInput
-              placeholder="password"
-              onChange={checkPwHandler}
-              type="password"
-            />{' '}
-          </PwCheckArea>
-          <NicknameArea>
-            {' '}
-            <EmailInputArea>
-              <E_NickInput placeholder="Nickname" onChange={nicknameHandler} />
-              <CheckButton>중복 확인</CheckButton>
-            </EmailInputArea>
-          </NicknameArea>
-          <SignupButtonArea>
-            <SignupButton>작성 완료</SignupButton>{' '}
-          </SignupButtonArea>
-        </SignupArea>
-      </SignupModalSection>
+            <PwArea>
+              <SignupInput
+                placeholder="password"
+                onChange={passwordHandler}
+                type="password"
+              />{' '}
+            </PwArea>
+            <PwCheckArea>
+              <SignupInput
+                placeholder="password"
+                onChange={checkPwHandler}
+                type="password"
+              />{' '}
+            </PwCheckArea>
+            <NicknameArea>
+              {' '}
+              <EmailInputArea>
+                <E_NickInput
+                  placeholder="Nickname"
+                  onChange={nicknameHandler}
+                />
+                <CheckButton>중복 확인</CheckButton>
+              </EmailInputArea>
+            </NicknameArea>
+            <SignupButtonArea>
+              <SignupButton>작성 완료</SignupButton>{' '}
+            </SignupButtonArea>
+          </SignupArea>
+        </SignupModalSection>
+      )}
     </SignModalBody>
   );
 };

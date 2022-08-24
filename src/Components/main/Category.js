@@ -166,6 +166,5 @@ export const FilterButton = styled.div`
   z-index: 1;
   &:hover {
     cursor: pointer;
-    border: 2px solid #dddddd;
-  }
+    border: 2px solid #dddddd;}
 `;

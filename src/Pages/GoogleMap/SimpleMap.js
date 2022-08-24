@@ -28,7 +28,7 @@ const SimpleMap = (props) => {
   const [zoom, setZoom] = useState(14);
   
 
-  console.log({apiKey})
+
   return (
       <div style={{ height: '480px', width: '100%' }}>
       <GoogleMapReact

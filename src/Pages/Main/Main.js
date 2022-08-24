@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
 import MainSkeleton from '../../Components/skeleton/MainSkeleton';
-import LoginModal from '../../Components/Modals/LoginModal/LoginModal';
-import SignUpModal from '../../Components/Modals/SignUpModal/SignUpModal';
 import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
 
 import {
@@ -67,15 +65,17 @@ const Main = () => {
     setIsLoding(false);
   }, []);
 
-  const [Filter, setFilter] = useState(false);
-  const [Login, setLogin] = useState(false);
-  const [SignUp, setSignUp] = useState(false);
+  const [Filter, setFilter] = useState('none');
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-  const skeletonCount = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
-
+  const FilterHandler = () => {
+    Filter === 'block' ? setFilter('none') : setFilter('block')
+  }
+  const skeletonCount = [];
+  var i = 0
+  for(i===0;i<20;i++){
+    skeletonCount.push(i)
+  }
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
@@ -128,16 +128,18 @@ const Main = () => {
             <ArcticSVG width="100" height="40" fill="blue" />
             북극
           </ARCTIC>
-          <FilterButton>
+
+          <FilterButton onClick={FilterHandler} >
             <FilterButtonSVG />
             필터
           </FilterButton>
+          <FilterModal FilterHandler={FilterHandler} Filter={Filter} setFilter={setFilter}  />
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
         {isLoding
-          ? skeletonCount.map((item) => <MainSkeleton />)
-          : houseList.map((item) => <Card item={item} />)}
+          ? skeletonCount.map((item) => <MainSkeleton key={item}/>)
+          : houseList.map((item) => <Card item={item} key={item.title+item.starAvg}/>)}
       </MainBox>
     </Fragment>
   );
