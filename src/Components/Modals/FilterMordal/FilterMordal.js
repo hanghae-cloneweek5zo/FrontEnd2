@@ -64,7 +64,7 @@ const FilterModal = ({ FilterHandler, Filter}) => {
       : setCheckList(CheckList.filter((item) => item !== e.target.value));
   };
   const SearchPost = () => {
-    FilterHandler();
+    // FilterHandler();
     dispatch(FilterThunk(FilterData));
   };
   const Search = () => {
@@ -80,7 +80,6 @@ const FilterModal = ({ FilterHandler, Filter}) => {
     bedCnt: bedNum === 7 ? 0 : bedNum,
     facilities: CheckList,
   };
-
   return (
     <FilterModalBody display={Filter}>
       <FilterModalSection>

@@ -53,6 +53,8 @@ const Main = () => {
       <Category
         setCategory={setCategory}
         category={category}
+        Filter={Filter}
+        FilterHandler={FilterHandler}
       />
       <MainBox category={category}>
         {isLoding

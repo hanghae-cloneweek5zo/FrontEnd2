@@ -17,8 +17,9 @@ import { ReactComponent as LAKESVG } from '../../static/IconImages/LAKE.svg';
 import { ReactComponent as ARCTICSVG } from '../../static/IconImages/ARCTIC.svg';
 import { CategoryThunk, MainThunk } from '../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
+import FilterModal from '../Modals/FilterMordal/FilterMordal';
 
-const Category = ({ setCategory, category }) => {
+const Category = ({ setCategory, category,FilterHandler, Filter }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -72,7 +73,6 @@ const Category = ({ setCategory, category }) => {
     <LAKESVG width="100" height="40" />,
     <ARCTICSVG width="100" height="40" />,
   ];
-  console.log(category);
 
   return (
     <Fragment>
@@ -90,10 +90,11 @@ const Category = ({ setCategory, category }) => {
                 {CategoryNameList[index]}
               </FANCY>
             ))}
-             <FilterButton>
+             <FilterButton onClick={FilterHandler}>
             <FilterButtonSVG />
             필터
           </FilterButton>
+          <FilterModal Filter={Filter} FilterHandler={FilterHandler}/>
           </CategoryGroup>
          
         </CategoryBox>
