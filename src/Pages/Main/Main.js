@@ -3,13 +3,12 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
-import { CategoryThunk } from '../../redux/Modules/PageModules/Category';
 import { useNavigate } from 'react-router-dom';
 
 // components import
-import Header from '../../Components/main/Header';
-import Card from '../../Components/main/Card';
-import Category from '../../Components/main/Category';
+import Header from '../../Components/main/header/Header';
+import Card from '../../Components/main/card/Card';
+import Category from '../../Components/main/category/Category';
 import MainSkeleton from '../../Components/skeleton/MainSkeleton';
 import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
 
@@ -18,12 +17,10 @@ import {
   FilterButton,
   CategoryBox,
   CategoryGroup,
-} from '../../Components/main/Category';
+} from '../../Components/main/category/Category';
 
 // style import
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
-// import ImageSlider from '../../Components/main/ImageSlider';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -37,13 +34,7 @@ const Main = () => {
   const [Filter, setFilter] = useState('none');
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-  // console.log(categoryList);
   const [category, setCategory] = useState(0);
-  // console.log(category);
-  // const [pageNavi] = useState(0);
-  // useState 하나 생성해서 카테고리 넘버를 설정
-  // useState를 변경해주는 함수를 생성
-  // 내가 생각하는 맵 함수에 일치되면 return되게끔
 
   const FilterHandler = () => {
     Filter === 'block' ? setFilter('none') : setFilter('block');
@@ -57,10 +48,7 @@ const Main = () => {
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
-      <Category
-        setCategory={setCategory}
-        category={category}
-      />
+      <Category setCategory={setCategory} category={category} />
       <MainBox category={category}>
         {isLoding
           ? skeletonCount.map((item) => <MainSkeleton key={item} />)
