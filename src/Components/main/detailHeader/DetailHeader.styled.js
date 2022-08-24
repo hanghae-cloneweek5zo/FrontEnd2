@@ -20,7 +20,6 @@ export const HeaderBox = styled.header`
 export const HeaderLogo = styled.div`
   height: 80px;
   width: 100%;
-
   display: flex;
   box-sizing: border-box;
   align-items: center;

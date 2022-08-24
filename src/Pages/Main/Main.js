@@ -46,35 +46,45 @@ const Main = () => {
   }
   return (
     <Fragment>
-      <Header Filter={Filter} setFilter={setFilter} />
-      <Category setCategory={setCategory} category={category} />
-      <MainBox category={category}>
-        {isLoding
-          ? skeletonCount.map((item) => <MainSkeleton key={item} />)
-          : houseList.map((item) => (
-              <Card item={item} key={item.title + item.starAvg} />
-            ))}
-      </MainBox>
+      <Wrap>
+        <Header Filter={Filter} setFilter={setFilter} />
+        <Category setCategory={setCategory} category={category} />
+      </Wrap>
+      <MainWrap>
+        <MainBox category={category}>
+          {isLoding
+            ? skeletonCount.map((item) => <MainSkeleton key={item} />)
+            : houseList.map((item) => (
+                <Card item={item} key={item.title + item.starAvg} />
+              ))}
+        </MainBox>
+      </MainWrap>
     </Fragment>
   );
 };
 
 export default Main;
 
-export const MainBox = styled.div`
-  position: grid !important;
+export const Wrap = styled.div`
   width: 100%;
-  grid-template-rows: repeat(4, 1fr);
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin: auto;
+  position: fixed;
+  top: 0;
+  z-index: 90;
+`;
+
+export const MainWrap = styled.div`
+  width: 100%;
+`;
+
+export const MainBox = styled.div`
+  display: grid;
+  width: 100%;
+  max-width: 1600px;
+  grid-template-columns: repeat(5, 1fr);
   grid-row-gap: 40px;
   grid-column-gap: 24px;
+  margin: 0 auto;
   background-color: white;
   box-sizing: border-box;
-  padding-left: 140px;
-  margin-top: 110px;
+  margin-top: 200px;
 `;
