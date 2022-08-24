@@ -26,7 +26,7 @@ import {
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import CheckButtonListOut from './CheckButton';
 
-const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
+const FilterModal = ({ FilterHandler, Filter, setFilter, isLoding }) => {
   
   const dispatch = useDispatch()
   const [Left, setLeft] = useInput(0);
@@ -66,11 +66,10 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
   };
   const CancleModal = () => {
     FilterHandler();
-    setRoomNum(0)
-    setBedNum(0)
-    setCheckList([])
-    setLeft(0)
-    setRight(1500000)
+  }
+  const Search = () => {
+    CancleModal();
+    dispatch(FilterThunk(FilterData))
   }
   const FilterData = {
     minPrice: Left,
@@ -79,8 +78,9 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
     bedCnt:  bedNum===0||bedNum===7 ? null : bedNum,
     facilities: CheckList,
   };
-
+console.log(FilterData)
   return (
+    
     <FilterModalBody display={Filter}>
       <FilterModalSection>
         <FilterModalHeader>
@@ -101,7 +101,6 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
           <PriceInputArea>
             <LeftPrice
               type="number"
-              value={Left}
               onChange={setLeft}
               min={0}
               max={1500000}
@@ -110,7 +109,6 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
             -
             <RightPrice
               type="number"
-              value={Right}
               onChange={setRight}
               min={0}
               max={1500000}
@@ -128,11 +126,10 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
 
           <CheckBoxArea>
             {CheckItem.map((item, index) => (
-              <CheckBoxContent>
-                {' '}
+              <CheckBoxContent key={RealCheckItem[index]} >
+                {' '} 
                 <CheckBox
                   name="facilities"
-                  key={item}
                   id={item}
                   type="checkbox"
                   value={item}
@@ -144,11 +141,11 @@ const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
           </CheckBoxArea>
 
           <ModalFooter>
-            <FooterButton onClick={()=>dispatch(FilterThunk(FilterData))} >조회</FooterButton>
+            <FooterButton onClick={Search} >조회</FooterButton>
           </ModalFooter>
         </ModalBody>
       </FilterModalSection>
-    </FilterModalBody>
+    </FilterModalBody> 
   );
 };
 

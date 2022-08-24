@@ -17,7 +17,7 @@ export const MainThunk = createAsyncThunk(
 export const FilterThunk = createAsyncThunk(
   'Filter/FilterThunk',
   async (payload, thunkAPI) => {
-
+    console.log(payload)
     const FilterList = await axios
       .post(`${URL}/houses/filter`,payload)
       .then((res) => console.log(res));

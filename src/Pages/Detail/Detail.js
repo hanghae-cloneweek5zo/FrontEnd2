@@ -147,8 +147,10 @@ function Detail() {
   }, []);
   const houseData = useSelector((state) => state.Detail.Detail);
   const [display,setDisplay] = useState(false)
+
   return (
     <DetailBody>
+
       {/* Title */}
       <TitleSection>
         <span>

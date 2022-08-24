@@ -133,7 +133,7 @@ const Main = () => {
             <FilterButtonSVG />
             필터
           </FilterButton>
-          <FilterModal FilterHandler={FilterHandler} Filter={Filter} setFilter={setFilter}  />
+          <FilterModal FilterHandler={FilterHandler} Filter={Filter} setFilter={setFilter} key={'MainPageFilterModal'} isLoding={isLoding}/>
         </CategoryBox>
       </CategoryNavbar>
       <MainBox>
