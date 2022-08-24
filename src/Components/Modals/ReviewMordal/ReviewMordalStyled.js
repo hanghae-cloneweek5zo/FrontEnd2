@@ -66,7 +66,7 @@ export const ReviewList = styled.div`
 overflow: scroll;
 overflow-x:hidden;
 width: 100%;
-max-height: 700px;
+max-height: 500px;
 `
 export const ReviewCard = styled.div`
 width: 100%;

@@ -76,15 +76,19 @@ const Main = () => {
   for(i===0;i<20;i++){
     skeletonCount.push(i)
   }
+
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
       <CategoryNavbar>
         <CategoryBox>
+
           <AllHomes>
             <AllHomesSVG width="100" height="40" fill="blue" />
             전체보기
           </AllHomes>
+
+
           <FANCY>
             <OMGSVG width="100" height="40" />
             기상천외한 숙소

@@ -1,13 +1,13 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const initialState = { Detail: [] };
+const initialState = { Detail: [], is_loaded: false };
 const URL = process.env.REACT_APP_URL;
 
 export const DetailThunk = createAsyncThunk(
-  'Detail/DetailThunk',
+  "Detail/DetailThunk",
   async (payload, thunkAPI) => {
-
+    // console.log(payload)
 
     const HouseDetail = await axios
       .get(`${URL}/houses/${payload.id}`)
@@ -18,12 +18,13 @@ export const DetailThunk = createAsyncThunk(
 );
 
 const DetailSlice = createSlice({
-  name: 'Detail',
+  name: "Detail",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(DetailThunk.fulfilled, (state, action) => {
       // console.log(action.payload)
+      state.is_loaded = true;
       state.Detail = action.payload;
     });
   },

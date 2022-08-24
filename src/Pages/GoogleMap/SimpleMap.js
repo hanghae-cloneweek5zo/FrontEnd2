@@ -1,11 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 import { useState } from "react";
-// import { TbBrandAirbnb } from "react-icons/tb";
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-
 
 
 
@@ -13,7 +9,7 @@ import { useState } from "react";
 
 const SimpleMap = (props) => {
   
-
+  console.log(props.lng);
   const getMapOptions = (maps) => {
     return {
       disableDefaultUI: true,
@@ -24,22 +20,30 @@ const SimpleMap = (props) => {
   };
 
   const apiKey = process.env.REACT_APP_GOOGLE_MAP_KEY;
-  const [center, setCenter] = useState({lat: -8.57472037113586, lng: 115.21358675329932 });
   const [zoom, setZoom] = useState(14);
+
+  const defaultProps = {
+        center: {
+          lat : Number(props.lat),
+          lng : Number(props.lng)
+        }
+      }
+
   
+
 
 
   return (
       <div style={{ height: '480px', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
-        defaultCenter={center}
+        defaultCenter={defaultProps.center}
         defaultZoom={zoom}
         options={getMapOptions}
       >
         <Marker
-          lat={-8.57472037113586}
-          lng={115.21358675329932}
+          lat= {props.lat}
+          lng={props.lng}
         />
       </GoogleMapReact>
     </div>
