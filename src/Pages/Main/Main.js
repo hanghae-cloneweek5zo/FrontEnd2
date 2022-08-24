@@ -37,13 +37,7 @@ const Main = () => {
   const [Filter, setFilter] = useState('none');
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-  // console.log(categoryList);
   const [category, setCategory] = useState(0);
-  // console.log(category);
-  // const [pageNavi] = useState(0);
-  // useState 하나 생성해서 카테고리 넘버를 설정
-  // useState를 변경해주는 함수를 생성
-  // 내가 생각하는 맵 함수에 일치되면 return되게끔
 
   const FilterHandler = () => {
     Filter === 'block' ? setFilter('none') : setFilter('block');
