@@ -23,7 +23,7 @@ export const CategoryThunk = createAsyncThunk(
     console.log(payload);
     const Category = await axios
       .get(`${URL}/houses/categories/${payload}`)
-      .then((res) => console.log(res));
+      .then((res) => console.log(res.data.data));
     return payload;
     // thunkAPI.fulfillWithValue(Category);
   }

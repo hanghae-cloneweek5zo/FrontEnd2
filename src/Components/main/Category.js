@@ -22,10 +22,9 @@ const Category = ({ setCategory, category }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
-  const CategoryClick = (index) => {
-    setCategory(index);
+  useEffect(()=> {
     dispatch(CategoryThunk(Category[category]));
-  };
+  }, [category])
 
   const Category = [
     'ALLHOMES',
@@ -71,7 +70,7 @@ const Category = ({ setCategory, category }) => {
     <LAKESVG width="100" height="40" />,
     <ARCTICSVG width="100" height="40" />,
   ];
-  console.log(category);
+  // console.log(category);
 
   return (
     <Fragment>
@@ -81,7 +80,7 @@ const Category = ({ setCategory, category }) => {
             {categoryList.map((item, index) => (
               <FANCY
                 onClick={() => {
-                  CategoryClick(index);
+                  category(index);
                 }}
               >
                 {item}
