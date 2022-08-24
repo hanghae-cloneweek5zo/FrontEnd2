@@ -1,22 +1,22 @@
 //react import
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { DetailThunk } from "../../redux/Modules/PageModules/Detail";
-import ReviewModal from "../../Components/Modals/ReviewMordal/ReviewMordal";
-import Calendar from "../../Components/Calendar"
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { DetailThunk } from '../../redux/Modules/PageModules/Detail';
+import ReviewModal from '../../Components/Modals/ReviewMordal/ReviewMordal';
+import Calendar from '../../Components/Calendar';
 
-import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from "react-icons/ai";
+import { AiOutlineHeart, AiFillStar, AiOutlineWifi } from 'react-icons/ai';
 import {
   RiMedalLine,
   RiParkingBoxLine,
   RiTimeFill,
   RiRefund2Fill,
-} from "react-icons/ri";
+} from 'react-icons/ri';
 
-import { VscWorkspaceUntrusted } from "react-icons/vsc";
+import { VscWorkspaceUntrusted } from 'react-icons/vsc';
 //구글 맵
-import SimpleMap from "../GoogleMap/SimpleMap";
+import SimpleMap from '../GoogleMap/SimpleMap';
 
 import {
   MdSingleBed,
@@ -26,11 +26,11 @@ import {
   MdAccessTimeFilled,
   MdPets,
   MdCleaningServices,
-} from "react-icons/md";
-import { TbToolsKitchen2 } from "react-icons/tb";
-import { GiDesk, GiIceCube, GiPartyHat } from "react-icons/gi";
-import { BiSwim } from "react-icons/bi";
-import { BsFlower2, BsQuestionCircleFill } from "react-icons/bs";
+} from 'react-icons/md';
+import { TbToolsKitchen2 } from 'react-icons/tb';
+import { GiDesk, GiIceCube, GiPartyHat } from 'react-icons/gi';
+import { BiSwim } from 'react-icons/bi';
+import { BsFlower2, BsQuestionCircleFill } from 'react-icons/bs';
 
 //스타일 컴퍼넌트
 import {
@@ -139,8 +139,8 @@ import {
   TimeDiv,
   TitleSection,
   TitleUnderDiv,
-} from "../Detail/DetailStyled";
-import DetailHeader from "../../Components/main/DetailHeader";
+} from '../Detail/DetailStyled';
+import DetailHeader from '../../Components/main/detailHeader/DetailHeader';
 
 function Detail() {
   const param = useParams();
@@ -214,7 +214,7 @@ function Detail() {
                 <ImgDivBox>
                   <ImgDivLeftBox>
                     <ImgOne
-                      src={is_loaded ? houseImgs[0] : ""}
+                      src={is_loaded ? houseImgs[0] : ''}
                       alt="첫 이미지"
                     />
                   </ImgDivLeftBox>
@@ -442,17 +442,11 @@ function Detail() {
                     </CalendarSapn>
                     <div>2022년 8월 19일 - 2023년 8월 25일</div>
                   </CalendarDiv>
-                  
+
                   <CalendarDivDAY>
-
-                  <Calendar/>
-                  
+                    <Calendar />
                   </CalendarDivDAY>
-
                 </CalendarPadiing>
-
-                
-
               </CalendarSec>
             </HostSectionLeftDiv>
             <HostSectionRightDiv>
@@ -464,7 +458,7 @@ function Detail() {
                         ₩
                         {houseData.price
                           .toString()
-                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                       </MovingBoxPriceSapn>
                       <MovingBoxPriceBagSapn> / 박</MovingBoxPriceBagSapn>
                       <MovingBoxPriceReDiv>
@@ -508,7 +502,7 @@ function Detail() {
                       ₩
                       {(houseData.price * 13)
                         .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                     </PriceDayHamSapn>
                   </PriceDivPadding>
                 </PriceDiv>
@@ -692,7 +686,7 @@ function Detail() {
                         <RiTimeFill size="18" />
                       </TimeDiv>
                       <span>
-                        체크인: 오전 {houseData.checkIn} ~ 오후 03:00{" "}
+                        체크인: 오전 {houseData.checkIn} ~ 오후 03:00{' '}
                       </span>
                     </AccomDetailDivDiv>
                     <AccomDetailDivDiv>
