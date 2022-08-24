@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
+import ImageSlider from './ImageSlider';
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
@@ -105,10 +106,4 @@ export const CardIconArea = styled.div`
     stroke-width: 0.5;
     overflow: visible;
   }
-`;
-
-export const TitleSpan = styled.span`
-  width: 240px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;

@@ -3,10 +3,13 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
+import { CategoryThunk } from '../../redux/Modules/PageModules/Category';
 import { useNavigate } from 'react-router-dom';
+
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
+import Category from '../../Components/main/Category';
 import MainSkeleton from '../../Components/skeleton/MainSkeleton';
 import LoginModal from '../../Components/Modals/LoginModal/LoginModal';
 import SignUpModal from '../../Components/Modals/SignUpModal/SignUpModal';
@@ -14,14 +17,19 @@ import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
 
 import {
   CategoryNavbar,
-  CategoryBox,
-  FilterButtonBox,
   FilterButton,
+  CategoryBox,
+  CategoryGroup,
 } from '../../Components/main/Category';
 
+// style import
+import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+// import ImageSlider from '../../Components/main/ImageSlider';
+
 import {
+  ALLHOMES,
   FANCY,
-  AllHomes,
   NATIONAL_PARK,
   SHACK,
   ISLE,
@@ -33,30 +41,6 @@ import {
   LAKE,
   ARCTIC,
 } from '../../Components/main/Category';
-import {
-  CardWrapper,
-  CardItem,
-  CardItemImg,
-  CardItemIcon,
-} from '../../Components/main/Card';
-
-// Images import
-import { ReactComponent as AFramesSVG } from '../../static/IconImages/AFrames.svg';
-import { ReactComponent as AllHomesSVG } from '../../static/IconImages/AllHomes.svg';
-import { ReactComponent as OMGSVG } from '../../static/IconImages/OMG.svg';
-import { ReactComponent as NationalParksSVG } from '../../static/IconImages/NationalParks.svg';
-import { ReactComponent as CabinsSVG } from '../../static/IconImages/Cabins.svg';
-import { ReactComponent as IslandsSVG } from '../../static/IconImages/Islands.svg';
-import { ReactComponent as BeachSVG } from '../../static/IconImages/Beach.svg';
-import { ReactComponent as TinyHomesSVG } from '../../static/IconImages/TinyHomes.svg';
-import { ReactComponent as DesignSVG } from '../../static/IconImages/Design.svg';
-import { ReactComponent as CampingSVG } from '../../static/IconImages/Camping.svg';
-import { ReactComponent as LakeFrontSVG } from '../../static/IconImages/LakeFront.svg';
-import { ReactComponent as ArcticSVG } from '../../static/IconImages/Arctic.svg';
-import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
-// style import
-import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -72,6 +56,14 @@ const Main = () => {
   const [SignUp, setSignUp] = useState(false);
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
+  // console.log(categoryList);
+  const [category, setCategory] = useState(0);
+  // console.log(category);
+  // const [pageNavi] = useState(0);
+  // useState 하나 생성해서 카테고리 넘버를 설정
+  // useState를 변경해주는 함수를 생성
+  // 내가 생각하는 맵 함수에 일치되면 return되게끔
+
   const skeletonCount = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
@@ -79,62 +71,12 @@ const Main = () => {
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
-      <CategoryNavbar>
-        <CategoryBox>
-          <AllHomes>
-            <AllHomesSVG width="100" height="40" fill="blue" />
-            전체보기
-          </AllHomes>
-          <FANCY>
-            <OMGSVG width="100" height="40" />
-            기상천외한 숙소
-          </FANCY>
-          <NATIONAL_PARK>
-            <NationalParksSVG width="100" height="40" />
-            국립공원
-          </NATIONAL_PARK>
-          <SHACK>
-            <CabinsSVG width="100" height="40" />
-            통나무집
-          </SHACK>
-          <ISLE>
-            <IslandsSVG width="100" height="40" />섬
-          </ISLE>
-          <OCEAN>
-            <BeachSVG width="100" height="40" />
-            해변 근처
-          </OCEAN>
-          <COMPACT>
-            <TinyHomesSVG width="100" height="40" />
-            초소형 주택
-          </COMPACT>
-          <DESIGNED>
-            <DesignSVG width="100" height="40" />
-            디자인
-          </DESIGNED>
-          <CAMPSITE>
-            <CampingSVG width="100" height="40" />
-            캠핑장
-          </CAMPSITE>
-          <A_SHAPED>
-            <AFramesSVG width="100" height="40" />
-            A자형 주택
-          </A_SHAPED>
-          <LAKE>
-            <LakeFrontSVG width="100" height="40" />
-            호숫가
-          </LAKE>
-          <ARCTIC>
-            <ArcticSVG width="100" height="40" fill="blue" />
-            북극
-          </ARCTIC>
-          <FilterButton>
-            <FilterButtonSVG />
-            필터
-          </FilterButton>
-        </CategoryBox>
-      </CategoryNavbar>
-      <MainBox>
+      <Category
+        setCategory={setCategory}
+        // pageNavi={pageNavi}
+        category={category}
+      />
+      <MainBox category={category}>
         {isLoding
           ? skeletonCount.map((item) => <MainSkeleton />)
           : houseList.map((item) => <Card item={item} />)}

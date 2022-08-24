@@ -11,6 +11,7 @@ import { FaBars } from 'react-icons/fa';
 
 // component & element import
 import imgPath from '../../static/IconImages/profile.png';
+import ProfileModal from '../Modals/ProfileModal/ProfileModal';
 // import ProfileModal from "./ProfileModal";
 
 const Header = ({ isScrollTop, togglePopup, isLoggedIn, data ,Filter,setFilter}) => {
@@ -29,8 +30,10 @@ const Header = ({ isScrollTop, togglePopup, isLoggedIn, data ,Filter,setFilter})
         <HeaderPageButton
           btnType="oval"
           isScrollTop={isScrollTop}
+          
           // onClick={openProfileModal}
         >
+          <ProfileModal></ProfileModal>
           <FaBars/>
           {/* {isLoggedIn && profileImg && <HeaderProfileImg src={profileImg} />}
           {isLoggedIn && !profileImg && <HeaderProfileImg src={imgPath} />} */}

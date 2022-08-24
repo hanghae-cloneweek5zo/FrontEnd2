@@ -8,7 +8,7 @@ export const MainThunk = createAsyncThunk(
   'Main/MainThunk',
   async (payload, thunkAPI) => {
     const HouseList = await axios
-      .get(`${URL}/houses`)
+      .get(`${URL}/houses/categories`)
       .then((res) => res.data.data);
     return thunkAPI.fulfillWithValue(HouseList);
   }
