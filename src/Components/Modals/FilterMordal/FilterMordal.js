@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import useInput from '../../../hook/hook';
 import { useDispatch } from 'react-redux';
+import { FilterThunk } from '../../../redux/Modules/PageModules/Main';
 //style import
 import {
   FilterModalBody,
@@ -25,7 +26,8 @@ import {
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import CheckButtonListOut from './CheckButton';
 
-const FilterModal = () => {
+const FilterModal = ({ FilterHandler, Filter, setFilter, isLoding }) => {
+  const dispatch = useDispatch();
   const [Left, setLeft] = useInput(0);
   const [Right, setRight] = useInput(1500000);
   const [CheckList, setCheckList] = useState([]);
@@ -42,22 +44,48 @@ const FilterModal = () => {
     'FIRE_ALARM ',
   ];
   const RealCheckItem = [
-    'WIFI','주차징','수영장','발코니','에어컨','주방','마당',"업무전용공간",'일산화탄소 경보기','화재 경보기'
-  ]
-  const [roomNum,setRoomNum] = useState(0)
-  const [bedNum,setBedNum] = useState(0)
-  const List = [1,2,3,4,5,6]
+    'WIFI',
+    '주차징',
+    '수영장',
+    '발코니',
+    '에어컨',
+    '주방',
+    '마당',
+    '업무전용공간',
+    '일산화탄소 경보기',
+    '화재 경보기',
+  ];
+  const [roomNum, setRoomNum] = useState(0);
+  const [bedNum, setBedNum] = useState(0);
+  const List = [1, 2, 3, 4, 5, 6];
   const onChangeCheck = (e) => {
     e.target.checked
       ? setCheckList([...CheckList, e.target.value])
       : setCheckList(CheckList.filter((item) => item !== e.target.value));
   };
-  console.log(roomNum);
+  const SearchPost = () => {
+    FilterHandler();
+    dispatch(FilterThunk(FilterData));
+  };
+  const Search = () => {
+    Number(Left) > Number(Right)
+      ? alert('가격을 다시 확인해주세요')
+      : SearchPost();
+  };
+
+  const FilterData = {
+    minPrice: Number(Left),
+    maxPrice: Number(Right),
+    bedRoomCnt: roomNum === 7 ? 0 : roomNum,
+    bedCnt: bedNum === 7 ? 0 : bedNum,
+    facilities: CheckList,
+  };
+
   return (
-    <FilterModalBody display={true}>
+    <FilterModalBody display={Filter}>
       <FilterModalSection>
         <FilterModalHeader>
-          <HeaderCancel />
+          <HeaderCancel onClick={FilterHandler} />
           <TopText>필터</TopText>
         </FilterModalHeader>
 
@@ -70,41 +98,38 @@ const FilterModal = () => {
               입니다.
             </PriceText>
           </PriceTextArea>
-
-          {/* <RangeArea>
-      <RangeDiv>
-        <LeftRange type='range' value={Left} onChange={setLeft} min={750000} max={1499999} /><RightRange type='range' value={Right} onChange={setRight} min={13001} max={1500000}/>
-      </RangeDiv>
-      </RangeArea> */}
-
           <PriceInputArea>
             <LeftPrice
               type="number"
-              value={Left}
               onChange={setLeft}
               min={0}
-              max={750000}
+              max={1500000}
+              placeholder="최소금액"
             ></LeftPrice>
             -
             <RightPrice
               type="number"
-              value={Right}
               onChange={setRight}
-              min={1}
+              min={0}
               max={1500000}
+              placeholder="최대금액"
             ></RightPrice>
           </PriceInputArea>
 
-          <CheckButtonListOut roomNum={roomNum} setRoomNum={setRoomNum} bedNum={bedNum} setBedNum={setBedNum} List={List} />
-
+          <CheckButtonListOut
+            roomNum={roomNum}
+            setRoomNum={setRoomNum}
+            bedNum={bedNum}
+            setBedNum={setBedNum}
+            List={List}
+          />
 
           <CheckBoxArea>
-            {CheckItem.map((item,index) => (
-              <CheckBoxContent>
+            {CheckItem.map((item, index) => (
+              <CheckBoxContent key={RealCheckItem[index]}>
                 {' '}
                 <CheckBox
                   name="facilities"
-                  key={item}
                   id={item}
                   type="checkbox"
                   value={item}
@@ -116,7 +141,7 @@ const FilterModal = () => {
           </CheckBoxArea>
 
           <ModalFooter>
-            <FooterButton>조회</FooterButton>
+            <FooterButton onClick={Search}>조회</FooterButton>
           </ModalFooter>
         </ModalBody>
       </FilterModalSection>

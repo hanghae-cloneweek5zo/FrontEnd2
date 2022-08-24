@@ -3,7 +3,7 @@ import LoginModal from './Components/Modals/LoginModal/LoginModal';
 import ReviewModal from './Components/Modals/ReviewMordal/ReviewMordal';
 import SignUpModal from './Components/Modals/SignUpModal/SignUpModal';
 import FilterMordalSlider from './Components/Modals/FilterMordal/FilterMordalSlider';
-
+import Calendar from './Components/Calendar'
 //React import
 import React from 'react';
 
@@ -20,6 +20,7 @@ function App() {
       <Route path="/" exact="true" element={<Main />} />
       <Route path="detail" element={<Detail />} />
       <Route path="detail/:id" element={<Detail />} />
+      <Route path="Calendar" element={<Calendar />} />
       <Route path="*" element={<Main />} />
     </Routes>
   );

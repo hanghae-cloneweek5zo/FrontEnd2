@@ -18,7 +18,7 @@ import { ReactComponent as ARCTICSVG } from '../../static/IconImages/ARCTIC.svg'
 import { CategoryThunk } from '../../redux/Modules/PageModules/Category';
 import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, pageNavi, category }) => {
+const Category = ({ setCategory, category }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -56,6 +56,7 @@ const Category = ({ setCategory, pageNavi, category }) => {
     '호숫가',
     '북극',
   ];
+
   const categoryList = [
     <ALLHOMESSVG width="100" height="40" />,
     <FANCYSVG width="100" height="40" />,
@@ -71,6 +72,7 @@ const Category = ({ setCategory, pageNavi, category }) => {
     <ARCTICSVG width="100" height="40" />,
   ];
   console.log(category);
+
   return (
     <Fragment>
       <CategoryNavbar>
@@ -109,7 +111,6 @@ export const CategoryNavbar = styled.div`
   width: 100%;
   height: 90px;
   z-index: 1;
-  /* border: 1px solid red; */
   background-color: white;
   padding: 20px;
   scroll-margin-inline-start: 0;
@@ -126,13 +127,11 @@ export const CategoryNavbar = styled.div`
 export const CategoryBox = styled.div`
   position: grid !important;
   grid-template-columns: 100%;
-  /* border: 1px solid green; */
   width: 87%;
   margin: auto;
   height: 60px;
   display: flex;
-  /* padding-left: 80px;
-  padding-right: 80px; */
+
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
@@ -308,7 +307,6 @@ export const FilterButtonBox = styled.div`
   justify-content: center;
   grid-auto-columns: column;
   align-items: center;
-  /* box-sizing: border-box; */
   gap: 5px;
   font-size: 12px;
   &:hover {
@@ -322,13 +320,15 @@ export const FilterButton = styled.div`
   display: flex;
   border: 1px solid #dddddd;
   border-radius: 12px;
-  left: 50px;
-  width: 60px;
+  left: 40px;
+  width: 70px;
   height: 48px;
   padding-left: 20px;
   z-index: 1;
+  font-size: 14px;
   &:hover {
     cursor: pointer;
     border: 2px solid #dddddd;
   }
+  font-size: 15px;
 `;

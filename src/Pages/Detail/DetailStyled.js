@@ -456,13 +456,13 @@ export const BedRoomFT = styled.div`
 
 export const AccommodationDiv = styled.div`
   width: 653.33px;
-  height: 332.92px;
+  height: 362.92px;
   border-bottom: 2px solid rgb(221, 221, 221);
 `;
 
 export const AccDiv = styled.div`
   width: 653.33px;
-  height: 282.92px;
+  height: 312.92px;
   padding-top: 26px;
   padding-bottom: 26px;
 `;
@@ -489,7 +489,12 @@ export const AccSmDiv = styled.div`
 export const FtDiv = styled.div`
   padding: 10px;
 `;
-export const Calendar = styled.div`
+export const FtDivEx = styled.div`
+  padding: 10px;
+  text-decoration:line-through 
+`;
+
+export const CalendarSec = styled.div`
   width: 653.33px;
   height: 517.99px;
 `;
@@ -498,11 +503,20 @@ export const CalendarPadiing = styled.div`
   height: 421.99px;
   padding-top: 48px;
   padding-bottom: 48px;
+
+
 `;
 export const CalendarDiv = styled.div`
   width: 653.33px;
   height: 69.99px;
 `;
+export const CalendarDivDAY = styled.div`
+  width: 653.33px;
+  margin-top: 80px;
+  height: auto;
+`;
+
+
 export const CalendarSapn = styled.span`
   font-size: 24px;
 `;

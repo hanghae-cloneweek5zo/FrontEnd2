@@ -3,7 +3,7 @@ import { ImCross } from 'react-icons/im';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 
 export const SignModalBody = styled.div`
-  display: ${(props) => (props.display ? 'block' : 'none')};
+  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
   top: 0;
   right: 0;
@@ -17,7 +17,7 @@ export const SignupModalSection = styled.div`
 
 width: 568px;
   background-color: white;
-  margin: 100px auto 0px auto;
+  margin: 200px auto 0px auto;
   border-radius: 20px;
   padding: 20px 30px;
 
