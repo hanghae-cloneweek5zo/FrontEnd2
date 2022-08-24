@@ -133,7 +133,7 @@ export const HeaderBox = styled.header`
   box-sizing: border-box;
   flex-direction: row;
   align-items: center;
-  padding: 20px 80px 15px 80px;
+  padding: 20px 82px 15px 61px;
   background-color: white;
 `;
 
