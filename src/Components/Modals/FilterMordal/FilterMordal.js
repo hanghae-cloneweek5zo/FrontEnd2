@@ -26,7 +26,7 @@ import {
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import CheckButtonListOut from './CheckButton';
 
-const FilterModal = ({ FilterHandler, Filter}) => {
+const FilterModal = ({ FilterHandler, Filter }) => {
   const dispatch = useDispatch();
   const [Left, setLeft] = useInput(0);
   const [Right, setRight] = useInput(1500000);

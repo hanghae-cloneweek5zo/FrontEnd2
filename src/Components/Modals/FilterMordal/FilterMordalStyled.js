@@ -3,13 +3,13 @@ import '../../../static/fonts/fonts.css';
 import { ImCross } from 'react-icons/im';
 
 export const FilterModalBody = styled.div`
-  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
+  display:  ${(props) => (props.display == 'block' ? 'block' : 'none')}; 
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999;
   background-color: rgba(0, 0, 0, 0.1);
 `;
 

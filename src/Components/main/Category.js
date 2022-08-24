@@ -19,15 +19,15 @@ import { CategoryThunk, MainThunk } from '../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../static/IconImages/FilterButton.svg';
 import FilterModal from '../Modals/FilterMordal/FilterMordal';
 
-const Category = ({ setCategory, category,FilterHandler, Filter }) => {
+const Category = ({ FilterHandler,setCategory, category }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
   useEffect(() => {
-    category ===0 ? dispatch(MainThunk()) :
-    dispatch(CategoryThunk({homeCategory:Category[category],category}));
+    category === 0
+      ? null
+      : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
   }, [category]);
-
 
   const Category = [
     'ALLHOMES',
@@ -73,6 +73,7 @@ const Category = ({ setCategory, category,FilterHandler, Filter }) => {
     <LAKESVG width="100" height="40" />,
     <ARCTICSVG width="100" height="40" />,
   ];
+  console.log(Filter);
 
   return (
     <Fragment>
@@ -90,13 +91,10 @@ const Category = ({ setCategory, category,FilterHandler, Filter }) => {
                 {CategoryNameList[index]}
               </FANCY>
             ))}
-             <FilterButton onClick={FilterHandler}>
-            <FilterButtonSVG />
-            필터
-          </FilterButton>
-          <FilterModal Filter={Filter} FilterHandler={FilterHandler}/>
+       
+           
           </CategoryGroup>
-         
+          <FilterModal Filter={Filter} FilterHandler={FilterHandler} />
         </CategoryBox>
       </CategoryNavbar>
     </Fragment>
@@ -104,6 +102,8 @@ const Category = ({ setCategory, category,FilterHandler, Filter }) => {
 };
 
 export default Category;
+
+
 
 export const CategoryNavbar = styled.div`
   position: sticky;
@@ -114,18 +114,18 @@ export const CategoryNavbar = styled.div`
   display: block;
   width: 100%;
   height: 90px;
-  z-index: 1;
+
   background-color: white;
   padding: 20px;
   scroll-margin-inline-start: 0;
   border-spacing: 32px;
   box-shadow: rgb(0 0 0 / 16%) 0 0 6px;
   box-sizing: border-box;
-  &:before {
+  /* &:before {
     content: '';
     box-sizing: border-box;
     display: flex;
-  }
+  } */
 `;
 
 export const CategoryBox = styled.div`
@@ -143,7 +143,7 @@ export const CategoryBox = styled.div`
   /* &:hover {
     cursor: pointer;
   } */
-  z-index: -1;
+
   text-align: center;
   font-size: 12px;
   box-shadow: 0.2s;
@@ -153,7 +153,7 @@ export const CategoryBox = styled.div`
     visibility: hidden;
     clear: both;
   }
-  &:before {
+  /* &:before {
     content: '';
     position: absolute;
     width: 0%;
@@ -164,11 +164,11 @@ export const CategoryBox = styled.div`
     background-color: rgb(34, 34, 34);
     transition: all 0.3s ease-in-out;
     ${(props) => (props.idx === props.clickCategory ? `width: 5%;` : '')}
-  }
+  } */
 `;
 
 export const CategoryGroup = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
 
   grid-auto-flow: column;
@@ -178,7 +178,7 @@ width: 100%;
 `;
 
 export const FANCY = styled.div`
-  z-index: 1;
+
   margin: 0 20px;
   border: 1px solid orange;
   width: 100px;
@@ -189,7 +189,7 @@ export const FANCY = styled.div`
 `;
 
 export const ALLHOMES = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -199,7 +199,7 @@ export const ALLHOMES = styled.div`
 `;
 
 export const NATIONAL_PARK = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -209,7 +209,7 @@ export const NATIONAL_PARK = styled.div`
 `;
 
 export const SHACK = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -219,7 +219,7 @@ export const SHACK = styled.div`
 `;
 
 export const ISLE = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -229,7 +229,7 @@ export const ISLE = styled.div`
 `;
 
 export const OCEAN = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -239,7 +239,7 @@ export const OCEAN = styled.div`
 `;
 
 export const COMPACT = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -249,7 +249,7 @@ export const COMPACT = styled.div`
 `;
 
 export const DESIGNED = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -259,7 +259,7 @@ export const DESIGNED = styled.div`
 `;
 
 export const CAMPSITE = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -269,7 +269,7 @@ export const CAMPSITE = styled.div`
 `;
 
 export const A_SHAPED = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -279,7 +279,7 @@ export const A_SHAPED = styled.div`
 `;
 
 export const LAKE = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -289,7 +289,7 @@ export const LAKE = styled.div`
 `;
 
 export const ARCTIC = styled.div`
-  z-index: 1;
+
   border: 1px solid orange;
   width: 100px;
   height: 60px;
@@ -298,18 +298,32 @@ export const ARCTIC = styled.div`
   }
 `;
 
-
 export const FilterButton = styled.div`
-
   align-items: center;
   display: flex;
   border: 1px solid #dddddd;
   border-radius: 12px;
-  left: 40px;
   width: 70px;
   height: 48px;
   padding-left: 20px;
-  z-index: 1;
+  font-size: 14px;
+  margin-left: 80px;
+  &:hover {
+    cursor: pointer;
+    border: 2px solid #dddddd;
+  }
+  font-size: 15px;
+`;
+export const testbutton = styled.button`
+  align-items: center;
+  display: flex;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  left: 50px;
+  width: 80px;
+  height: 48px;
+  padding-left: 20px;
+  background-color: yellow;
   font-size: 14px;
   margin-left: 80px;
   &:hover {

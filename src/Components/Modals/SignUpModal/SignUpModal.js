@@ -44,6 +44,9 @@ const SignUpModal = ({ display, SignUpHandler, LoginHandler, setSignUp }) => {
     alert('회원가입이 완료되었습니다.');
     SignUpHandler();
     LoginHandler();
+    setE_check(false)
+    setP_check(false)
+    setN_check(false)
   };
 
   useEffect(() => {

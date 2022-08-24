@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = { Main: [] };
+const initialState = { Main: [],Category: [] };
 const URL = process.env.REACT_APP_URL;
 
 export const MainThunk = createAsyncThunk(
@@ -33,6 +33,17 @@ export const CategoryThunk = createAsyncThunk(
   }
 );
 
+export const HeartListThunk = createAsyncThunk(
+  'HeartList/HeartListThunk',
+  async (payload, thunkAPI) => {
+    // const HeartList = await axios
+    //   .get(`${URL}/houses/categories/${payload.homeHeartList}`)
+    //   .then((res) => res.data.data);
+    return 
+    // thunkAPI.fulfillWithValue(HeartList);
+  }
+);
+
 const MainSlice = createSlice({
   name: 'Main',
   initialState: initialState,
@@ -43,11 +54,11 @@ const MainSlice = createSlice({
     });
     builder.addCase(FilterThunk.fulfilled, (state, action) => {
 
-      state.Main = action.payload;
+      state.Category = action.payload;
     });
     builder.addCase(CategoryThunk.fulfilled, (state, action) => {
 
-      state.Main = action.payload;
+      state.Category = action.payload;
     })
   },
 });

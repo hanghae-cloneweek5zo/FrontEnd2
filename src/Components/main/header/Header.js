@@ -31,12 +31,7 @@ import LoginModal from '../../Modals/LoginModal/LoginModal';
 import SignUpModal from '../../Modals/SignUpModal/SignUpModal';
 
 const Header = ({
-  isScrollTop,
-  togglePopup,
-  isLoggedIn,
-  data,
-  Filter,
-  setFilter,
+  FilterHandler
 }) => {
   // const { profileImg } = data;
   const navigate = useNavigate();
@@ -84,7 +79,7 @@ const Header = ({
         <ProfileArea>
           <HeaderPageButton
             btnType="oval"
-            isScrollTop={isScrollTop}
+            // isScrollTop={isScrollTop}
             onClick={ProfileHandler}
             ref={buttonEl}
             // onClick={openProfileModal}
@@ -114,14 +109,14 @@ const Header = ({
           />
           {Profile === 'block' && (
             <ProfileModal display={Profile} ref={modalEl}>
-              <LoginButton>
-                <WishText>위시 리스트</WishText>
+              <LoginButton onClick={FilterHandler}>
+                <WishText>숙소 검색하기</WishText>
               </LoginButton>
               <LoginButton>
-                <LoginText onClick={LoginHandler}>로그인 하기</LoginText>
+                <LoginText onClick={()=>{LoginHandler();ProfileHandler()}}>로그인 하기</LoginText>
               </LoginButton>
               <SignUpButton>
-                <SignUpText onClick={SignUpHandler} ref={el}>
+                <SignUpText onClick={()=>{SignUpHandler();ProfileHandler()}} ref={el}>
                   회원가입 하기
                 </SignUpText>
               </SignUpButton>

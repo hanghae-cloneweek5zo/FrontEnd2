@@ -1,6 +1,6 @@
 //react import
 import React, { useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useInput from '../../../hook/hook';
 import { ReviewThunk } from '../../../redux/Modules/PageModules/Review';
 import { MainThunk } from '../../../redux/Modules/PageModules/Main';
@@ -48,6 +48,78 @@ const ReviewModal = ({
   const SendReview = () => {
     dispatch(ReviewThunk());
   };
+  const review = [
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+    {
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
+      descript:
+        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
+      createdAt: '2022-8',
+      author: 'NICKNAME',
+    },
+  ];
 
   // const []
   // 나중에 detail에서 받아온 isLoading 으로 조건문 걸어야함
@@ -59,112 +131,11 @@ const ReviewModal = ({
     param: param.id,
   };
   const skeletonCount = [];
-  var i = 0
-  for(i===0;i<20;i++){
-    skeletonCount.push(i)
+  var i = 0;
+  for (i === 0; i < 20; i++) {
+    skeletonCount.push(i);
   }
-  const review = [
-    {
-      accommodationId: 1,
-      reviewId: 1,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 5,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript: '깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-    {
-      accommodationId: 1,
-      reviewId: 2,
-      author: 'god1hyuk',
-      descript:
-        '깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요.',
-      star: 4,
-      createdAt: '2022-08-19T20:46:32.032281',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
-    },
-  ];
+
   return (
     <ReviewModalBody display={display}>
       <ReviewModalSection>
@@ -197,11 +168,11 @@ const ReviewModal = ({
             <ReviewList>
               {/* 맵돌리는부분 */}
 
-              {review.reverse().map((item,i) => {
+              {review.reverse().map((item, i) => {
                 return isLoading ? (
                   <ReviewSkeleton />
                 ) : (
-                  <ReviewCard key={item.reviewId+i}>
+                  <ReviewCard key={item.author + i}>
                     <ProfileInfo>
                       <ProfileImg src={item.img} />
                       <ProfileTextArea>
@@ -221,9 +192,6 @@ const ReviewModal = ({
 
               {/* 맵돌리는부분 */}
             </ReviewList>
-            <PostButtonArea>
-              <PostButton onClick={SendReview} >작성하기</PostButton>
-            </PostButtonArea>
           </ReviewArea>
         </ReviewBody>
       </ReviewModalSection>
