@@ -1,38 +1,49 @@
 import React, { Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaRegHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
 
 const Card = ({ item }) => {
+  const navigate = useNavigate();
 
-  const Navigate = useNavigate()
-
+  const ClickHeart = () => {
+    localStorage.Authorization
+      ? console.log('통신함수넣어야함')
+      : alert('로그인 후 이용해 주세요.');
+  };
 
   return (
-    <Fragment key={item.houseId}>
-      <CardContents onClick={()=> {Navigate(`detail/${item.houseId}`)}}>
+    <Fragment key={item}>
+      <CardContents>
         <CardArea>
-          <CardImgArea image_url={item.img}>
-            <CardIconArea>
-              <FaRegHeart style={{ color: '#fff' }} />
-              {/* <FaHeart style={{color: "#fff"}}/> */}
-            </CardIconArea>
-          </CardImgArea>
-          <CardContentArea>
-            <div>
-              <span style={{ fontWeight: '600' }}>{item.title}</span>
-              <span>{item.starAvg}</span>
+          <CardImgArea
+            image_url={item.imgUrl}
+            onClick={() => navigate(`/detail/${item.houseId}`)}
+          ></CardImgArea>
+          <CardIconArea onClick={ClickHeart}>
+            <FaRegHeart style={{ color: '#fff' }} />
+            {/* <FaHeart style={{color: "#fff"}}/> */}
+          </CardIconArea>
+          <CardContentArea onClick={() => navigate(`/detail/${item.houseId}`)}>
+            <div style={{ width: '255px', overflow: 'hidden' }}>
+              <span style={{ fontWeight: '600' }}>{item.title}</span>{' '}
             </div>
-          </CardContentArea>
-          <CardContentArea>
             <div>
-              <span style={{ color: '#979a9e' }}>{item.distance}</span>
+              <AiFillStar />
+              {item.starAvg}
             </div>
-          </CardContentArea>
-          <CardContentArea>
-            <div>{item.price} / 박</div>
+            <div>
+              <span style={{ color: '#979a9e' }}>
+                5,275km
+                {/* {item.distance} */}
+              </span>
+            </div>
+            <div></div>
+            <div>
+              ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} /박
+            </div>
           </CardContentArea>
         </CardArea>
       </CardContents>
@@ -43,14 +54,11 @@ const Card = ({ item }) => {
 export default Card;
 
 export const CardContents = styled.div`
-  display: grid !important;
-  grid-template-columns: 100%;
   isolation: isolate;
   box-sizing: border-box;
   &:hover {
     cursor: pointer;
   }
-  border: 1px solid green;
   padding-bottom: 10px;
 `;
 
@@ -72,17 +80,18 @@ export const CardImgArea = styled.div`
   border-top-right-radius: 15px;
   margin-bottom: 10px;
   position: relative;
-  border: 1px solid blue;
 `;
 
 const CardContentArea = styled.div`
-  -webkit-box-pack: justify;
-  display: flex;
+  display: grid;
+  grid-row-gap: 2px;
+  grid-column-gap: 8px;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  grid-template-rows: unset;
   width: 300px;
   white-space: nowrap;
   overflow: hidden;
   justify-content: space-between;
-  border: 1px solid red;
 `;
 
 export const CardIconArea = styled.div`
@@ -95,6 +104,7 @@ export const CardIconArea = styled.div`
   top: 8px;
   right: 8px;
   color: #fff;
+  z-index: 1;
   svg {
     display: block;
     height: 20px;
@@ -102,4 +112,10 @@ export const CardIconArea = styled.div`
     stroke-width: 0.5;
     overflow: visible;
   }
+`;
+
+export const TitleSpan = styled.span`
+  width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

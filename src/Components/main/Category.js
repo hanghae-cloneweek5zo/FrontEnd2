@@ -8,20 +8,21 @@ const Category = () => {
 export default Category;
 
 export const CategoryNavbar = styled.div`
-  top: 10%;
   position: sticky;
   margin: auto;
   right: 0;
   left: 0;
+  top: 75px;
   display: block;
   width: 100%;
-  max-width: 1600px;
-  height: 70px;
-  z-index: -1;
-  /* border: 1px solid orange; */
-  padding: 10px;
+  height: 90px;
+  z-index: 1;
+  /* border: 1px solid red; */
+  background-color: white;
+  padding: 20px;
+  scroll-margin-inline-start: 0;
+  box-shadow: rgb(0 0 0 / 16%) 0 0 6px;
   box-sizing: border-box;
-  margin-bottom: 30px;
   &:before {
     content: '';
     box-sizing: border-box;
@@ -32,9 +33,12 @@ export const CategoryNavbar = styled.div`
 export const CategoryBox = styled.div`
   position: relative;
   /* border: 1px solid green; */
-  width: 100%;
+  width: 87%;
+  margin: auto;
   height: 60px;
   display: flex;
+  /* padding-left: 80px;
+  padding-right: 80px; */
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
@@ -75,7 +79,7 @@ export const AllHomes = styled.div`
   height: 60px;
 `;
 
-export const NATIONAL_PARK  = styled.div`
+export const NATIONAL_PARK = styled.div`
   width: 100px;
   height: 60px;
 `;
@@ -144,24 +148,23 @@ export const FilterButtonBox = styled.div`
   /* box-sizing: border-box; */
   gap: 5px;
   font-size: 12px;
-  &:hover{
+  &:hover {
     cursor: pointer;
     border: 2px solid #dddddd;
   }
 `;
 
 export const FilterButton = styled.div`
-align-items: center;
- display: flex;
- border: 1px solid #dddddd;
+  align-items: center;
+  display: flex;
+  border: 1px solid #dddddd;
   border-radius: 12px;
   left: 30px;
   width: 60px;
   height: 48px;
   padding-left: 20px;
   z-index: 1;
-  &:hover{
+  &:hover {
     cursor: pointer;
-    border: 2px solid #dddddd;
-  }
-`
+    border: 2px solid #dddddd;}
+`;

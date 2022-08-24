@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import useInput from '../../../hook/hook';
 import { useDispatch } from 'react-redux';
+import { FilterThunk } from '../../../redux/Modules/PageModules/Main';
 //style import
 import {
   FilterModalBody,
@@ -25,7 +26,9 @@ import {
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import CheckButtonListOut from './CheckButton';
 
-const FilterModal = () => {
+const FilterModal = ({ FilterHandler, Filter, setFilter }) => {
+  
+  const dispatch = useDispatch()
   const [Left, setLeft] = useInput(0);
   const [Right, setRight] = useInput(1500000);
   const [CheckList, setCheckList] = useState([]);
@@ -42,22 +45,46 @@ const FilterModal = () => {
     'FIRE_ALARM ',
   ];
   const RealCheckItem = [
-    'WIFI','주차징','수영장','발코니','에어컨','주방','마당',"업무전용공간",'일산화탄소 경보기','화재 경보기'
-  ]
-  const [roomNum,setRoomNum] = useState(0)
-  const [bedNum,setBedNum] = useState(0)
-  const List = [1,2,3,4,5,6]
+    'WIFI',
+    '주차징',
+    '수영장',
+    '발코니',
+    '에어컨',
+    '주방',
+    '마당',
+    '업무전용공간',
+    '일산화탄소 경보기',
+    '화재 경보기',
+  ];
+  const [roomNum, setRoomNum] = useState(0);
+  const [bedNum, setBedNum] = useState(0);
+  const List = [1, 2, 3, 4, 5, 6];
   const onChangeCheck = (e) => {
     e.target.checked
       ? setCheckList([...CheckList, e.target.value])
       : setCheckList(CheckList.filter((item) => item !== e.target.value));
   };
-  console.log(roomNum);
+  const CancleModal = () => {
+    FilterHandler();
+    setRoomNum(0)
+    setBedNum(0)
+    setCheckList([])
+    setLeft(0)
+    setRight(1500000)
+  }
+  const FilterData = {
+    minPrice: Left,
+    maxPrice: Right,
+    bedRoomCnt: roomNum===0||roomNum===7 ? null : roomNum ,
+    bedCnt:  bedNum===0||bedNum===7 ? null : bedNum,
+    facilities: CheckList,
+  };
+
   return (
-    <FilterModalBody display={true}>
+    <FilterModalBody display={Filter}>
       <FilterModalSection>
         <FilterModalHeader>
-          <HeaderCancel />
+          <HeaderCancel onClick={CancleModal} />
           <TopText>필터</TopText>
         </FilterModalHeader>
 
@@ -71,35 +98,36 @@ const FilterModal = () => {
             </PriceText>
           </PriceTextArea>
 
-          {/* <RangeArea>
-      <RangeDiv>
-        <LeftRange type='range' value={Left} onChange={setLeft} min={750000} max={1499999} /><RightRange type='range' value={Right} onChange={setRight} min={13001} max={1500000}/>
-      </RangeDiv>
-      </RangeArea> */}
-
           <PriceInputArea>
             <LeftPrice
               type="number"
               value={Left}
               onChange={setLeft}
               min={0}
-              max={750000}
+              max={1500000}
+              placeholder="최소금액"
             ></LeftPrice>
             -
             <RightPrice
               type="number"
               value={Right}
               onChange={setRight}
-              min={1}
+              min={0}
               max={1500000}
+              placeholder="최대금액"
             ></RightPrice>
           </PriceInputArea>
 
-          <CheckButtonListOut roomNum={roomNum} setRoomNum={setRoomNum} bedNum={bedNum} setBedNum={setBedNum} List={List} />
-
+          <CheckButtonListOut
+            roomNum={roomNum}
+            setRoomNum={setRoomNum}
+            bedNum={bedNum}
+            setBedNum={setBedNum}
+            List={List}
+          />
 
           <CheckBoxArea>
-            {CheckItem.map((item,index) => (
+            {CheckItem.map((item, index) => (
               <CheckBoxContent>
                 {' '}
                 <CheckBox
@@ -116,7 +144,7 @@ const FilterModal = () => {
           </CheckBoxArea>
 
           <ModalFooter>
-            <FooterButton>조회</FooterButton>
+            <FooterButton onClick={()=>dispatch(FilterThunk(FilterData))} >조회</FooterButton>
           </ModalFooter>
         </ModalBody>
       </FilterModalSection>

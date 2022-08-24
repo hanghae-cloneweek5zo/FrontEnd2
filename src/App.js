@@ -14,22 +14,14 @@ import { Routes, Route } from 'react-router-dom';
 import Main from './Pages/Main/Main';
 import Detail from './Pages/Detail/Detail';
 
-
 function App() {
   return (
-
-    // <>
-    // <ReviewModal/>
-    // </>
-
     <Routes>
       <Route path="/" exact="true" element={<Main />} />
-      <Route path="detail"  element={<Detail />} />
-      <Route path="detail/:id"  element={<Detail />} />
-    <Route path="*"  element={<Main />} />
+      <Route path="detail" element={<Detail />} />
+      <Route path="detail/:id" element={<Detail />} />
+      <Route path="*" element={<Main />} />
     </Routes>
-
-
   );
 }
 

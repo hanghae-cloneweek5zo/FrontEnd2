@@ -148,8 +148,11 @@ function Detail() {
   const houseData = useSelector((state) => state.Detail.Detail);
   const is_loaded = useSelector((state) => state.Detail.is_loaded);
 
+  const [isLoading, setIsLoding] = useState(false);
   useEffect(() => {
+    setIsLoding(true);
     dispatch(DetailThunk(param));
+    setIsLoding(false);
   }, []);
 
   //facilities
@@ -168,9 +171,8 @@ function Detail() {
   const [display, setDisplay] = useState(false);
 
   return (
-
     <DetailBody>
-      <DetailHeader/>
+      <DetailHeader />
       {is_loaded ? (
         <>
           <TitleSection>
@@ -426,7 +428,6 @@ function Detail() {
                       </div>
                       <FtDivEx>화재경보기</FtDivEx>
                     </AccSmDiv>
-
                   </Acc>
                 </AccDiv>
               </AccommodationDiv>
@@ -492,8 +493,8 @@ function Detail() {
                   <PriceDivPadding>
                     <PriceDayHamSapn>총 합계</PriceDayHamSapn>
                     <PriceDayHamSapn>
-                      ₩ 
-                       {(houseData.price * 13)
+                      ₩
+                      {(houseData.price * 13)
                         .toString()
                         .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                     </PriceDayHamSapn>
@@ -516,7 +517,6 @@ function Detail() {
                 <ReviewStarSpanSapn>후기 114개</ReviewStarSpanSapn>
               </div>
               <Reviewer>
-                
                 <ReviewerDiv>
                   <PropileDiv>
                     <ProfileImg
@@ -535,7 +535,7 @@ function Detail() {
                     </span>
                   </ProfileComment>
                 </ReviewerDiv>
-                
+
                 <ReviewerDiv>
                   <PropileDiv>
                     <ProfileImg
@@ -636,7 +636,13 @@ function Detail() {
                 <ModalButton onClick={() => setDisplay(!display)}>
                   후기 모두 보기
                 </ModalButton>
-                <ReviewModal display={display} setDisplay={setDisplay} />
+                <ReviewModal
+                  display={display}
+                  setDisplay={setDisplay}
+                  param={param}
+                  isLoading={isLoading}
+                  setIsLoding={setIsLoding}
+                />
               </Reviewer>
             </ReviewPadding>
           </Review>
@@ -647,10 +653,7 @@ function Detail() {
               </GoogleMapSanDiv>
 
               <GoogleMapCover>
-
-                <SimpleMap lat={houseData.latitude}
-                lng={houseData.longitude}/>
-
+                <SimpleMap lat={houseData.latitude} lng={houseData.longitude} />
               </GoogleMapCover>
 
               <GoogleMapCoverDiv>
@@ -752,13 +755,11 @@ function Detail() {
             </ThingsKeepPadding>
           </ThingsKeep>
         </>
-        
       ) : (
         <div>test</div>
       )}
     </DetailBody>
   );
-  
 }
 
 export default Detail;

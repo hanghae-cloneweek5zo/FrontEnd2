@@ -1,7 +1,9 @@
 //react import
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import useInput from '../../../hook/hook';
+import { ReviewThunk } from '../../../redux/Modules/PageModules/Review';
+import { MainThunk } from '../../../redux/Modules/PageModules/Main';
 
 //styled import
 import {
@@ -29,16 +31,38 @@ import {
 } from './ReviewMordalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import ReviewSkeleton from '../../skeleton/ReviewSkeleton';
-const ReviewModal = ({display,setDisplay}) => {
+const ReviewModal = ({
+  display,
+  setDisplay,
+  param,
+  isLoading,
+  setIsLoading,
+}) => {
+  const dispatch = useDispatch();
+  const [star, setStar] = useState(0);
+  const [descript, setDescript] = useInput('');
+  const StarValue = (e) => {
+    setStar(e.target.value);
+  };
 
-  const [isLoading,setIsLoding] = useState(false)
+  const SendReview = () => {
+    dispatch(ReviewThunk());
+  };
+
   // const []
-  // 나중에 detail에서 받아온 isLoading 으로 조건문 걸어야함 
-  // const writeReview = {
-  //   descript : 
-  // }
-  // (e)=>e.target.value
-
+  // 나중에 detail에서 받아온 isLoading 으로 조건문 걸어야함
+  const writeReview = {
+    writeReview: {
+      descript: descript,
+      star: star,
+    },
+    param: param.id,
+  };
+  const skeletonCount = [];
+  var i = 0
+  for(i===0;i<20;i++){
+    skeletonCount.push(i)
+  }
   const review = [
     {
       accommodationId: 1,
@@ -134,7 +158,8 @@ const ReviewModal = ({display,setDisplay}) => {
       accommodationId: 1,
       reviewId: 2,
       author: 'god1hyuk',
-      descript: '깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요.',
+      descript:
+        '깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요깨끗하니 좋네요.',
       star: 4,
       createdAt: '2022-08-19T20:46:32.032281',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmicYEwINyqEyM0SzoypDtJPFD1QPzjAkeBg&usqp=CAU',
@@ -144,32 +169,39 @@ const ReviewModal = ({display,setDisplay}) => {
     <ReviewModalBody display={display}>
       <ReviewModalSection>
         <ReviewModalHeader>
-          <HeaderCancel onClick={()=>setDisplay(!display)} />
+          <HeaderCancel onClick={() => setDisplay(!display)} />
         </ReviewModalHeader>
         {/* 헤더끝 */}
         <ReviewBody>
           <BodyHeader>
-            <StarandReview onChange={(e)=>e.target.value} >★ 4.87 후기 47개</StarandReview>
+            <StarandReview>★ 4.87 후기 47개</StarandReview>
           </BodyHeader>
 
           <ReviewArea>
             {/* 인풋창 */}
             <InputArea>
-              <StarSelectBox>
+              <StarSelectBox value={star} onChange={StarValue}>
                 <option value={1}>★</option>
                 <option value={2}>★2</option>
                 <option value={3}>★3</option>
                 <option value={4}>★4</option>
                 <option value={5}>★5</option>
               </StarSelectBox>
-              <ReviewInput maxLength={40} />
+              <ReviewInput
+                maxLength={40}
+                value={descript}
+                onChange={setDescript}
+              />
             </InputArea>
             {/* 인풋창 */}
             <ReviewList>
               {/* 맵돌리는부분 */}
 
-              {review.reverse().map((item) => { return ( isLoading ? <ReviewSkeleton/> :
-                  <ReviewCard>
+              {review.reverse().map((item,i) => {
+                return isLoading ? (
+                  <ReviewSkeleton />
+                ) : (
+                  <ReviewCard key={item.reviewId+i}>
                     <ProfileInfo>
                       <ProfileImg src={item.img} />
                       <ProfileTextArea>
@@ -190,7 +222,7 @@ const ReviewModal = ({display,setDisplay}) => {
               {/* 맵돌리는부분 */}
             </ReviewList>
             <PostButtonArea>
-              <PostButton>작성하기</PostButton>
+              <PostButton onClick={SendReview} >작성하기</PostButton>
             </PostButtonArea>
           </ReviewArea>
         </ReviewBody>

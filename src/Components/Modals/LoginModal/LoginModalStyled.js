@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { ImCross } from 'react-icons/im';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { FcGoogle } from 'react-icons/fc';
+import { TbBrandAirbnb } from 'react-icons/tb';
 
 export const LoginModalBody = styled.div`
-  display: ${(props) => (props.display ? 'block' : 'none')};
+  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
   top: 0;
   right: 0;
@@ -17,7 +18,7 @@ export const LoginModalBody = styled.div`
 export const LoginModalSection = styled.div`
   width: 568px;
   background-color: white;
-  margin: 100px auto 0px auto;
+  margin: 200px auto 0px auto;
   border-radius: 20px;
   padding: 0 15px 15px;
 `;
@@ -71,6 +72,11 @@ export const GoogleIcon = styled(FcGoogle)`
   width: 25px;
   height: 25px;
 `;
+export const BnbIcon = styled(TbBrandAirbnb)`
+  width: 25px;
+  height: 25px;
+  color: #FF385C;
+`;
 export const ButtonText = styled.div`
 width: 100%;
 text-align: center;
@@ -80,6 +86,10 @@ export const ButtonArea = styled.div`
   margin: 30px 5%;
 `;
 export const GoogleButtonArea = styled.div`
+  width: 90%;
+  margin: 30px 5%;
+`;
+export const BnbButtonArea = styled.div`
   width: 90%;
   margin: 30px 5%;
 `;
@@ -96,11 +106,12 @@ export const BottomBody = styled.div`
 `;
 export const LoginInput = styled.input`
   background-color: #e2e2e2;
-  width: 100%;
+  width: 91%;
   height: 40px;
   border: none;
   outline: none;
   border-radius: 20px;
+  padding: 0 20px;
   /* padding-left: 20px;
   padding-right: 20px; */
   font-size: 16px;

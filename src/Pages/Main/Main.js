@@ -3,13 +3,11 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
-
+import { useNavigate } from 'react-router-dom';
 // components import
 import Header from '../../Components/main/Header';
 import Card from '../../Components/main/Card';
 import MainSkeleton from '../../Components/skeleton/MainSkeleton';
-import LoginModal from '../../Components/Modals/LoginModal/LoginModal';
-import SignUpModal from '../../Components/Modals/SignUpModal/SignUpModal';
 import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
 
 import {
@@ -60,21 +58,24 @@ import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     setIsLoding(true);
     dispatch(MainThunk());
     setIsLoding(false);
   }, []);
 
-  const [Filter, setFilter] = useState(false);
-  const [Login, setLogin] = useState(false);
-  const [SignUp, setSignUp] = useState(false);
+  const [Filter, setFilter] = useState('none');
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-
-
-
-  // const [categories, setCategories] = useState(initialState);
+  const FilterHandler = () => {
+    Filter === 'block' ? setFilter('none') : setFilter('block')
+  }
+  const skeletonCount = [];
+  var i = 0
+  for(i===0;i<20;i++){
+    skeletonCount.push(i)
+  }
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
@@ -86,12 +87,6 @@ const Main = () => {
           </AllHomes>
           <FANCY>
             <OMGSVG width="100" height="40" />
-            {/* <button
-              value="기상천외한숙소"
-              onClick={() => {
-                setCategories('기상천외한 숙소');
-              }}
-            > */}
             기상천외한 숙소
           </FANCY>
           <NATIONAL_PARK>
@@ -133,18 +128,18 @@ const Main = () => {
             <ArcticSVG width="100" height="40" fill="blue" />
             북극
           </ARCTIC>
-          <FilterButton>
+
+          <FilterButton onClick={FilterHandler} >
             <FilterButtonSVG />
             필터
           </FilterButton>
+          <FilterModal FilterHandler={FilterHandler} Filter={Filter} setFilter={setFilter}  />
         </CategoryBox>
       </CategoryNavbar>
-
       <MainBox>
-
-        {houseList.map((item) =>
-          isLoding ? <MainSkeleton /> : <Card item={item} />
-        )}
+        {isLoding
+          ? skeletonCount.map((item) => <MainSkeleton key={item}/>)
+          : houseList.map((item) => <Card item={item} key={item.title+item.starAvg}/>)}
       </MainBox>
     </Fragment>
   );
@@ -153,15 +148,19 @@ const Main = () => {
 export default Main;
 
 export const MainBox = styled.div`
-  position: relative;
-  width: 84%;
-  /* border: 1px solid blue; */
+  position: grid !important;
+  width: 100%;
+  grid-template-rows: repeat(4, 1fr);
   display: flex;
   flex-direction: row;
-  top: 120px;
   align-items: stretch;
   justify-content: flex-start;
   flex-wrap: wrap;
   margin: auto;
-  gap: 26px;
+  grid-row-gap: 40px;
+  grid-column-gap: 24px;
+  background-color: white;
+  box-sizing: border-box;
+  padding-left: 140px;
+  margin-top: 110px;
 `;

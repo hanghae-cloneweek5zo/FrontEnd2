@@ -38,7 +38,7 @@ margin-left: 30px;
 `
 export const ReviewArea = styled.div`
 width: 100%;
-max-height: 700px;
+max-height: 500px;
 padding-bottom: 100px;
 `
 export const InputArea = styled.div`
@@ -51,7 +51,7 @@ margin-left: 15px;
 `
 export const ReviewInput = styled.input`
 background-color: #e2e2e2;
-width: 100%;
+width: 80%;
 border: none;
 outline: none;
 border-radius: 20px;
@@ -66,7 +66,7 @@ export const ReviewList = styled.div`
 overflow: scroll;
 overflow-x:hidden;
 width: 100%;
-max-height: 700px;
+max-height: 500px;
 `
 export const ReviewCard = styled.div`
 width: 100%;
