@@ -159,12 +159,14 @@ export const FilterButton = styled.div`
   display: flex;
   border: 1px solid #dddddd;
   border-radius: 12px;
-  left: 30px;
-  width: 60px;
+  left: 40px;
+  width: 70px;
   height: 48px;
   padding-left: 20px;
   z-index: 1;
+  font-size: 14px;
   &:hover {
     cursor: pointer;
     border: 2px solid #dddddd;}
+    font-size: 15px;
 `;

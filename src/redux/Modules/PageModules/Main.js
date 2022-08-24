@@ -17,12 +17,11 @@ export const MainThunk = createAsyncThunk(
 export const FilterThunk = createAsyncThunk(
   'Filter/FilterThunk',
   async (payload, thunkAPI) => {
-
+    console.log(payload)
     const FilterList = await axios
       .post(`${URL}/houses/filter`,payload)
       .then((res) => console.log(res));
-    return payload
-    //  thunkAPI.fulfillWithValue(HouseList);
+    return thunkAPI.fulfillWithValue(FilterList);
   }
 );
 
@@ -34,6 +33,10 @@ const MainSlice = createSlice({
     builder.addCase(MainThunk.fulfilled, (state, action) => {
       state.Main = action.payload;
     });
+    builder.addCase(FilterThunk.fulfilled, (state, action) => {
+      console.log(action)
+      state.Main = action.payload;
+    })
   },
 });
 
