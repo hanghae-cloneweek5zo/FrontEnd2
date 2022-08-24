@@ -44,6 +44,7 @@ const Main = () => {
   for (i === 0; i < 20; i++) {
     skeletonCount.push(i);
   }
+
   return (
     <Fragment>
       <Header Filter={Filter} setFilter={setFilter} />
