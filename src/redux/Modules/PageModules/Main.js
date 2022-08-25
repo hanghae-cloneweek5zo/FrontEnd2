@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Instance from '../../../token/instance/Instance'
 
-const initialState = { Main: [] };
+const initialState = { Main: [],Category: [] };
 const URL = process.env.REACT_APP_URL;
 
 export const MainThunk = createAsyncThunk(
@@ -17,10 +18,9 @@ export const MainThunk = createAsyncThunk(
 export const FilterThunk = createAsyncThunk(
   'Filter/FilterThunk',
   async (payload, thunkAPI) => {
-    console.log(payload)
     const FilterList = await axios
       .post(`${URL}/houses/filter`,payload)
-      .then((res) => console.log(res));
+      .then((res) => res.data.data);
     return thunkAPI.fulfillWithValue(FilterList);
   }
 );
@@ -34,6 +34,28 @@ export const CategoryThunk = createAsyncThunk(
   }
 );
 
+export const HeartListThunk = createAsyncThunk(
+  'HeartList/HeartListThunk',
+  async (payload, thunkAPI) => {
+    console.log(payload)
+    // const HeartList = await Instance
+    //   .get(`${URL}/houses/categories/${payload.homeHeartList}`)
+    //   .then((res) => res.data.data);
+    return 
+    // thunkAPI.fulfillWithValue(HeartList);
+  }
+);
+
+export const HeartThunk = createAsyncThunk(
+  'Heart/HeartThunk',
+  async (payload, thunkAPI) => {
+    const Heart = await axios
+      .get(`${URL}/houses/categories/${payload}`)
+      .then((res) => res.data.data);
+    return thunkAPI.fulfillWithValue(Heart);
+  }
+);
+
 const MainSlice = createSlice({
   name: 'Main',
   initialState: initialState,
@@ -43,12 +65,12 @@ const MainSlice = createSlice({
       state.Main = action.payload;
     });
     builder.addCase(FilterThunk.fulfilled, (state, action) => {
-      console.log(action)
-      state.Main = action.payload;
+
+      state.Category = action.payload;
     });
     builder.addCase(CategoryThunk.fulfilled, (state, action) => {
-      console.log(action)
-      state.Main = action.payload;
+
+      state.Category = action.payload;
     })
   },
 });

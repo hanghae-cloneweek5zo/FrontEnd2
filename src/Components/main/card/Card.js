@@ -1,6 +1,8 @@
 // React import
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { HeartThunk } from '../../../redux/Modules/PageModules/Main';
+import { useDispatch } from 'react-redux';
 
 // style import
 import {
@@ -22,10 +24,10 @@ import { AiFillStar } from 'react-icons/ai';
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch()
   const ClickHeart = () => {
     localStorage.Authorization
-      ? console.log('통신함수넣어야함')
+      ? dispatch(HeartThunk(item.houseId))
       : alert('로그인 후 이용해 주세요.');
   };
 

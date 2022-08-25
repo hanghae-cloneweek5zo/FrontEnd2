@@ -34,7 +34,7 @@ const CheckButtonListOut = ({
           >
             상관없음
           </AnyButton>
-          {List.map((item, index) => {
+          {List.map((item) => {
             return (
               <CheckButton
                 key={item + 'room'}
