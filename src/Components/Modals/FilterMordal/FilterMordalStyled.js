@@ -12,11 +12,14 @@ export const FilterModalBody = styled.div`
   bottom: 0;
   left: 0;
   z-index: 999;
+  max-height: 1280px;
+  margin: auto;
   background-color: rgba(0, 0, 0, 0.1);
 `;
 
 export const FilterModalSection = styled.div`
-  width: 568px;
+  max-width: 568px;
+  width: 100%;
   background-color: white;
   margin: 200px auto 0px auto;
   border-radius: 20px;
@@ -32,7 +35,6 @@ export const FilterModalHeader = styled.div`
 
 export const ModalBody = styled.div`
   width: 100%;
-
   padding-right: 20px;
 `;
 

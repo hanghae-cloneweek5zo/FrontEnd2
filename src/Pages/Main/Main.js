@@ -66,7 +66,6 @@ const Main = () => {
             : null}
         </MainBox>
       </MainWrap>
-
       <FilterModal
         Filter={Filter}
         FilterHandler={FilterHandler}
@@ -119,24 +118,30 @@ export const MainBox = styled.div`
 `;
 
 export const MainMapOutDiv = styled.div`
-  width: 151.65px;
+  width: auto;
   height: 48px;
   display: flex;
   position: fixed;
   bottom: 10%;
   left: 45%;
   z-index: 200;
+  min-width: 161.65px;
 `;
 
 export const MainMapBTM = styled.button`
   background-color: #222222;
   color: #ffffff;
-  width: 151.65px;
+  width: auto;
   height: 48px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
   padding: 15px 24px;
   display: inline-flex;
+  min-width: 161.65px;
+  &:hover {
+    background-color: #717171;
+    cursor: pointer;
+  }
 `;
 
 export const MainMaoSapn = styled.span`
@@ -148,6 +153,7 @@ export const MainMaoSapn = styled.span`
 export const MainMapOutDivBtm = styled.div`
   margin-left: 8px;
 `;
+
 export const MainRefDiv = styled.div`
   background-color: white;
   width: 100%;
