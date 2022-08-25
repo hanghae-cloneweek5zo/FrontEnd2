@@ -80,11 +80,9 @@ const Header = ({ FilterHandler }) => {
               btnType="oval"
               onClick={ProfileHandler}
               ref={buttonEl}
-              // onClick={openProfileModal}
             >
               <FaBars />
-              {/* {isLoggedIn && profileImg && <HeaderProfileImg src={profileImg} />}
-{isLoggedIn && !profileImg && <HeaderProfileImg src={imgPath} />} */}
+
               {localStorage.Authorization ? (
                 <BnbIcon />
               ) : (

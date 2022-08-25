@@ -39,20 +39,17 @@ const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
   const GoSignUp = () => {
     LoginHandler();
     SignUpHandler();
-    setEmail('')
-    setPassword('')
   };
   const URL = process.env.REACT_APP_URL;
   const LoginCheck = (event) => {
     event.preventDefault();
-    axios
-      .post(`${URL}/members/login`, LoginInfomation)
-      .then((res) => {
-        const token = res.headers.authorization;
-        localStorage.setItem('Authorization', token);
-        LoginHandler()
-        // window.location.reload()
-      });
+    axios.post(`${URL}/members/login`, LoginInfomation).then((res) => {
+      const token = res.headers.authorization;
+      localStorage.setItem('authorization', token);
+      setEmail('');
+      setPassword('');
+      LoginHandler();
+    });
   };
   const notice = () => {
     alert('준비중입니다');

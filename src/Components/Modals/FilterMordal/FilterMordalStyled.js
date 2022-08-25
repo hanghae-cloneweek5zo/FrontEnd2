@@ -5,6 +5,8 @@ import { ImCross } from 'react-icons/im';
 export const FilterModalBody = styled.div`
   display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
+  width: 100%;
+  height: 100vh;
   top: 0;
   right: 0;
   bottom: 0;

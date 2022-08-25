@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DetailBody = styled.div`
   max-width: 1980px;
@@ -155,72 +155,71 @@ export const HostSection = styled.section`
 `;
 
 export const HostSectionLeftDiv = styled.div`
-    width: 58.333333%;
-    height: 2143px;
-    float: left;
-    margin-left: 0%;
-    margin-right: 0%;
+  width: 58.333333%;
+  height: 2143px;
+  float: left;
+  margin-left: 0%;
+  margin-right: 0%;
 `;
 export const HostSectionRightDiv = styled.div`
-    width: 33.3333333%;
-    height: 2073px;
-    float: right;
-    display: flex;
-    margin-left: 0%;
-    margin-right: 0%;
+  width: 33.3333333%;
+  height: 2073px;
+  float: right;
+  display: flex;
+  margin-left: 0%;
+  margin-right: 0%;
 `;
 // 움직이는 박스
 export const MovingBox = styled.div`
-    width: 372.33px;
-    height : 400.03px;
-    border: 1px solid rgb(211, 211, 211);
-    border-radius: 24px;
-    box-shadow: rgba(0,0,0,0.12) 0px 6px 16px;
-    margin-top: 40px;
-    position: sticky;
-    top: 45px;
-    bottom: 580px;
-    
+  width: 372.33px;
+  height: 400.03px;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  margin-top: 40px;
+  position: sticky;
+  top: 45px;
+  bottom: 580px;
 `;
 
 export const MovingBoxPadding = styled.div`
-    width: auto;
-    height : 282.03px;
-    padding: 24px;
-    border-bottom: 1px solid rgb(211, 211, 211);
+  width: auto;
+  height: 282.03px;
+  padding: 24px;
+  border-bottom: 1px solid rgb(211, 211, 211);
 `;
 
 export const MovingBoxPrice = styled.div`
-    width: 322.35px;
-    height : 237.09px;
-    display: flex;
-    flex-direction: column;
+  width: 322.35px;
+  height: 237.09px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const MovingBoxPriceDiv = styled.div`
-    width: 322.35px;
-    height : 27.12px;
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 20px;
+  width: 322.35px;
+  height: 27.12px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
 `;
 
 export const MovingBoxPriceSapn = styled.span`
-    font-size: 22px;
-    font-weight: 600;
+  font-size: 22px;
+  font-weight: 600;
 `;
 export const MovingBoxPriceBagSapn = styled.span`
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 6px;
-    margin-left: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 6px;
+  margin-left: 2px;
 `;
 
 export const MovingBoxPriceReDiv = styled.div`
-    width: 115.73px;
-    height : 18px;
-    margin-top: 6px;
-    margin-left: 45px;
+  width: 115.73px;
+  height: 18px;
+  margin-top: 6px;
+  margin-left: 45px;
 `;
 
 export const StarBoxSpan = styled.span`
@@ -239,9 +238,8 @@ export const ReviewStarBoxSpan = styled.span`
 `;
 
 export const ReviewStarBoxSpanSapn = styled.span`
-
   font-weight: 600;
-  color: rgb(113,113,113);
+  color: rgb(113, 113, 113);
   font-size: 12px;
   margin-bottom: 2px;
   margin-left: 10px;
@@ -253,7 +251,6 @@ export const PriceDayBox = styled.div`
   border: 2px solid rgb(221, 221, 221);
   border-radius: 8px;
   margin-bottom: 24px;
-
 `;
 export const PriceDayBoxTopRow = styled.div`
   width: 322.35px;
@@ -268,8 +265,6 @@ export const PriceDayBoxTopRowLeft = styled.div`
   float: left;
   border-bottom: 2px solid rgb(221, 221, 221);
   border-right: 2px solid rgb(221, 221, 221);
-
-
 `;
 
 export const PriceDayBoxTopRowRight = styled.div`
@@ -277,26 +272,23 @@ export const PriceDayBoxTopRowRight = styled.div`
   height: 56px;
   float: right;
   border-bottom: 2px solid rgb(221, 221, 221);
-
 `;
 
 export const PriceDayBoxSml = styled.div`
-margin-top: 10px;
-margin-left: 15px;
-font-size: 10px;
-font-weight: 800;
-
+  margin-top: 10px;
+  margin-left: 15px;
+  font-size: 10px;
+  font-weight: 800;
 `;
 export const PriceDayBoxSmlDay = styled.div`
-margin-top: 5px;
-margin-left: 15px;
-font-size: 14px;
+  margin-top: 5px;
+  margin-left: 15px;
+  font-size: 14px;
 `;
 
 export const PriceDayBoxBtm = styled.div`
   width: 322.35px;
   height: 56px;
-
 `;
 
 export const PriceDayBoxBUM = styled.button`
@@ -304,8 +296,8 @@ export const PriceDayBoxBUM = styled.button`
   height: 100%;
   font-size: 16px;
   border-radius: 8px;
-  color: #FFFFFF;
-  background-color: rgb(220,15,98);
+  color: #ffffff;
+  background-color: rgb(220, 15, 98);
   outline: 0;
   border: 0;
 `;
@@ -314,7 +306,7 @@ export const PriceDaySapn = styled.span`
   height: 26px;
   font-size: 14px;
   font-weight: 400;
-  color: rgb(40,40,40);
+  color: rgb(40, 40, 40);
 `;
 export const PriceDaySpanDiv = styled.div`
   width: 322.35px;
@@ -322,7 +314,7 @@ export const PriceDaySpanDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  text-align : center;
+  text-align: center;
   margin-top: 22px;
 `;
 export const PriceDiv = styled.div`
@@ -330,18 +322,16 @@ export const PriceDiv = styled.div`
   height: 61px;
   margin-left: auto;
   margin-right: auto;
-  
 `;
 export const PriceDivPadding = styled.div`
-display: flex;
+  display: flex;
   justify-content: space-between;
-    padding: 20px;
+  padding: 20px;
 `;
 
 export const PriceDayHamSapn = styled.span`
   font-size: 16px;
   font-weight: 600;
-
 `;
 
 //여기까지 움직이는 박스 끝
@@ -349,7 +339,6 @@ export const HostDiv = styled.div`
   width: 653.33px;
   height: 138px;
   border-bottom: 2px solid rgb(221, 221, 221);
-  
 `;
 
 export const HostPaddingDiv = styled.div`
@@ -491,7 +480,7 @@ export const FtDiv = styled.div`
 `;
 export const FtDivEx = styled.div`
   padding: 10px;
-  text-decoration:line-through 
+  text-decoration: line-through;
 `;
 
 export const CalendarSec = styled.div`
@@ -503,8 +492,6 @@ export const CalendarPadiing = styled.div`
   height: 421.99px;
   padding-top: 48px;
   padding-bottom: 48px;
-
-
 `;
 export const CalendarDiv = styled.div`
   width: 653.33px;
@@ -515,7 +502,6 @@ export const CalendarDivDAY = styled.div`
   margin-top: 80px;
   height: auto;
 `;
-
 
 export const CalendarSapn = styled.span`
   font-size: 24px;
@@ -703,9 +689,8 @@ export const AccomDetailDiv = styled.div`
 `;
 
 export const TimeDiv = styled.div`
-    margin-right: 12px;
+  margin-right: 12px;
 `;
-
 
 export const AccomDetailDivDiv = styled.div`
   width: 330.66px;
@@ -723,14 +708,14 @@ export const AccomDetailDiClin = styled.div`
   flex-direction: row;
 `;
 export const ModalButton = styled.button`
-width: 200px;
-height: 50px;
-border-radius:10px;
-border: 1px solid black;
-background-color: white;
-&:hover{
-  cursor: pointer;
-  border: 2px solid black;
-}
-`
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+    border: 2px solid black;
+  }
+`;
 //구글맵

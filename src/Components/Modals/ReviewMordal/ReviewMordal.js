@@ -25,13 +25,7 @@ import {
 } from './ReviewMordalStyled';
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import ReviewSkeleton from '../../skeleton/ReviewSkeleton';
-const ReviewModal = ({
-  display,
-  setDisplay,
-  param,
-  isLoading,
-  setIsLoading,
-}) => {
+const ReviewModal = ({ display, param, isLoading, DisplayHandler }) => {
   const dispatch = useDispatch();
   const [star, setStar] = useState(0);
   const [descript, setDescript] = useInput('');
@@ -59,8 +53,7 @@ const ReviewModal = ({
     },
     {
       img: 'https://a0.muscache.com/im/pictures/user/f651e480-dfbc-4e4c-a3ee-f53e42d22872.jpg?im_w=240',
-      descript:
-        '최고의 장소입니다!',
+      descript: '최고의 장소입니다!',
       createdAt: '2022-7',
       author: 'Julie',
     },
@@ -79,7 +72,7 @@ const ReviewModal = ({
       author: 'Malay',
     },
     {
-      img: "https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240",
+      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
       descript:
         ' 유일한 불만은 저희가 더 오래 머물지 못한다는 점에 전적으로동의합니다. 하이드아웃은 실망시키지 않았습니다. 음식,서비스, 온수 욕조... 에버린은 정말 놀라웠습니다. 이 숙소에대한 애정이 정말 많아요. 욕실은 그저',
       createdAt: '2022-7',
@@ -92,31 +85,8 @@ const ReviewModal = ({
       createdAt: '2022-8',
       author: 'NICKNAME',
     },
-    {
-      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
-      descript:
-        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
-      createdAt: '2022-8',
-      author: 'NICKNAME',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
-      descript:
-        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
-      createdAt: '2022-8',
-      author: 'NICKNAME',
-    },
-    {
-      img: 'https://a0.muscache.com/im/pictures/user/237512e2-5c40-40e9-86de-6a7c84e6882b.jpg?im_w=240',
-      descript:
-        '열대우림에 있는 만큼 벌레가 많으므로 창문을 잘 닫아야합니다 직원들의 친절한 응대가 좋았습니다',
-      createdAt: '2022-8',
-      author: 'NICKNAME',
-    },
   ];
 
-  // const []
-  // 나중에 detail에서 받아온 isLoading 으로 조건문 걸어야함
   const writeReview = {
     writeReview: {
       descript: descript,
@@ -134,35 +104,17 @@ const ReviewModal = ({
     <ReviewModalBody display={display}>
       <ReviewModalSection>
         <ReviewModalHeader>
-          <HeaderCancel onClick={() => setDisplay(!display)} />
+          <HeaderCancel onClick={DisplayHandler} />
         </ReviewModalHeader>
-        {/* 헤더끝 */}
+
         <ReviewBody>
           <BodyHeader>
             <StarandReview>★ 4.87 후기 47개</StarandReview>
           </BodyHeader>
 
           <ReviewArea>
-            {/* 인풋창 */}
-            {/* <InputArea>
-              <StarSelectBox value={star} onChange={StarValue}>
-                <option value={1}>★</option>
-                <option value={2}>★2</option>
-                <option value={3}>★3</option>
-                <option value={4}>★4</option>
-                <option value={5}>★5</option>
-              </StarSelectBox>
-              <ReviewInput
-                maxLength={40}
-                value={descript}
-                onChange={setDescript}
-              />
-            </InputArea> */}
-            {/* 인풋창 */}
             <ReviewList>
-              {/* 맵돌리는부분 */}
-
-              {review.reverse().map((item, i) => {
+              {review.map((item, i) => {
                 return isLoading ? (
                   <ReviewSkeleton />
                 ) : (

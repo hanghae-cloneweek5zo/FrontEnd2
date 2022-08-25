@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux/es/exports';
 import { useDispatch } from 'react-redux/es/exports';
 import { MainThunk } from '../../redux/Modules/PageModules/Main';
 import { useNavigate } from 'react-router-dom';
-import { useInView } from 'react-intersection-observer';
 
 // components import
 import Header from '../../Components/main/header/Header';
@@ -18,11 +17,10 @@ import styled from 'styled-components';
 // react icon
 import { BsFillMapFill } from 'react-icons/bs';
 const Main = () => {
-  const [ref, inView] = useInView();
   const [page, setPage] = useState(1);
   const [isLoding, setIsLoding] = useState(true);
   const houseList = useSelector((state) => state.Main.Main);
-  const CategoryList = useSelector((state) => state.Main.Category);
+
   const [category, setCategory] = useState(0);
   const skeletonCount = [];
   var i = 0;
@@ -31,19 +29,15 @@ const Main = () => {
   }
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     setIsLoding(true);
-    dispatch(MainThunk());
+    dispatch(MainThunk(page));
     setIsLoding(false);
   }, [page]);
 
-  useEffect(() => {
-    if (inView && !isLoding && category === 0) {
-      setPage(page + 1);
-    }
-  }, [inView, isLoding]);
-
   const [Filter, setFilter] = useState('none');
+
   const FilterHandler = () => {
     Filter === 'none' ? setFilter('block') : setFilter('none');
   };
@@ -60,21 +54,13 @@ const Main = () => {
       </Wrap>
       <MainWrap>
         <MainBox category={category}>
-          {category === 0
-            ? houseList.map((item) => (
-                <Card
-                  item={item}
-                  key={item.title + item.starAvg}
-                  onClick={() => navigate(`/detail/${item.houseId}`)}
-                />
-              ))
-            : CategoryList.map((item) => (
-                <Card
-                  item={item}
-                  key={item.title + item.starAvg}
-                  onClick={() => navigate(`/detail/${item.houseId}`)}
-                />
-              ))}
+          {houseList.map((item) => (
+            <Card
+              item={item}
+              key={item.title + item.starAvg}
+              onClick={() => navigate(`/detail/${item.houseId}`)}
+            />
+          ))}
           {isLoding
             ? skeletonCount.map((item) => <MainSkeleton key={item} />)
             : null}
@@ -85,7 +71,10 @@ const Main = () => {
         FilterHandler={FilterHandler}
         setFilter={setFilter}
         setCategory={setCategory}
+        page={page}
+        setPage={setPage}
       />
+
       <MainMapOutDiv>
         <MainMapBTM onClick={() => navigate('/MainMap')}>
           <MainMaoSapn>
