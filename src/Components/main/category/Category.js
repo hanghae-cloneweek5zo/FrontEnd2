@@ -32,7 +32,7 @@ import {
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category }) => {
+const Category = ({ setCategory, category,FilterHandler }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -98,14 +98,14 @@ const Category = ({ setCategory, category }) => {
                 onClick={() => {
                   setCategory(index);
                 }}
-                key={CategoryNameList[index]}
+                key={CategoryNameList[index]} check={index} category={category}
               >
                 {item}
                 <span>{CategoryNameList[index]}</span>
               </CategoryBtn>
             ))}
           </CategoryWrap>
-          <FilterButton>
+          <FilterButton onClick={FilterHandler}>
             <FilterButtonSVG />
             필터
           </FilterButton>

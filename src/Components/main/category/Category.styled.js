@@ -48,7 +48,7 @@ export const CategoryBtn = styled.div`
   }
   &:hover {
     cursor: pointer;
-    color: rgb(34, 34, 34);
+
     font-weight: bold;
     span {
       box-shadow: inset 0 -2px 0 rgb(34, 34, 34);

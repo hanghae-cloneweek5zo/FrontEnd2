@@ -9,7 +9,7 @@ export const ReviewModalBody = styled.div`
   bottom: 0;
   left: 0;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.1);
+
 `;
 
 export const ReviewModalSection = styled.div`
@@ -18,6 +18,7 @@ export const ReviewModalSection = styled.div`
   border-radius: 20px;
   margin: 100px auto 0px auto;
   padding: 30px 30px;
+  border: 0.5px solid black;
 `;
 
 export const ReviewModalHeader = styled.div`
