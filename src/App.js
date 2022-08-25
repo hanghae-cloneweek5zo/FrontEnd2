@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 // Page import
 import Main from './Pages/Main/Main';
 import Detail from './Pages/Detail/Detail';
-import ManinSimpleMap from './Pages/MainGoogleMap/MainSimpleMap';
+import MainMap from './Pages/MainMapPage/MainMap';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Route path="/" exact="true" element={<Main />} />
       <Route path="detail" element={<Detail />} />
       <Route path="detail/:id" element={<Detail />} />
-      <Route path="ManinSimpleMap" element={<ManinSimpleMap />} />
+      <Route path="MainMap" element={<MainMap />} />
       <Route path="*" element={<Main />} />
     </Routes>
   );
