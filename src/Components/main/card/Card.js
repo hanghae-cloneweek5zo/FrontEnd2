@@ -30,7 +30,6 @@ const Card = ({ item }) => {
       ? dispatch(HeartThunk(item.houseId))
       : alert('로그인 후 이용해 주세요.');
   };
-
   return (
     <Fragment key={item}>
       <CardContents>
@@ -40,7 +39,6 @@ const Card = ({ item }) => {
             onClick={() => navigate(`/detail/${item.houseId}`)}
           ></CardImgArea>
           <CardIconArea onClick={ClickHeart}>
-            {/* <CardIcon></CardIcon> */}
               <FaHeart style={{color: "rgba(0, 0, 0, .5)"}}/>
             {/* <FaHeart style={{color: "#fff"}}/> */}
           </CardIconArea>
