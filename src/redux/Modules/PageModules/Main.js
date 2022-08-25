@@ -24,6 +24,7 @@ export const FilterThunk = createAsyncThunk(
     return thunkAPI.fulfillWithValue(FilterList);
   }
 );
+
 export const CategoryThunk = createAsyncThunk(
   'Category/CategoryThunk',
   async (payload, thunkAPI) => {
@@ -37,7 +38,6 @@ export const CategoryThunk = createAsyncThunk(
 export const HeartListThunk = createAsyncThunk(
   'HeartList/HeartListThunk',
   async (payload, thunkAPI) => {
-    console.log(payload)
     // const HeartList = await Instance
     //   .get(`${URL}/houses/categories/${payload.homeHeartList}`)
     //   .then((res) => res.data.data);

@@ -34,7 +34,6 @@ import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/Fi
 
 const Category = ({ setCategory, category, FilterHandler }) => {
   const dispatch = useDispatch();
-  // const categoryList = useSelector((state) => state);
 
   useEffect(() => {
     category === 0
@@ -86,7 +85,6 @@ const Category = ({ setCategory, category, FilterHandler }) => {
     <LAKESVG width="100%" height="40" />,
     <ARCTICSVG width="100%" height="40" />,
   ];
-  // console.log(category);
 
   return (
     <Fragment>
