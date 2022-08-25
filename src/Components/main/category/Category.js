@@ -32,7 +32,7 @@ import {
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category,FilterHandler }) => {
+const Category = ({ setCategory, category, FilterHandler }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -73,18 +73,18 @@ const Category = ({ setCategory, category,FilterHandler }) => {
   ];
 
   const categoryList = [
-    <ALLHOMESSVG width="auto" height="40" />,
-    <FANCYSVG width="auto" height="40" />,
-    <NATIONAL_PARKSVG width="auto" height="40" />,
-    <SHACKSVG width="auto" height="40" />,
-    <ISLESVG width="auto" height="40" />,
-    <OCEANSVG width="auto" height="40" />,
-    <COMPACTSVG width="auto" height="40" />,
-    <DESIGNEDSVG width="auto" height="40" />,
-    <CAMPSITESVG width="auto" height="40" />,
-    <A_SHAPEDSVG width="auto" height="40" />,
-    <LAKESVG width="auto" height="40" />,
-    <ARCTICSVG width="auto" height="40" />,
+    <ALLHOMESSVG width="100%" height="40" />,
+    <FANCYSVG width="100" height="40" />,
+    <NATIONAL_PARKSVG width="100%" height="40" />,
+    <SHACKSVG width="100%" height="40" />,
+    <ISLESVG width="100%" height="40" />,
+    <OCEANSVG width="100%" height="40" />,
+    <COMPACTSVG width="100%" height="40" />,
+    <DESIGNEDSVG width="100%" height="40" />,
+    <CAMPSITESVG width="100%" height="40" />,
+    <A_SHAPEDSVG width="100%" height="40" />,
+    <LAKESVG width="100%" height="40" />,
+    <ARCTICSVG width="100%" height="40" />,
   ];
   // console.log(category);
 
@@ -98,7 +98,9 @@ const Category = ({ setCategory, category,FilterHandler }) => {
                 onClick={() => {
                   setCategory(index);
                 }}
-                key={CategoryNameList[index]} check={index} category={category}
+                key={CategoryNameList[index]}
+                check={index}
+                category={category}
               >
                 {item}
                 <span>{CategoryNameList[index]}</span>
