@@ -18,7 +18,6 @@ const MainMap = () => {
   return (
     <>
       <Header />
-
       <MainMapOutDiv>
         <MainMapBTM onClick={() => navigate('/Main')}>
           <MainMaoSapn>
@@ -39,7 +38,7 @@ const MainMap = () => {
 export default MainMap;
 
 export const MainMapOutDiv = styled.div`
-  width: 128.65px;
+  width: auto;
   height: 48px;
   display: flex;
   position: fixed;
@@ -51,12 +50,16 @@ export const MainMapOutDiv = styled.div`
 export const MainMapBTM = styled.button`
   background-color: #222222;
   color: #ffffff;
-  width: 128.65px;
+  max-width: 138.65px;
   height: 48px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
   padding: 15px 24px;
   display: inline-flex;
+  &:hover {
+    background-color: #717171;
+    cursor: pointer;
+  }
 `;
 
 export const MainMaoSapn = styled.span`
