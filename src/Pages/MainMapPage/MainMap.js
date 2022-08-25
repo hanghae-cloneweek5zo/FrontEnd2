@@ -1,16 +1,16 @@
 // React import
-import React from "react";
+import React from 'react';
 
 // components import
-import Header from "../../Components/main/header/Header";
+import Header from '../../Components/main/header/Header';
 
 // style import
-import styled from "styled-components";
+import styled from 'styled-components';
 // react icon
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import { AiOutlineUnorderedList } from 'react-icons/ai';
 // MainMapApi
-import ManinSimpleMap from "../MainGoogleMap/MainSimpleMap";
-import { useNavigate } from "react-router-dom";
+import ManinSimpleMap from '../MainGoogleMap/MainSimpleMap';
+import { useNavigate } from 'react-router-dom';
 
 const MainMap = () => {
   const navigate = useNavigate();
@@ -18,14 +18,13 @@ const MainMap = () => {
   return (
     <>
       <Header />
-
       <MainMapOutDiv>
-        <MainMapBTM onClick={() => navigate("/Main")}>
+        <MainMapBTM onClick={() => navigate('/Main')}>
           <MainMaoSapn>
-            <span> 목록 보기 </span>{" "}
+            <span> 목록 보기 </span>{' '}
             <MainMapOutDivBtm>
               <span>
-                <AiOutlineUnorderedList color="rgb(255, 255, 255)" />{" "}
+                <AiOutlineUnorderedList color="rgb(255, 255, 255)" />{' '}
               </span>
             </MainMapOutDivBtm>
           </MainMaoSapn>
@@ -39,7 +38,7 @@ const MainMap = () => {
 export default MainMap;
 
 export const MainMapOutDiv = styled.div`
-  width: 128.65px;
+  width: auto;
   height: 48px;
   display: flex;
   position: fixed;
@@ -51,12 +50,16 @@ export const MainMapOutDiv = styled.div`
 export const MainMapBTM = styled.button`
   background-color: #222222;
   color: #ffffff;
-  width: 128.65px;
+  max-width: 138.65px;
   height: 48px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
   padding: 15px 24px;
   display: inline-flex;
+  &:hover {
+    background-color: #717171;
+    cursor: pointer;
+  }
 `;
 
 export const MainMaoSapn = styled.span`

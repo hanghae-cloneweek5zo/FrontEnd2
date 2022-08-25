@@ -139,7 +139,6 @@ const FilterModal = ({ FilterHandler, Filter, setCategory }) => {
               </CheckBoxContent>
             ))}
           </CheckBoxArea>
-
           <ModalFooter>
             <FooterButton onClick={Search}>조회</FooterButton>
           </ModalFooter>
