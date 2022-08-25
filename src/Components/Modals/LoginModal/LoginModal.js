@@ -51,6 +51,7 @@ const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
         const token = res.headers.authorization;
         localStorage.setItem('Authorization', token);
         LoginHandler()
+        // window.location.reload()
       });
   };
   const notice = () => {

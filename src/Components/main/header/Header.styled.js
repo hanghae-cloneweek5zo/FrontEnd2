@@ -88,8 +88,9 @@ export const ProfileModal = styled.div`
   background-color: white;
   border-radius: 20px;
   border: 1px solid black;
-  right: 100px;
+  right: 350px;
   top: 80px;
+  z-index: 500;
 `;
 
 export const LoginButton = styled.div`
