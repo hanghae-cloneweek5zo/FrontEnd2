@@ -111,9 +111,6 @@ el={el}
 {Profile === 'block' && (
 <ProfileModal display={Profile} ref={modalEl}>
 <LoginButton>
-<WishText>위시 리스트</WishText>
-</LoginButton>
-<LoginButton>
 <LoginText onClick={LoginHandler}>로그인 하기</LoginText>
 </LoginButton>
 <SignUpButton>

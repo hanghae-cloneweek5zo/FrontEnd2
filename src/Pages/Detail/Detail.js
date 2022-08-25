@@ -147,10 +147,14 @@ function Detail() {
   const dispatch = useDispatch();
 
   const houseData = useSelector((state) => state.Detail.Detail);
-
+  const [display, setDisplay] = useState('none');
   const is_loaded = useSelector((state) => state.Detail.is_loaded);
-
   const [isLoading, setIsLoding] = useState(false);
+
+  const DisplayHandler = () => {
+    display === 'none' ? setDisplay('block') : setDisplay('none');
+  }
+
   useEffect(() => {
     setIsLoding(true);
     dispatch(DetailThunk(param));
@@ -169,9 +173,6 @@ function Detail() {
   // const reviewsLength = reviews.length;
 
   console.log(houseData);
-
-  const [display, setDisplay] = useState(false);
-
   return (
     <DetailBody>
       <DetailHeader />
@@ -639,12 +640,12 @@ function Detail() {
                   </ProfileComment>
                 </ReviewerDiv>
 
-                <ModalButton onClick={() => setDisplay(!display)}>
+                <ModalButton onClick={DisplayHandler}>
                   후기 모두 보기
                 </ModalButton>
                 <ReviewModal
                   display={display}
-                  setDisplay={setDisplay}
+                  DisplayHandler={DisplayHandler}
                   param={param}
                   isLoading={isLoading}
                   setIsLoding={setIsLoding}

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ImCross } from 'react-icons/im';
 
 export const ReviewModalBody = styled.div`
-  display: ${(props) => (props.display ? 'block' : 'none')};
+  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
   top: 0;
   right: 0;

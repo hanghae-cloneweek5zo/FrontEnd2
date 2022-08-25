@@ -33,10 +33,9 @@ import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import ReviewSkeleton from '../../skeleton/ReviewSkeleton';
 const ReviewModal = ({
   display,
-  setDisplay,
   param,
   isLoading,
-  setIsLoading,
+  DisplayHandler
 }) => {
   const dispatch = useDispatch();
   const [star, setStar] = useState(0);
@@ -140,7 +139,7 @@ const ReviewModal = ({
     <ReviewModalBody display={display}>
       <ReviewModalSection>
         <ReviewModalHeader>
-          <HeaderCancel onClick={() => setDisplay(!display)} />
+          <HeaderCancel onClick={DisplayHandler} />
         </ReviewModalHeader>
         {/* 헤더끝 */}
         <ReviewBody>
