@@ -1,16 +1,16 @@
 // React import
-import React from "react";
+import React from 'react';
 
 // components import
-import Header from "../../Components/main/header/Header";
+import Header from '../../Components/main/header/Header';
 
 // style import
-import styled from "styled-components";
+import styled from 'styled-components';
 // react icon
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import { AiOutlineUnorderedList } from 'react-icons/ai';
 // MainMapApi
-import ManinSimpleMap from "../MainGoogleMap/MainSimpleMap";
-import { useNavigate } from "react-router-dom";
+import ManinSimpleMap from '../MainGoogleMap/MainSimpleMap';
+import { useNavigate } from 'react-router-dom';
 
 const MainMap = () => {
   const navigate = useNavigate();
@@ -20,12 +20,12 @@ const MainMap = () => {
       <Header />
 
       <MainMapOutDiv>
-        <MainMapBTM onClick={() => navigate("/Main")}>
+        <MainMapBTM onClick={() => navigate('/Main')}>
           <MainMaoSapn>
-            <span> 목록 보기 </span>{" "}
+            <span> 목록 보기 </span>{' '}
             <MainMapOutDivBtm>
               <span>
-                <AiOutlineUnorderedList color="rgb(255, 255, 255)" />{" "}
+                <AiOutlineUnorderedList color="rgb(255, 255, 255)" />{' '}
               </span>
             </MainMapOutDivBtm>
           </MainMaoSapn>

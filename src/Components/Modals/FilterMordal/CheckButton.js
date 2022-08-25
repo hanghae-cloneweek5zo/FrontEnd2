@@ -27,7 +27,7 @@ const CheckButtonListOut = ({
           <AnyButton
             key="bedroom"
             onClick={() => {
-             setRoomNum(0);
+              setRoomNum(0);
             }}
             check={0}
             num={roomNum}
@@ -39,7 +39,7 @@ const CheckButtonListOut = ({
               <CheckButton
                 key={item + 'room'}
                 onClick={() => {
-                 setRoomNum(item);
+                  setRoomNum(item);
                 }}
                 check={item}
                 num={roomNum}
@@ -58,7 +58,7 @@ const CheckButtonListOut = ({
             check={0}
             num={bedNum}
             onClick={() => {
-             setBedNum(0);
+              setBedNum(0);
             }}
           >
             상관없음
@@ -68,7 +68,7 @@ const CheckButtonListOut = ({
               <CheckButton
                 key={item + 'bed'}
                 onClick={() => {
-                setBedNum(item);
+                  setBedNum(item);
                 }}
                 check={item}
                 num={bedNum}

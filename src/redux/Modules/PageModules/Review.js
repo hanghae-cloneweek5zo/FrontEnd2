@@ -7,11 +7,6 @@ const URL = process.env.REACT_APP_URL;
 export const ReviewThunk = createAsyncThunk(
   'Review/ReviewThunk',
   async (payload, thunkAPI) => {
-    console('aaa');
-    //   const ReviewList = await axios
-    //     .get(`${URL}/houses`)
-    //     .then((res) =>res.data.data);
-
     return thunkAPI.fulfillWithValue(payload);
   }
 );

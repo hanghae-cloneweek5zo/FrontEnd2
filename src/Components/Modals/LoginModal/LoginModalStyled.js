@@ -75,11 +75,11 @@ export const GoogleIcon = styled(FcGoogle)`
 export const BnbIcon = styled(TbBrandAirbnb)`
   width: 25px;
   height: 25px;
-  color: #FF385C;
+  color: #ff385c;
 `;
 export const ButtonText = styled.div`
-width: 100%;
-text-align: center;
+  width: 100%;
+  text-align: center;
 `;
 export const ButtonArea = styled.div`
   width: 90%;
@@ -112,8 +112,6 @@ export const LoginInput = styled.input`
   outline: none;
   border-radius: 20px;
   padding: 0 20px;
-  /* padding-left: 20px;
-  padding-right: 20px; */
   font-size: 16px;
 
   &:focus {

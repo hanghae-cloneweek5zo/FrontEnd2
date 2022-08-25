@@ -3,7 +3,7 @@ import '../../../static/fonts/fonts.css';
 import { ImCross } from 'react-icons/im';
 
 export const FilterModalBody = styled.div`
-  display:  ${(props) => (props.display == 'block' ? 'block' : 'none')}; 
+  display: ${(props) => (props.display == 'block' ? 'block' : 'none')};
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -97,7 +97,6 @@ export const PriceInputArea = styled.div`
   padding: 30px 0;
   border-bottom: 1px solid rgb(235, 235, 235);
   justify-content: center;
-
 `;
 
 export const LeftPrice = styled.input`
@@ -117,18 +116,16 @@ export const RightPrice = styled.input`
   margin-left: 10px;
   -webkit-appearance: none;
   padding-left: 10px;
-
 `;
 export const BedRoomArea = styled.div`
-width: 100%;
-margin: 20px 0;
-border-bottom: 1px solid rgb(235, 235, 235);
-
-`
+  width: 100%;
+  margin: 20px 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+`;
 export const BedRoomTitle = styled.h2`
-width: 100%;
-margin: 0 15px;
-`
+  width: 100%;
+  margin: 0 15px;
+`;
 export const ModalFooter = styled.div`
   border-top: 1px solid rgb(235, 235, 235);
   font-family: 'AirbnbCereal_W_XBd';
@@ -139,92 +136,87 @@ export const ModalFooter = styled.div`
 `;
 
 export const CheckButtonArea = styled.div`
-width: 100%;
-margin: 20px 15px;
-`
+  width: 100%;
+  margin: 20px 15px;
+`;
 
 export const OptionDiv = styled.div`
-width: 100%;
-color: #e2e2e2;
-
-`
-export const InputInside = styled.div`
-
-`
+  width: 100%;
+  color: #e2e2e2;
+`;
+export const InputInside = styled.div``;
 export const CheckButtonLine = styled.div`
-display: flex;
-width: 100%;
-margin: 20px 0;
-
-`
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+`;
 export const AnyButton = styled.button`
-width: 110px;
-height: 40px;
-border: 1px solid #e2e2e2;
-border-radius: 20px;
-color: ${(props)=>props.check===props.num ? 'white' : 'black' };
-background-color: ${(props)=>props.check===props.num? 'black' : 'white' };
-margin: 0 5px;
-transition: all 0.5s;
-&:hover{
-cursor: pointer;
-outline: 1.5px solid black;
-}
-`
+  width: 110px;
+  height: 40px;
+  border: 1px solid #e2e2e2;
+  border-radius: 20px;
+  color: ${(props) => (props.check === props.num ? 'white' : 'black')};
+  background-color: ${(props) =>
+    props.check === props.num ? 'black' : 'white'};
+  margin: 0 5px;
+  transition: all 0.5s;
+  &:hover {
+    cursor: pointer;
+    outline: 1.5px solid black;
+  }
+`;
 
 export const CheckButton = styled.button`
-width: 60px;
-height: 40px;
-border: 1px solid #e2e2e2;
-border-radius: 20px;
-transition: all 0.5s;
-color: black;
-background-color: white;
-color: ${(props)=>props.check===props.num ? 'white' : 'black' };
-background-color: ${(props)=>props.check===props.num? 'black' : 'white' };
-margin: 0 5px;
-&:hover{
-cursor: pointer;
-outline: 1.5px solid black;
-}
-`
+  width: 60px;
+  height: 40px;
+  border: 1px solid #e2e2e2;
+  border-radius: 20px;
+  transition: all 0.5s;
+  color: black;
+  background-color: white;
+  color: ${(props) => (props.check === props.num ? 'white' : 'black')};
+  background-color: ${(props) =>
+    props.check === props.num ? 'black' : 'white'};
+  margin: 0 5px;
+  &:hover {
+    cursor: pointer;
+    outline: 1.5px solid black;
+  }
+`;
 
 export const CheckBoxArea = styled.div`
-width: 100%;
-display: flex;
-flex-wrap:wrap;
-margin: 20px 10px;
-flex-direction: column;
-max-height: 250px;
-
-`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+  flex-direction: column;
+  max-height: 250px;
+`;
 export const CheckBox = styled.input`
-width: 20px;
-height: 20px;
-accent-color: black;
-border-radius: 10px;
-transition: all 0.5s;
-`
-export const  CheckBoxText = styled.div`
-font-size: 14px;
-
-`
+  width: 20px;
+  height: 20px;
+  accent-color: black;
+  border-radius: 10px;
+  transition: all 0.5s;
+`;
+export const CheckBoxText = styled.div`
+  font-size: 14px;
+`;
 export const CheckBoxContent = styled.div`
-display: flex;
-flex-wrap:wrap;
-margin: 10px;
-`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+`;
 
 export const FooterButton = styled.button`
-width: 100px;
-height: 60px;
-border-radius:15px ;
-border: 0.5px solid ;
-outline: none;
+  width: 100px;
+  height: 60px;
+  border-radius: 15px;
+  border: 0.5px solid;
+  outline: none;
 
-&:hover{
-cursor: pointer;
-outline: 1.5px solid black;
-}
-
-`
+  &:hover {
+    cursor: pointer;
+    outline: 1.5px solid black;
+  }
+`;

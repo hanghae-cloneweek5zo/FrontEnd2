@@ -23,7 +23,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const ClickHeart = () => {
     localStorage.Authorization
       ? alert('준비중 입니다.')
@@ -40,9 +40,7 @@ const Card = ({ item }) => {
           ></CardImgArea>
 
           <CardIconArea onClick={ClickHeart}>
-
-              <FaHeart style={{color: "rgba(0, 0, 0, .5)"}}/>
-            {/* <FaHeart style={{color: "#fff"}}/> */}
+            <FaHeart style={{ color: 'rgba(0, 0, 0, .5)' }} />
           </CardIconArea>
           <CardContentArea onClick={() => navigate(`/detail/${item.houseId}`)}>
             <div style={{ width: '255px', overflow: 'hidden' }}>
@@ -53,15 +51,10 @@ const Card = ({ item }) => {
               {item.starAvg}
             </div>
             <div>
-              <span style={{ color: '#979a9e' }}>
-                5,275km
-                {/* {item.distance} */}
-              </span>
+              <span style={{ color: '#979a9e' }}>5,275km</span>
             </div>
             <div></div>
-            <div>
-              {/* ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} /박 */}
-            </div>
+            <div></div>
           </CardContentArea>
         </CardArea>
       </CardContents>

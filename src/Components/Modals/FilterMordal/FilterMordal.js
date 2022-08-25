@@ -65,9 +65,9 @@ const FilterModal = ({ FilterHandler, Filter, setCategory, page, setPage }) => {
   };
   const SearchPost = () => {
     FilterHandler();
-    dispatch(FilterThunk(FilterData,page));
-    setCategory(20)
-    setPage(0)
+    dispatch(FilterThunk(FilterData, page));
+    setCategory(20);
+    setPage(0);
   };
   const Search = () => {
     Number(Left) > Number(Right)

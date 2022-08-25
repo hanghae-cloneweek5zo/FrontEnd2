@@ -18,14 +18,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaAirbnb } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
 
-const DetailHeader = ({
-  isScrollTop,
-  togglePopup,
-  isLoggedIn,
-  data,
-  Filter,
-  setFilter,
-}) => {
+const DetailHeader = ({ isScrollTop }) => {
   // const { profileImg } = data;
   const navigate = useNavigate();
 
@@ -38,14 +31,8 @@ const DetailHeader = ({
             airbnb
           </HeaderLogoTitle>
         </HeaderLogo>
-        <HeaderPageButton
-          btnType="oval"
-          isScrollTop={isScrollTop}
-          // onClick={openProfileModal}
-        >
+        <HeaderPageButton btnType="oval" isScrollTop={isScrollTop}>
           <FaBars />
-          {/* {isLoggedIn && profileImg && <HeaderProfileImg src={profileImg} />}
-          {isLoggedIn && !profileImg && <HeaderProfileImg src={imgPath} />} */}
           {localStorage.Authorization ? (
             <BnbIcon />
           ) : (
