@@ -11,7 +11,7 @@ import {
 } from './Category.styled';
 
 // Redux import
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Images import
 import { ReactComponent as ALLHOMESSVG } from '../../../static/IconImages/ALLHOMES.svg';
@@ -40,7 +40,7 @@ const Category = ({ setCategory, category, FilterHandler }) => {
     category === 0
       ? dispatch(MainThunk())
       : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
-  }, [category]);
+  }, [category, dispatch]);
 
   const Category = [
     'ALLHOMES',
@@ -74,7 +74,7 @@ const Category = ({ setCategory, category, FilterHandler }) => {
 
   const categoryList = [
     <ALLHOMESSVG width="100%" height="40" />,
-    <FANCYSVG width="100" height="40" />,
+    <FANCYSVG width="100%" height="40" />,
     <NATIONAL_PARKSVG width="100%" height="40" />,
     <SHACKSVG width="100%" height="40" />,
     <ISLESVG width="100%" height="40" />,
