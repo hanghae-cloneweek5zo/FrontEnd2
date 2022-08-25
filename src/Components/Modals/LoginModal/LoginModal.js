@@ -49,9 +49,11 @@ const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
       .post(`${URL}/members/login`, LoginInfomation)
       .then((res) => {
         const token = res.headers.authorization;
-        localStorage.setItem('Authorization', token);
+        localStorage.setItem('authorization', token);
+        setEmail('')
+        setPassword('')
         LoginHandler()
-        // window.location.reload()
+        window.location.reload()
       });
   };
   const notice = () => {

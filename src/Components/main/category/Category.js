@@ -28,19 +28,20 @@ import { ReactComponent as LAKESVG } from '../../../static/IconImages/LAKE.svg';
 import { ReactComponent as ARCTICSVG } from '../../../static/IconImages/ARCTIC.svg';
 import {
   CategoryThunk,
-  MainThunk,
+  MainThunk
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category,FilterHandler }) => {
+const Category = ({ setCategory, category,FilterHandler,setPage, page,setIsLoding,isLoading }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
   useEffect(() => {
     category === 0
       ? dispatch(MainThunk())
-      : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
+      : dispatch(CategoryThunk({ homeCategory: Category[category], category,}));
   }, [category]);
+
 
   const Category = [
     'ALLHOMES',
@@ -96,7 +97,7 @@ const Category = ({ setCategory, category,FilterHandler }) => {
             {categoryList.map((item, index) => (
               <CategoryBtn
                 onClick={() => {
-                  setCategory(index);
+                  setCategory(index);setPage(1)
                 }}
                 key={CategoryNameList[index]} check={index} category={category}
               >

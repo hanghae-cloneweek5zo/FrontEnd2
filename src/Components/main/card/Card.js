@@ -1,7 +1,6 @@
 // React import
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { HeartThunk } from '../../../redux/Modules/PageModules/Main';
 import { useDispatch } from 'react-redux';
 
 // style import
@@ -25,11 +24,13 @@ import { AiFillStar } from 'react-icons/ai';
 const Card = ({ item }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const ClickHeart = () => {
-    localStorage.Authorization
-      ? dispatch(HeartThunk(item.houseId))
-      : alert('로그인 후 이용해 주세요.');
-  };
+  // const ClickHeart = () => {
+  //   localStorage.authorization
+  //     ? null
+  //     // dispatch(HeartThunk(item.houseId))
+  //     : alert('로그인 후 이용해 주세요.');
+  // };
+  // console.log(item)
 
   return (
     <Fragment key={item}>
@@ -39,7 +40,7 @@ const Card = ({ item }) => {
             image_url={item.imgUrl}
             onClick={() => navigate(`/detail/${item.houseId}`)}
           ></CardImgArea>
-          <CardIconArea onClick={ClickHeart}>
+          <CardIconArea >
             {/* <CardIcon></CardIcon> */}
               <FaHeart style={{color: "rgba(0, 0, 0, .5)"}}/>
             {/* <FaHeart style={{color: "#fff"}}/> */}
@@ -60,7 +61,7 @@ const Card = ({ item }) => {
             </div>
             <div></div>
             <div>
-              ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} /박
+              {/* ₩{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} /박 */}
             </div>
           </CardContentArea>
         </CardArea>
