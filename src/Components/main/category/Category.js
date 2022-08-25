@@ -11,7 +11,7 @@ import {
 } from './Category.styled';
 
 // Redux import
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Images import
 import { ReactComponent as ALLHOMESSVG } from '../../../static/IconImages/ALLHOMES.svg';
@@ -40,7 +40,7 @@ const Category = ({ setCategory, category,FilterHandler }) => {
     category === 0
       ? dispatch(MainThunk())
       : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
-  }, [category]);
+  }, []);
 
   const Category = [
     'ALLHOMES',
@@ -73,18 +73,18 @@ const Category = ({ setCategory, category,FilterHandler }) => {
   ];
 
   const categoryList = [
-    <ALLHOMESSVG width="auto" height="40" />,
-    <FANCYSVG width="auto" height="40" />,
-    <NATIONAL_PARKSVG width="auto" height="40" />,
-    <SHACKSVG width="auto" height="40" />,
-    <ISLESVG width="auto" height="40" />,
-    <OCEANSVG width="auto" height="40" />,
-    <COMPACTSVG width="auto" height="40" />,
-    <DESIGNEDSVG width="auto" height="40" />,
-    <CAMPSITESVG width="auto" height="40" />,
-    <A_SHAPEDSVG width="auto" height="40" />,
-    <LAKESVG width="auto" height="40" />,
-    <ARCTICSVG width="auto" height="40" />,
+    <ALLHOMESSVG width="100%" height="40" />,
+    <FANCYSVG width="100%" height="40" />,
+    <NATIONAL_PARKSVG width="100%" height="40" />,
+    <SHACKSVG width="100%" height="40" />,
+    <ISLESVG width="100%" height="40" />,
+    <OCEANSVG width="100%" height="40" />,
+    <COMPACTSVG width="100%" height="40" />,
+    <DESIGNEDSVG width="100%" height="40" />,
+    <CAMPSITESVG width="100%" height="40" />,
+    <A_SHAPEDSVG width="100%" height="40" />,
+    <LAKESVG width="100%" height="40" />,
+    <ARCTICSVG width="100%" height="40" />,
   ];
   // console.log(category);
 

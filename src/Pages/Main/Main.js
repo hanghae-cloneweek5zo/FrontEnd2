@@ -1,21 +1,22 @@
 // React import
-import React, { Fragment, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux/es/exports';
-import { useDispatch } from 'react-redux/es/exports';
-import { MainThunk } from '../../redux/Modules/PageModules/Main';
-import { useNavigate } from 'react-router-dom';
-import { useInView } from 'react-intersection-observer';
+import React, { Fragment, useState, useEffect } from "react";
+import { useSelector } from "react-redux/es/exports";
+import { useDispatch } from "react-redux/es/exports";
+import { MainThunk } from "../../redux/Modules/PageModules/Main";
+import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 // components import
-import Header from '../../Components/main/header/Header';
-import Card from '../../Components/main/card/Card';
-import Category from '../../Components/main/category/Category';
-import MainSkeleton from '../../Components/skeleton/MainSkeleton';
-import FilterModal from '../../Components/Modals/FilterMordal/FilterMordal';
+import Header from "../../Components/main/header/Header";
+import Card from "../../Components/main/card/Card";
+import Category from "../../Components/main/category/Category";
+import MainSkeleton from "../../Components/skeleton/MainSkeleton";
+import FilterModal from "../../Components/Modals/FilterMordal/FilterMordal";
 
 // style import
-import styled from 'styled-components';
-
+import styled from "styled-components";
+// react icon
+import { BsFillMapFill } from "react-icons/bs";
 const Main = () => {
   const [ref, inView] = useInView();
   const [page, setPage] = useState(1);
@@ -42,11 +43,10 @@ const Main = () => {
     }
   }, [inView, isLoding]);
 
-  const [Filter, setFilter] = useState('none');
+  const [Filter, setFilter] = useState("none");
   const FilterHandler = () => {
-    Filter === 'none' ? setFilter('block') : setFilter('none');
+    Filter === "none" ? setFilter("block") : setFilter("none");
   };
-
 
   return (
     <>
@@ -86,8 +86,19 @@ const Main = () => {
         setFilter={setFilter}
         setCategory={setCategory}
       />
+      <MainMapOutDiv>
+        <MainMapBTM onClick={() => navigate("/MainMap")}>
+          <MainMaoSapn>
+            <span> 지도 표시하기 </span>{" "}
+            <MainMapOutDivBtm>
+              <span>
+                <BsFillMapFill color="rgb(255, 255, 255)" />{" "}
+              </span>
+            </MainMapOutDivBtm>
+          </MainMaoSapn>
+        </MainMapBTM>
+      </MainMapOutDiv>
     </>
-
   );
 };
 
@@ -117,6 +128,36 @@ export const MainBox = styled.div`
   margin-top: 200px;
 `;
 
+export const MainMapOutDiv = styled.div`
+  width: 151.65px;
+  height: 48px;
+  display: flex;
+  position: fixed;
+  bottom: 10%;
+  left: 45%;
+  z-index: 200;
+`;
+
+export const MainMapBTM = styled.button`
+  background-color: #222222;
+  color: #ffffff;
+  width: 151.65px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 15px 24px;
+  display: inline-flex;
+`;
+
+export const MainMaoSapn = styled.span`
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+export const MainMapOutDivBtm = styled.div`
+  margin-left: 8px;
+`;
 export const MainRefDiv = styled.div`
   background-color: yellow;
   width: 100%;

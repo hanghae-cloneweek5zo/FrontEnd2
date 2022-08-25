@@ -27,7 +27,6 @@ import { FaAirbnb } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa';
 
 // component & element import
-import imgPath from '../../../static/IconImages/profile.png';
 import LoginModal from '../../Modals/LoginModal/LoginModal';
 import SignUpModal from '../../Modals/SignUpModal/SignUpModal';
 
@@ -57,7 +56,7 @@ const Header = ({
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-  }, [Profile]);
+  }, []);
 
   const ProfileHandler = () => {
     Profile === 'none' ? setProfile('block') : setProfile('none');
