@@ -26,7 +26,7 @@ import {
 import { HeaderCancel } from '../../Icon/HeaderCancel/HeaderCancel';
 import CheckButtonListOut from './CheckButton';
 
-const FilterModal = ({ FilterHandler, Filter }) => {
+const FilterModal = ({ FilterHandler, Filter, setCategory }) => {
   const dispatch = useDispatch();
   const [Left, setLeft] = useInput(0);
   const [Right, setRight] = useInput(1500000);
@@ -64,8 +64,9 @@ const FilterModal = ({ FilterHandler, Filter }) => {
       : setCheckList(CheckList.filter((item) => item !== e.target.value));
   };
   const SearchPost = () => {
-    // FilterHandler();
+    FilterHandler();
     dispatch(FilterThunk(FilterData));
+    setCategory(20)
   };
   const Search = () => {
     Number(Left) > Number(Right)

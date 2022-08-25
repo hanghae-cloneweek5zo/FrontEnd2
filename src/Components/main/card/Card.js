@@ -1,5 +1,8 @@
 // React import
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import { HeartThunk } from '../../../redux/Modules/PageModules/Main';
+import { useDispatch } from 'react-redux';
 
 // style import
 import {
@@ -8,22 +11,23 @@ import {
   CardImgArea,
   CardIconArea,
   CardContentArea,
+  CardWrap,
 } from './Card.styled';
 
 // Package import
 import { useNavigate } from 'react-router-dom';
 
 // Icon import
-import { FaRegHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 // import { FaHeart } from 'react-icons/fa';
 import { AiFillStar } from 'react-icons/ai';
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch()
   const ClickHeart = () => {
     localStorage.Authorization
-      ? console.log('통신함수넣어야함')
+      ? dispatch(HeartThunk(item.houseId))
       : alert('로그인 후 이용해 주세요.');
   };
 
@@ -36,7 +40,8 @@ const Card = ({ item }) => {
             onClick={() => navigate(`/detail/${item.houseId}`)}
           ></CardImgArea>
           <CardIconArea onClick={ClickHeart}>
-            <FaRegHeart style={{ color: '#fff' }} />
+            {/* <CardIcon></CardIcon> */}
+              <FaHeart style={{color: "rgba(0, 0, 0, .5)"}}/>
             {/* <FaHeart style={{color: "#fff"}}/> */}
           </CardIconArea>
           <CardContentArea onClick={() => navigate(`/detail/${item.houseId}`)}>

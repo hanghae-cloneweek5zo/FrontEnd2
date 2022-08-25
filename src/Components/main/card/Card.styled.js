@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const CardContents = styled.div`
-  isolation: isolate;
   box-sizing: border-box;
   &:hover {
     cursor: pointer;
@@ -10,7 +9,6 @@ export const CardContents = styled.div`
 `;
 
 export const CardArea = styled.div`
-  grid-area: 1/1/2/2;
   opacity: 1;
   position: relative;
 `;
@@ -20,7 +18,7 @@ export const CardImgArea = styled.div`
   background-position: center;
   display: block;
   background-size: cover;
-  width: 300px;
+  /* width: 300px; */
   height: 280px;
   border-radius: 12px;
   border-top-left-radius: 15px;
@@ -35,7 +33,7 @@ export const CardContentArea = styled.div`
   grid-column-gap: 8px;
   grid-template-columns: minmax(0, 1fr) max-content;
   grid-template-rows: unset;
-  width: 300px;
+  /* width: 300px; */
   white-space: nowrap;
   overflow: hidden;
   justify-content: space-between;

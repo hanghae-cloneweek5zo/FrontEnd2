@@ -150,7 +150,7 @@ const ReviewModal = ({
 
           <ReviewArea>
             {/* 인풋창 */}
-            <InputArea>
+            {/* <InputArea>
               <StarSelectBox value={star} onChange={StarValue}>
                 <option value={1}>★</option>
                 <option value={2}>★2</option>
@@ -163,7 +163,7 @@ const ReviewModal = ({
                 value={descript}
                 onChange={setDescript}
               />
-            </InputArea>
+            </InputArea> */}
             {/* 인풋창 */}
             <ReviewList>
               {/* 맵돌리는부분 */}

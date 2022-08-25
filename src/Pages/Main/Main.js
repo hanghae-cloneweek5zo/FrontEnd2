@@ -41,12 +41,12 @@ const Main = () => {
       setPage(page + 1);
     }
   }, [inView, isLoding]);
-  console.log(houseList);
 
   const [Filter, setFilter] = useState('none');
   const FilterHandler = () => {
     Filter === 'none' ? setFilter('block') : setFilter('none');
   };
+
 
   return (
     <>
@@ -84,29 +84,37 @@ const Main = () => {
         Filter={Filter}
         FilterHandler={FilterHandler}
         setFilter={setFilter}
+        setCategory={setCategory}
       />
     </>
+
   );
 };
 
 export default Main;
 
-export const MainBox = styled.div`
-  position: grid !important;
+export const Wrap = styled.div`
   width: 100%;
-  grid-template-rows: repeat(4, 1fr);
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin: auto;
+  position: fixed;
+  top: 0;
+  z-index: 90;
+`;
+
+export const MainWrap = styled.div`
+  width: 100%;
+`;
+
+export const MainBox = styled.div`
+  display: grid;
+  width: 100%;
+  max-width: 1600px;
+  grid-template-columns: repeat(5, 1fr);
   grid-row-gap: 40px;
   grid-column-gap: 24px;
+  margin: 0 auto;
   background-color: white;
   box-sizing: border-box;
-  padding-left: 140px;
-  margin-top: 110px;
+  margin-top: 200px;
 `;
 
 export const MainRefDiv = styled.div`

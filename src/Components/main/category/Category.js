@@ -5,9 +5,9 @@ import React, { Fragment, useEffect } from 'react';
 import {
   CategoryNavbar,
   CategoryBox,
-  CategoryGroup,
-  FANCY,
+  CategoryBtn,
   FilterButton,
+  CategoryWrap,
 } from './Category.styled';
 
 // Redux import
@@ -32,7 +32,7 @@ import {
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category }) => {
+const Category = ({ setCategory, category,FilterHandler }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -73,18 +73,18 @@ const Category = ({ setCategory, category }) => {
   ];
 
   const categoryList = [
-    <ALLHOMESSVG width="100" height="40" />,
-    <FANCYSVG width="100" height="40" />,
-    <NATIONAL_PARKSVG width="100" height="40" />,
-    <SHACKSVG width="100" height="40" />,
-    <ISLESVG width="100" height="40" />,
-    <OCEANSVG width="100" height="40" />,
-    <COMPACTSVG width="100" height="40" />,
-    <DESIGNEDSVG width="100" height="40" />,
-    <CAMPSITESVG width="100" height="40" />,
-    <A_SHAPEDSVG width="100" height="40" />,
-    <LAKESVG width="100" height="40" />,
-    <ARCTICSVG width="100" height="40" />,
+    <ALLHOMESSVG width="auto" height="40" />,
+    <FANCYSVG width="auto" height="40" />,
+    <NATIONAL_PARKSVG width="auto" height="40" />,
+    <SHACKSVG width="auto" height="40" />,
+    <ISLESVG width="auto" height="40" />,
+    <OCEANSVG width="auto" height="40" />,
+    <COMPACTSVG width="auto" height="40" />,
+    <DESIGNEDSVG width="auto" height="40" />,
+    <CAMPSITESVG width="auto" height="40" />,
+    <A_SHAPEDSVG width="auto" height="40" />,
+    <LAKESVG width="auto" height="40" />,
+    <ARCTICSVG width="auto" height="40" />,
   ];
   // console.log(category);
 
@@ -92,23 +92,23 @@ const Category = ({ setCategory, category }) => {
     <Fragment>
       <CategoryNavbar>
         <CategoryBox>
-          <CategoryGroup>
+          <CategoryWrap>
             {categoryList.map((item, index) => (
-              <FANCY
+              <CategoryBtn
                 onClick={() => {
                   setCategory(index);
                 }}
-                key={CategoryNameList[index]}
+                key={CategoryNameList[index]} check={index} category={category}
               >
                 {item}
-                {CategoryNameList[index]}
-              </FANCY>
+                <span>{CategoryNameList[index]}</span>
+              </CategoryBtn>
             ))}
-            <FilterButton>
-              <FilterButtonSVG />
-              필터
-            </FilterButton>
-          </CategoryGroup>
+          </CategoryWrap>
+          <FilterButton onClick={FilterHandler}>
+            <FilterButtonSVG />
+            필터
+          </FilterButton>
         </CategoryBox>
       </CategoryNavbar>
     </Fragment>

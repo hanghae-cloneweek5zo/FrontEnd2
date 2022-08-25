@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Instance from '../../../token/instance/Instance'
 
 const initialState = { Main: [],Category: [] };
 const URL = process.env.REACT_APP_URL;
@@ -36,11 +37,22 @@ export const CategoryThunk = createAsyncThunk(
 export const HeartListThunk = createAsyncThunk(
   'HeartList/HeartListThunk',
   async (payload, thunkAPI) => {
-    // const HeartList = await axios
+    console.log(payload)
+    // const HeartList = await Instance
     //   .get(`${URL}/houses/categories/${payload.homeHeartList}`)
     //   .then((res) => res.data.data);
     return 
     // thunkAPI.fulfillWithValue(HeartList);
+  }
+);
+
+export const HeartThunk = createAsyncThunk(
+  'Heart/HeartThunk',
+  async (payload, thunkAPI) => {
+    const Heart = await axios
+      .get(`${URL}/houses/categories/${payload}`)
+      .then((res) => res.data.data);
+    return thunkAPI.fulfillWithValue(Heart);
   }
 );
 
