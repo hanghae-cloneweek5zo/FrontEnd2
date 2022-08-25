@@ -39,7 +39,7 @@ const ManinSimpleMap = (props) => {
         defaultZoom={zoom}
         options={getMapOptions}
       >
-        <Marker lat={36.99073} lng={128.18533} />
+        <Marker name= {'₩ 310,000'} lat={36.99073} lng={128.18533} />
         <Marker lat={-8.4509863} lng={115.4842055} />
         <Marker lat={12.5180029} lng={127.3888} />
         <Marker lat={37.2929924} lng={99.9780262} />

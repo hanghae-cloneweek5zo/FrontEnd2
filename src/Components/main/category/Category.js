@@ -32,7 +32,7 @@ import {
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category,FilterHandler }) => {
+const Category = ({ setCategory, category, FilterHandler }) => {
   const dispatch = useDispatch();
   // const categoryList = useSelector((state) => state);
 
@@ -40,7 +40,7 @@ const Category = ({ setCategory, category,FilterHandler }) => {
     category === 0
       ? dispatch(MainThunk())
       : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
-  }, []);
+  }, [category, dispatch]);
 
   const Category = [
     'ALLHOMES',
@@ -98,7 +98,9 @@ const Category = ({ setCategory, category,FilterHandler }) => {
                 onClick={() => {
                   setCategory(index);
                 }}
-                key={CategoryNameList[index]} check={index} category={category}
+                key={CategoryNameList[index]}
+                check={index}
+                category={category}
               >
                 {item}
                 <span>{CategoryNameList[index]}</span>

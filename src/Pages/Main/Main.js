@@ -49,35 +49,37 @@ const Main = () => {
   };
 
   return (
-    <>
-      <Header FilterHandler={FilterHandler} />
-      <Category
-        setCategory={setCategory}
-        category={category}
-        FilterHandler={FilterHandler}
-      />
-
-      <MainBox category={category}>
-        {category === 0
-          ? houseList.map((item) => (
-              <Card
-                item={item}
-                key={item.title + item.starAvg}
-                onClick={() => navigate(`/detail/${item.houseId}`)}
-              />
-            ))
-          : CategoryList.map((item) => (
-              <Card
-                item={item}
-                key={item.title + item.starAvg}
-                onClick={() => navigate(`/detail/${item.houseId}`)}
-              />
-            ))}
-        {isLoding
-          ? skeletonCount.map((item) => <MainSkeleton key={item} />)
-          : null}
-      </MainBox>
-
+    <Fragment>
+      <Wrap>
+        <Header FilterHandler={FilterHandler} />
+        <Category
+          setCategory={setCategory}
+          category={category}
+          FilterHandler={FilterHandler}
+        />
+      </Wrap>
+      <MainWrap>
+        <MainBox category={category}>
+          {category === 0
+            ? houseList.map((item) => (
+                <Card
+                  item={item}
+                  key={item.title + item.starAvg}
+                  onClick={() => navigate(`/detail/${item.houseId}`)}
+                />
+              ))
+            : CategoryList.map((item) => (
+                <Card
+                  item={item}
+                  key={item.title + item.starAvg}
+                  onClick={() => navigate(`/detail/${item.houseId}`)}
+                />
+              ))}
+          {isLoding
+            ? skeletonCount.map((item) => <MainSkeleton key={item} />)
+            : null}
+        </MainBox>
+      </MainWrap>
       {category === 0 ? <MainRefDiv ref={ref} /> : null}
 
       <FilterModal
@@ -98,8 +100,8 @@ const Main = () => {
           </MainMaoSapn>
         </MainMapBTM>
       </MainMapOutDiv>
-    </>
-  );
+    </Fragment>
+  )
 };
 
 export default Main;
@@ -159,7 +161,7 @@ export const MainMapOutDivBtm = styled.div`
   margin-left: 8px;
 `;
 export const MainRefDiv = styled.div`
-  background-color: yellow;
+  background-color: white;
   width: 100%;
   height: 1px;
 `;
