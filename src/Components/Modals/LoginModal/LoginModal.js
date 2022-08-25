@@ -39,8 +39,6 @@ const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
   const GoSignUp = () => {
     LoginHandler();
     SignUpHandler();
-    setEmail('')
-    setPassword('')
   };
   const URL = process.env.REACT_APP_URL;
   const LoginCheck = (event) => {
@@ -53,7 +51,7 @@ const LoginModal = ({ display, LoginHandler, SignUpHandler }) => {
         setEmail('')
         setPassword('')
         LoginHandler()
-        window.location.reload()
+        // window.location.reload()
       });
   };
   const notice = () => {

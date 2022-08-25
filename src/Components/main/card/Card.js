@@ -24,13 +24,11 @@ import { AiFillStar } from 'react-icons/ai';
 const Card = ({ item }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  // const ClickHeart = () => {
-  //   localStorage.authorization
-  //     ? null
-  //     // dispatch(HeartThunk(item.houseId))
-  //     : alert('로그인 후 이용해 주세요.');
-  // };
-  // console.log(item)
+  const ClickHeart = () => {
+    localStorage.Authorization
+      ? alert('준비중 입니다.')
+      : alert('로그인 후 이용해 주세요.');
+  };
 
   return (
     <Fragment key={item}>
@@ -40,8 +38,9 @@ const Card = ({ item }) => {
             image_url={item.imgUrl}
             onClick={() => navigate(`/detail/${item.houseId}`)}
           ></CardImgArea>
-          <CardIconArea >
-            {/* <CardIcon></CardIcon> */}
+
+          <CardIconArea onClick={ClickHeart}>
+
               <FaHeart style={{color: "rgba(0, 0, 0, .5)"}}/>
             {/* <FaHeart style={{color: "#fff"}}/> */}
           </CardIconArea>

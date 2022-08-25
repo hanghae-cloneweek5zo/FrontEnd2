@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 import { useState } from "react";
@@ -9,7 +9,6 @@ import { useState } from "react";
 
 const SimpleMap = (props) => {
   
-  console.log(props.lng);
   const getMapOptions = (maps) => {
     return {
       disableDefaultUI: true,

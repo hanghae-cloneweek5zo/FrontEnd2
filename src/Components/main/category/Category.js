@@ -11,7 +11,7 @@ import {
 } from './Category.styled';
 
 // Redux import
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Images import
 import { ReactComponent as ALLHOMESSVG } from '../../../static/IconImages/ALLHOMES.svg';
@@ -32,15 +32,17 @@ import {
 } from '../../../redux/Modules/PageModules/Main';
 import { ReactComponent as FilterButtonSVG } from '../../../static/IconImages/FilterButton.svg';
 
-const Category = ({ setCategory, category,FilterHandler,setPage, page,setIsLoding,isLoading }) => {
+
+const Category = ({ setCategory, category, FilterHandler }) => {
+
   const dispatch = useDispatch();
-  // const categoryList = useSelector((state) => state);
 
   useEffect(() => {
     category === 0
       ? dispatch(MainThunk())
-      : dispatch(CategoryThunk({ homeCategory: Category[category], category,}));
-  }, [category]);
+      : dispatch(CategoryThunk({ homeCategory: Category[category], category }));
+  }, [category, dispatch]);
+
 
 
   const Category = [
@@ -74,20 +76,19 @@ const Category = ({ setCategory, category,FilterHandler,setPage, page,setIsLodin
   ];
 
   const categoryList = [
-    <ALLHOMESSVG width="auto" height="40" />,
-    <FANCYSVG width="auto" height="40" />,
-    <NATIONAL_PARKSVG width="auto" height="40" />,
-    <SHACKSVG width="auto" height="40" />,
-    <ISLESVG width="auto" height="40" />,
-    <OCEANSVG width="auto" height="40" />,
-    <COMPACTSVG width="auto" height="40" />,
-    <DESIGNEDSVG width="auto" height="40" />,
-    <CAMPSITESVG width="auto" height="40" />,
-    <A_SHAPEDSVG width="auto" height="40" />,
-    <LAKESVG width="auto" height="40" />,
-    <ARCTICSVG width="auto" height="40" />,
+    <ALLHOMESSVG width="100%" height="40" />,
+    <FANCYSVG width="100%" height="40" />,
+    <NATIONAL_PARKSVG width="100%" height="40" />,
+    <SHACKSVG width="100%" height="40" />,
+    <ISLESVG width="100%" height="40" />,
+    <OCEANSVG width="100%" height="40" />,
+    <COMPACTSVG width="100%" height="40" />,
+    <DESIGNEDSVG width="100%" height="40" />,
+    <CAMPSITESVG width="100%" height="40" />,
+    <A_SHAPEDSVG width="100%" height="40" />,
+    <LAKESVG width="100%" height="40" />,
+    <ARCTICSVG width="100%" height="40" />,
   ];
-  // console.log(category);
 
   return (
     <Fragment>
@@ -97,9 +98,11 @@ const Category = ({ setCategory, category,FilterHandler,setPage, page,setIsLodin
             {categoryList.map((item, index) => (
               <CategoryBtn
                 onClick={() => {
-                  setCategory(index);setPage(1)
+                  setCategory(index)
                 }}
-                key={CategoryNameList[index]} check={index} category={category}
+                key={CategoryNameList[index]}
+                check={index}
+                category={category}
               >
                 {item}
                 <span>{CategoryNameList[index]}</span>
