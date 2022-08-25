@@ -10,11 +10,6 @@ export const CategoryNavbar = styled.div`
   scroll-margin-inline-start: 0;
   box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
   box-sizing: border-box;
-  /* &:before {
-    content: '';
-    box-sizing: border-box;
-    display: flex;
-  } */
 `;
 
 export const CategoryBox = styled.div`
